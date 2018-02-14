@@ -11,7 +11,16 @@
 #endif
 
 #import "MirrorXML.h"
+#import "MXElement.h"
+#import "MXHandler.h"
+#import "MXHandlerList.h"
+#import "MXHTMLParser.h"
+#import "MXHTMLToAttributedString.h"
+#import "MXHTMLToAttributedStringDelegateDefault.h"
 #import "MXParser.h"
+#import "MXPattern.h"
+#import "MXPatternStream.h"
+#import "MXTextElement.h"
 
 FOUNDATION_EXPORT double MirrorXMLVersionNumber;
 FOUNDATION_EXPORT const unsigned char MirrorXMLVersionString[];

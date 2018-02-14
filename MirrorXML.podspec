@@ -32,6 +32,7 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'MirrorXML/Classes/**/*'
   s.library = "xml2"
+  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
   # s.resource_bundles = {
   #   'MirrorXML' => ['MirrorXML/Assets/*.png']

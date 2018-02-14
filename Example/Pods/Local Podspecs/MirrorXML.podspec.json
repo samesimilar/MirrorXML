@@ -19,5 +19,8 @@
     "ios": "8.0"
   },
   "source_files": "MirrorXML/Classes/**/*",
-  "libraries": "xml2"
+  "libraries": "xml2",
+  "xcconfig": {
+    "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  }
 }
