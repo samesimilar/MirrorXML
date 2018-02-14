@@ -1,0 +1,23 @@
+{
+  "name": "MirrorXML",
+  "version": "0.1.0",
+  "summary": "A short description of MirrorXML.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/samesimilar@gmail.com/MirrorXML",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "samesimilar@gmail.com": "mike.spears@utoronto.ca"
+  },
+  "source": {
+    "git": "https://github.com/samesimilar@gmail.com/MirrorXML.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MirrorXML/Classes/**/*",
+  "libraries": "xml2"
+}

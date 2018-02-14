@@ -7,12 +7,15 @@
 //
 
 #import "MXAppDelegate.h"
+#import <MirrorXML/MirrorXML.h>
 
 @implementation MXAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    MXParser * parser = [[MXParser alloc] init];
+    
     return YES;
 }
 

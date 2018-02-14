@@ -1,0 +1,6 @@
+framework module MirrorXML {
+  umbrella header "MirrorXML-umbrella.h"
+
+  export *
+  module * { export * }
+}

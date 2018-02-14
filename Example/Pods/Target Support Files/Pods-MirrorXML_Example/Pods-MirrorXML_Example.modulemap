@@ -1,0 +1,6 @@
+framework module Pods_MirrorXML_Example {
+  umbrella header "Pods-MirrorXML_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
