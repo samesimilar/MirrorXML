@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MirrorXML_Example' do
+  pod 'MirrorXML', :path => '../'
+
+  target 'MirrorXML_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
