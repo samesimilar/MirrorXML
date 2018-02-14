@@ -7,15 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+@class MXHandler;
 @class MXHandlerList;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MXParser : NSObject
-@property (nonatomic) MXHandlerList * handlerList;
+
+
+
 
 //- (void) addParser:(MXParser *) parser;
+- (instancetype) initWithMatches:(NSArray<MXHandler *> *) matches;
 - (void) parseDataChunk:(NSData *) data;
 - (void) dataFinished;
 - (void) raiseError:(NSError *) error;
 - (void) stopParsing;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -6,7 +6,8 @@
 //  Copyright (c) 2014 samesimilar. All rights reserved.
 //
 
-#import "MXParser.h"
+#import <MirrorXML/MXParser.h>
+#import <MirrorXML/MXParser+Private.h>
 
 @interface MXHTMLParser : MXParser
 

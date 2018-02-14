@@ -7,12 +7,11 @@
 //
 #import <libxml/tree.h>
 
-#import "MXParser.h"
-
-
-#import "MXHandlerList.h"
-#import "MXElement.h"
-#import "MXTextElement.h"
+#import <MirrorXML/MXParser.h>
+#import <MirrorXML/MXParser+Private.h>
+#import <MirrorXML/MXHandlerList.h>
+#import <MirrorXML/MXElement.h>
+#import <MirrorXML/MXTextElement.h>
 
 
 static xmlSAXHandler simpleSAXHandlerStruct;
@@ -20,7 +19,7 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 @interface MXParser ()
 
 @property (nonatomic, assign) xmlParserCtxtPtr context;
-
+@property (nonatomic) MXHandlerList * handlerList;
 
 
 
@@ -28,16 +27,19 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 
 @implementation MXParser
 
-- (id) init
-{
+- (instancetype) initWithMatches:(NSArray<MXHandler *> *) matches {
     self = [super init];
     if (self) {
-
         self.context = xmlCreatePushParserCtxt(&simpleSAXHandlerStruct, (__bridge void *)(self), NULL, 0, NULL);
+        self.handlerList = [[MXHandlerList alloc] init];
+        self.handlerList.handlers = matches;
     }
     return self;
 }
-
+- (instancetype) init
+{
+    return [self initWithMatches:@[]];
+}
 
 
 - (void) dealloc
@@ -47,8 +49,6 @@ static xmlSAXHandler simpleSAXHandlerStruct;
     }
     self.context = NULL;
 }
-
-
 
 - (void) parseDataChunk:(NSData *) data
 {
