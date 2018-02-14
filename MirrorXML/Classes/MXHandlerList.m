@@ -9,7 +9,7 @@
 #import "MXHandlerList.h"
 #import "MXPattern.h"
 
-#import "MXHandler.h"
+#import "MXMatch.h"
 #import "MXElement.h"
 
 @interface MXHandlerList()
@@ -32,12 +32,12 @@
 
 - (void)setObject:(id)object forKeyedSubscript:(id < NSCopying >)aKey
 {
-    MXHandler * newHandler;
+    MXMatch * newHandler;
     
     if ([(id)aKey isKindOfClass:[MXPattern class]]) {
-        newHandler = [MXHandler handlerWithPattern:[(MXPattern *) aKey copy] handlerBlocks:object];
+        newHandler = [MXMatch handlerWithPattern:[(MXPattern *) aKey copy] handlerBlocks:object];
     } else {
-        newHandler = [MXHandler handlerWithPatternString:[(NSString *)aKey copy] namespaces:nil handlerBlocks:object];
+        newHandler = [MXMatch handlerWithPatternString:[(NSString *)aKey copy] namespaces:nil handlerBlocks:object];
     }
     
     self.handlers = _handlers ? [_handlers arrayByAddingObject:newHandler] : @[newHandler];
@@ -50,7 +50,7 @@
     NSString * str = [key isKindOfClass:[MXPattern class]] ? [(MXPattern *)key patternString] : key;
     
 
-    for (MXHandler * h in _handlers)
+    for (MXMatch * h in _handlers)
     {
         if ([h.pattern.patternString isEqualToString:str]) {
             return [h handlerBlockDict];
@@ -63,7 +63,7 @@
 
 - (void) enterElementWithElement:(MXElement *) elm childList:(MXHandlerList *) cl
 {
-    for (MXHandler * h in _handlers) {
+    for (MXMatch * h in _handlers) {
         NSArray * newHandlers = [h enterElement:elm];
         if (newHandlers) {
             cl.handlers = [newHandlers arrayByAddingObjectsFromArray:cl.handlers];
@@ -94,7 +94,7 @@
 
 - (void) errorRaised:(NSError *) error onElement:(MXElement *) elm inParser:(MXParser *) parser
 {
-    for (MXHandler * h in _handlers) {
+    for (MXMatch * h in _handlers) {
         [h errorRaised:error onElement:elm inParser:parser];
     }
     if (_parentList) {
@@ -103,7 +103,7 @@
 }
 - (void) exitElement:(MXElement *) elm
 {
-    for (MXHandler * h in _handlers) {
+    for (MXMatch * h in _handlers) {
         [h exitElement:elm];
     }
     
@@ -124,7 +124,7 @@
 
 - (void) streamReset
 {
-    for (MXHandler * h in _handlers)
+    for (MXMatch * h in _handlers)
     {
         [h streamReset];
     }

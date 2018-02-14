@@ -11,7 +11,7 @@
 #import <MirrorXML/MXHTMLParser.h>
 #import <MirrorXML/MXPattern.h>
 #import <MirrorXML/MXPatternStream.h>
-#import <MirrorXML/MXHandler.h>
+#import <MirrorXML/MXMatch.h>
 #import <MirrorXML/MXElement.h>
 //#import <MirrorXML/MXHandlerList.h>
 

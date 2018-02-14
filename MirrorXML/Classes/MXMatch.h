@@ -15,7 +15,7 @@ typedef void            (^MXEndElementHandler)(MXElement *);
 typedef void            (^MXTextHandler)(MXElement *);
 typedef void            (^MXAttributeHandler)(NSString *, MXElement *);
 typedef void            (^MXErrorHandler)(NSError *, MXElement *, MXParser *);
-@interface MXHandler : NSObject
+@interface MXMatch : NSObject
 @property (nonatomic, copy) MXStartElementHandler entryHandler;
 @property (nonatomic, copy) MXEndElementHandler exitHandler;
 @property (nonatomic, copy) MXTextHandler textHandler;

@@ -12,9 +12,9 @@
 
 #import "MirrorXML.h"
 #import "MXElement.h"
-#import "MXHandler.h"
 #import "MXHandlerList.h"
 #import "MXHTMLParser.h"
+#import "MXMatch.h"
 #import "MXParser+Private.h"
 #import "MXParser.h"
 #import "MXPattern.h"

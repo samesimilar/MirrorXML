@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class MXHandler;
+@class MXMatch;
 @class MXHandlerList;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 //- (void) addParser:(MXParser *) parser;
-- (instancetype) initWithMatches:(NSArray<MXHandler *> *) matches;
+- (instancetype) initWithMatches:(NSArray<MXMatch *> *) matches;
 - (void) parseDataChunk:(NSData *) data;
 - (void) dataFinished;
 - (void) raiseError:(NSError *) error;

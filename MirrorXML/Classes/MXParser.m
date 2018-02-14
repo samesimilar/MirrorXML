@@ -27,7 +27,7 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 
 @implementation MXParser
 
-- (instancetype) initWithMatches:(NSArray<MXHandler *> *) matches {
+- (instancetype) initWithMatches:(NSArray<MXMatch *> *) matches {
     self = [super init];
     if (self) {
         self.context = xmlCreatePushParserCtxt(&simpleSAXHandlerStruct, (__bridge void *)(self), NULL, 0, NULL);

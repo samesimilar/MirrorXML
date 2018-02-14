@@ -6,17 +6,17 @@
 //  Copyright (c) 2014 samesimilar. All rights reserved.
 //
 
-#import "MXHandler.h"
+#import "MXMatch.h"
 #import "MXPattern.h"
 #import "MXPatternStream.h"
 #import "MXElement.h"
 
-@interface MXHandler ()
+@interface MXMatch ()
 @property (nonatomic) MXPatternStream * matchStream;
 @property (nonatomic) NSMutableArray * activeStack;
 @end
 
-@implementation MXHandler
+@implementation MXMatch
 
 - (id) initWithPattern:(MXPattern *) pattern
 {
@@ -39,7 +39,7 @@
 
 + (instancetype) handlerWithPattern:(MXPattern *) pattern handlerBlocks:(NSDictionary *) blocks
 {
-    MXHandler * h = [[self alloc] initWithPattern:pattern];
+    MXMatch * h = [[self alloc] initWithPattern:pattern];
     h.entryHandler = blocks[@"entry"];
     h.exitHandler = blocks[@"exit"];
     h.textHandler = blocks[@"text"];
