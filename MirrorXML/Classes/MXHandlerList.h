@@ -13,9 +13,9 @@
 - (MXHandlerList *) enterElement:(MXElement *) elm;
 - (MXHandlerList *) exitElement;
 - (void) streamReset;
-- (void) errorRaised:(NSError *) error onElement:(MXElement *) elm inParser:(MXParser *) parser;
-- (void)setObject:(id)object forKeyedSubscript:(id < NSCopying >)aKey;
-- (id)objectForKeyedSubscript:(id)key;
+- (void) errorRaised:(NSError *) error onElement:(MXElement *) elm;
+//- (void)setObject:(id)object forKeyedSubscript:(id < NSCopying >)aKey;
+//- (id)objectForKeyedSubscript:(id)key;
 
 
 @property (nonatomic) MXElement * elm;

@@ -8,7 +8,6 @@
 #import <libxml/tree.h>
 
 #import <MirrorXML/MXParser.h>
-#import <MirrorXML/MXParser+Private.h>
 #import <MirrorXML/MXHandlerList.h>
 #import <MirrorXML/MXElement.h>
 #import <MirrorXML/MXTextElement.h>
@@ -20,7 +19,7 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 
 @property (nonatomic, assign) xmlParserCtxtPtr context;
 @property (nonatomic) MXHandlerList * handlerList;
-
+- (void) raiseError:(NSError *) error;
 
 
 @end
@@ -63,7 +62,7 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 
 - (void) raiseError:(NSError *) error
 {
-    [self.handlerList errorRaised:error onElement:self.handlerList.elm inParser:self];
+    [self.handlerList errorRaised:error onElement:self.handlerList.elm];
 }
 
 - (void) stopParsing

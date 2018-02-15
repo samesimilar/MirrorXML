@@ -18,7 +18,7 @@
 
 @implementation MXMatch
 
-- (id) initWithPattern:(MXPattern *) pattern
+- (instancetype) initWithPattern:(MXPattern *) pattern
 {
     self = [super init];
     if (self) {
@@ -31,11 +31,17 @@
     return self;
 }
 
-- (id) initWithPatternString:(NSString *) str namespaces:(NSDictionary *)namespaces
+- (instancetype) initWithPath:(NSString *) path namespaces:(NSDictionary *)namespaces
 {
-    MXPattern * pattern = [[MXPattern alloc] initWithPatternString:str namespaces:namespaces];
+    MXPattern * pattern = [[MXPattern alloc] initWithPatternString:path namespaces:namespaces];
     return [self initWithPattern:pattern];
 }
+
+- (instancetype) initWithPath:(NSString *) path {
+    return [self initWithPath:path namespaces:@{}];
+}
+
+
 
 + (instancetype) handlerWithPattern:(MXPattern *) pattern handlerBlocks:(NSDictionary *) blocks
 {
@@ -72,9 +78,9 @@
     return _matchStream.pattern;
     
 }
-- (id) init
+- (instancetype) init
 {
-    return [self initWithPatternString:@"//*" namespaces:nil];
+    return [self initWithPath:@"//*"];
 }
 
 - (id) initRootExit {
@@ -159,10 +165,10 @@
     [_matchStream streamPop];
 }
 
-- (void) errorRaised:(NSError *) error onElement:(MXElement *) elm inParser:(MXParser *) parser
+- (void) errorRaised:(NSError *) error onElement:(MXElement *) elm
 {
     if (_errorHandler && _activeStack.count > 0 && !((id)[_activeStack lastObject] == (id)[NSNull null]) && !elm.stop  ) {
-        _errorHandler(error, elm, parser);
+        _errorHandler(error, elm);
     }
 
 }

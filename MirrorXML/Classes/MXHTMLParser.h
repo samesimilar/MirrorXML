@@ -6,9 +6,18 @@
 //  Copyright (c) 2014 samesimilar. All rights reserved.
 //
 
-#import <MirrorXML/MXParser.h>
-#import <MirrorXML/MXParser+Private.h>
+#import <Foundation/Foundation.h>
+@class MXMatch;
+@class MXHandlerList;
 
-@interface MXHTMLParser : MXParser
+NS_ASSUME_NONNULL_BEGIN
+
+@interface MXHTMLParser : NSObject
+
+- (instancetype) initWithMatches:(NSArray<MXMatch *> *) matches;
+- (void) parseDataChunk:(NSData *) data;
+- (void) dataFinished;
 
 @end
+
+NS_ASSUME_NONNULL_END

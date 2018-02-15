@@ -30,35 +30,35 @@
     return self;
 }
 
-- (void)setObject:(id)object forKeyedSubscript:(id < NSCopying >)aKey
-{
-    MXMatch * newHandler;
-    
-    if ([(id)aKey isKindOfClass:[MXPattern class]]) {
-        newHandler = [MXMatch handlerWithPattern:[(MXPattern *) aKey copy] handlerBlocks:object];
-    } else {
-        newHandler = [MXMatch handlerWithPatternString:[(NSString *)aKey copy] namespaces:nil handlerBlocks:object];
-    }
-    
-    self.handlers = _handlers ? [_handlers arrayByAddingObject:newHandler] : @[newHandler];
-    
-    
-}
-
-- (id)objectForKeyedSubscript:(id)key
-{
-    NSString * str = [key isKindOfClass:[MXPattern class]] ? [(MXPattern *)key patternString] : key;
-    
-
-    for (MXMatch * h in _handlers)
-    {
-        if ([h.pattern.patternString isEqualToString:str]) {
-            return [h handlerBlockDict];
-        }
-        
-    }
-    return nil;
-}
+//- (void)setObject:(id)object forKeyedSubscript:(id < NSCopying >)aKey
+//{
+//    MXMatch * newHandler;
+//    
+//    if ([(id)aKey isKindOfClass:[MXPattern class]]) {
+//        newHandler = [MXMatch handlerWithPattern:[(MXPattern *) aKey copy] handlerBlocks:object];
+//    } else {
+//        newHandler = [MXMatch handlerWithPatternString:[(NSString *)aKey copy] namespaces:nil handlerBlocks:object];
+//    }
+//    
+//    self.handlers = _handlers ? [_handlers arrayByAddingObject:newHandler] : @[newHandler];
+//    
+//    
+//}
+//
+//- (id)objectForKeyedSubscript:(id)key
+//{
+//    NSString * str = [key isKindOfClass:[MXPattern class]] ? [(MXPattern *)key patternString] : key;
+//    
+//
+//    for (MXMatch * h in _handlers)
+//    {
+//        if ([h.pattern.patternString isEqualToString:str]) {
+//            return [h handlerBlockDict];
+//        }
+//        
+//    }
+//    return nil;
+//}
 
 
 - (void) enterElementWithElement:(MXElement *) elm childList:(MXHandlerList *) cl
@@ -92,13 +92,13 @@
     return childList;
 }
 
-- (void) errorRaised:(NSError *) error onElement:(MXElement *) elm inParser:(MXParser *) parser
+- (void) errorRaised:(NSError *) error onElement:(MXElement *) elm
 {
     for (MXMatch * h in _handlers) {
-        [h errorRaised:error onElement:elm inParser:parser];
+        [h errorRaised:error onElement:elm];
     }
     if (_parentList) {
-        [_parentList errorRaised:error onElement:elm inParser:parser];
+        [_parentList errorRaised:error onElement:elm];
     }
 }
 - (void) exitElement:(MXElement *) elm

@@ -10,38 +10,35 @@
 #import <libxml/HTMLparser.h>
 
 #import "MXHTMLParser.h"
-
-
+#import "MXHandlerList.h"
 #import "MXElement.h"
 #import "MXTextElement.h"
-
-#import "MXHandlerList.h"
-
-
 
 static xmlSAXHandler simpleHTMLSAXHandlerStruct;
 
 @interface MXHTMLParser ()
 
 @property (nonatomic, assign) htmlParserCtxtPtr context;
-@property (nonatomic) NSArray * myParsers;
-
-
+@property (nonatomic) MXHandlerList * handlerList;
+- (void) raiseError:(NSError *) error;
 
 @end
 
 @implementation MXHTMLParser
 
-- (id) init
-{
+
+- (instancetype) initWithMatches:(NSArray<MXMatch *> *) matches {
     self = [super init];
     if (self) {
-//        self.myParsers = [NSMutableArray new];
-//        self.context = xmlCreatePushParserCtxt(&simpleSAXHandlerStruct, (__bridge void *)(self), NULL, 0, NULL);
         self.context = htmlCreatePushParserCtxt(&simpleHTMLSAXHandlerStruct, (__bridge void *)(self), NULL, 0, NULL, XML_CHAR_ENCODING_UTF8);
-//        htmlCtxtUseOptions(self.context, HTML_PARSE_PEDANTIC);
+        self.handlerList = [[MXHandlerList alloc] init];
+        self.handlerList.handlers = matches;
     }
     return self;
+}
+- (instancetype) init
+{
+    return [self initWithMatches:@[]];
 }
 
 
@@ -70,6 +67,11 @@ static xmlSAXHandler simpleHTMLSAXHandlerStruct;
 {
     htmlParseChunk(self.context,NULL, 0, 1);
     
+}
+
+- (void) raiseError:(NSError *) error
+{
+    [self.handlerList errorRaised:error onElement:self.handlerList.elm];
 }
 
 @end
@@ -162,7 +164,7 @@ static void	charactersFoundSAX(void *ctx,
                                const xmlChar *ch,
                                int len)
 {
-    MXParser *ctxSelf = (__bridge MXParser *)ctx;
+    MXHTMLParser *ctxSelf = (__bridge MXHTMLParser *)ctx;
 
     MXElement * elm = ctxSelf.handlerList.elm;
     [elm appendCharacters:(const char *)ch length:len];
@@ -198,7 +200,7 @@ static void errorEncounteredSAX(void *ctx,
 
 static void startDocumentSAX (void *ctx)
 {
-    MXParser *ctxSelf = (__bridge MXParser *)ctx;
+    MXHTMLParser *ctxSelf = (__bridge MXHTMLParser *)ctx;
     [ctxSelf.handlerList streamReset];
 }
 
@@ -227,7 +229,7 @@ const xmlChar **atts)
 void endElementSAX(void *ctx,
                            const xmlChar *name)
 {
-    MXParser *ctxSelf = (__bridge MXParser *)ctx;
+    MXHTMLParser *ctxSelf = (__bridge MXHTMLParser *)ctx;
     ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
 }
 

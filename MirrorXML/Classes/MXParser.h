@@ -14,15 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MXParser : NSObject
 
-
-
-
-//- (void) addParser:(MXParser *) parser;
 - (instancetype) initWithMatches:(NSArray<MXMatch *> *) matches;
 - (void) parseDataChunk:(NSData *) data;
 - (void) dataFinished;
-- (void) raiseError:(NSError *) error;
-- (void) stopParsing;
 
 @end
 

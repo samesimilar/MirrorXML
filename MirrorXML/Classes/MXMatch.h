@@ -7,14 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-@class MXPatternStream, MXElement, MXPattern, MXParser;
+@class MXPatternStream, MXElement, MXPattern, MXParser, MXMatch;
 
+NS_ASSUME_NONNULL_BEGIN
 
-typedef id              (^MXStartElementHandler)(MXElement *);
+typedef NSArray <MXMatch *>* _Nonnull (^MXStartElementHandler)(MXElement *);
 typedef void            (^MXEndElementHandler)(MXElement *);
 typedef void            (^MXTextHandler)(MXElement *);
 typedef void            (^MXAttributeHandler)(NSString *, MXElement *);
-typedef void            (^MXErrorHandler)(NSError *, MXElement *, MXParser *);
+typedef void            (^MXErrorHandler)(NSError *, MXElement *);
 @interface MXMatch : NSObject
 @property (nonatomic, copy) MXStartElementHandler entryHandler;
 @property (nonatomic, copy) MXEndElementHandler exitHandler;
@@ -23,16 +24,21 @@ typedef void            (^MXErrorHandler)(NSError *, MXElement *, MXParser *);
 @property (nonatomic, copy) MXErrorHandler errorHandler;
 @property (nonatomic, readonly) MXPattern * pattern;
 
-+ (instancetype) handlerWithPattern:(MXPattern *) pattern handlerBlocks:(NSDictionary *) blocks;
-+ (instancetype) handlerWithPatternString:(NSString*) str namespaces:(NSDictionary *) namespaces handlerBlocks:(NSDictionary *) blocks;
+//+ (instancetype) handlerWithPattern:(MXPattern *) pattern handlerBlocks:(NSDictionary *) blocks;
+//+ (instancetype) handlerWithPatternString:(NSString*) str namespaces:(NSDictionary *) namespaces handlerBlocks:(NSDictionary *) blocks;
+
+- (instancetype) initWithPath:(NSString *) path namespaces:(NSDictionary <NSString *, NSString *> *)namespaces;
+- (instancetype) initWithPath:(NSString *) path;
+- (instancetype) initWithPattern:(nullable MXPattern *) pattern;
+- (instancetype) initRootExit;
 - (NSDictionary *) handlerBlockDict;
 - (id) enterElement:(MXElement *) elm;
 - (void) exitElement:(MXElement *) elm;
 - (void) streamReset;
-- (void) errorRaised:(NSError *) error onElement:(MXElement *) elm inParser:(MXParser *) parser;
+- (void) errorRaised:(NSError *) error onElement:(MXElement *) elm;
 
-- (id) initWithPatternString:(NSString *) str namespaces:(NSDictionary *)namespaces;
-- (id) initWithPattern:(MXPattern *) pattern;
-- (id) initRootExit;
+
 
 @end
+
+NS_ASSUME_NONNULL_END
