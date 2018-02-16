@@ -14,7 +14,29 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    MXParser * parser = [[MXParser alloc] init];
+    
+    MXMatch *ownerName = [[MXMatch alloc] initWithPath:@"/opml/head/ownerName"];
+    ownerName.exitHandler = ^(MXElement * _Nonnull elm) {
+        NSLog(@"%@", elm.text);
+    };
+    
+    MXMatch *body = [[MXMatch alloc] initWithPath:@"//body"];
+    body.entryHandler = ^NSArray<MXMatch *> * _Nonnull(MXElement * _Nonnull elm) {
+        
+        MXMatch * outline = [[MXMatch alloc] initWithPath:@"/outline"];
+        outline.exitHandler = ^(MXElement * _Nonnull elm) {
+            NSLog(@"%@", elm.attributes[@"description"]);
+        };
+        
+        return @[outline];
+    };
+    
+    MXParser *parser = [[MXParser alloc] initWithMatches:@[ownerName, body]];
+    
+    NSData *data = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"subscriptionList" withExtension:@"opml"]];
+    
+    [parser parseDataChunk:data];
+    [parser dataFinished];
     
     return YES;
 }

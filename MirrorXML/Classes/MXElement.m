@@ -9,6 +9,10 @@
 #import "MXElement.h"
 
 @interface MXElement ()
+@property (nonatomic) NSString * _Nonnull elementName;
+@property (nonatomic) NSString * _Nullable namespaceURI;
+@property (nonatomic) NSDictionary<NSString *, NSString *> * _Nonnull attributes;
+
 @property (nonatomic) NSMutableData * textData;
 @property (nonatomic) NSString * text;
 @end
