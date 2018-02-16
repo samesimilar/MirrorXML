@@ -10,28 +10,30 @@
 
 #import "MXPattern.h"
 
+NSErrorDomain MirrorXMLErrorDomain = @"com.samesimilar.MirrorXML";
+
 @interface MXPattern ()
 
 @property (nonatomic, assign) xmlPatternPtr patternPtr;
 
 /* hold reference to these in case libxml doesn't copy the cstrings internally */
-@property (nonatomic) NSDictionary * namespaceDictionary;
-@property (nonatomic) NSString * patternString;
+@property (nonatomic) NSDictionary<NSString *, NSString *> * namespaces;
+@property (nonatomic) NSString * path;
 @end
 @implementation MXPattern
 
-- (instancetype) initWithPath:(NSString *) path namespaces:(NSDictionary <NSString *, NSString *>*) namespaces;
+- (nullable instancetype) initWithPath:(NSString *) path
+                            namespaces:(nullable NSDictionary<NSString *, NSString *> *) namespaces
+                                 error:(NSError **)error
 {
-    if (!path) {
-        return nil;
-    }
+
     self = [super init];
     if (self) {
         
-        self.patternString = [path lowercaseString];
-        self.namespaceDictionary = namespaces;
+        self.path = [path lowercaseString];
+        self.namespaces = namespaces ? namespaces : [NSDictionary new];
         
-        const xmlChar * patternCh = (xmlChar *)[_patternString cStringUsingEncoding:NSUTF8StringEncoding];
+        const xmlChar * patternCh = (xmlChar *)[_path cStringUsingEncoding:NSUTF8StringEncoding];
         
         const xmlChar ** namespacesCh  = NULL;
         if (namespaces) {
@@ -56,20 +58,32 @@
         free(namespacesCh);
         
         if (_patternPtr == NULL) {
+            if (error) {
+                *error = [NSError errorWithDomain:MirrorXMLErrorDomain code:MirrorXMLErrorPathParseFailed userInfo:nil];
+            }
             return nil;
         }
+        
+        // pattern must be streamable
+        if (xmlPatternStreamable(_patternPtr) != 1) {
+            if (error) {
+                *error = [NSError errorWithDomain:MirrorXMLErrorDomain code:MirrorXMLErrorPathIsNotStreamable userInfo:nil];
+            }
+            return nil;
+        }
+        
     }
     return self;
 }
 
 - (instancetype) init
 {
-    return [self initWithPath:@"//*" namespaces:nil];
+    return [self initWithPath:@"//*" namespaces:nil error:nil];
 }
 
 - (instancetype) copyWithZone:(NSZone *)zone
 {
-    return [[[self class] alloc] initWithPath:self.patternString namespaces:self.namespaceDictionary];
+    return [[[self class] alloc] initWithPath:self.path namespaces:self.namespaces error: nil];
     
 }
 

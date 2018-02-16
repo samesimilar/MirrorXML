@@ -22,11 +22,11 @@
 @end
 @implementation MXPatternStream
 
-- (id) initWithPattern:(MXPattern *) pattern
+- (instancetype) initWithPattern:(MXPattern *) pattern
 {
     self = [super init];
     if (self) {
-        NSAssert(xmlPatternStreamable(pattern.patternPtr) == 1, @"xmlPattern must be streamable");
+//        NSAssert(xmlPatternStreamable(pattern.patternPtr) == 1, @"xmlPattern must be streamable");
         
         self.pattern = pattern;
         
@@ -38,7 +38,7 @@
     return self;
 }
 
-- (id) init
+- (instancetype) init
 {
     MXPattern * p = [[MXPattern alloc] init];
     return [self initWithPattern:p];

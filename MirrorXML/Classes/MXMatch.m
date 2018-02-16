@@ -31,50 +31,19 @@
     return self;
 }
 
-- (instancetype) initWithPath:(NSString *) path namespaces:(NSDictionary *)namespaces
+- (nullable instancetype) initWithPath:(NSString *) path namespaces:(nullable NSDictionary<NSString *, NSString *> *)namespaces error:(NSError **) error
 {
-    MXPattern * pattern = [[MXPattern alloc] initWithPath:path namespaces:namespaces];
+    MXPattern * pattern = [[MXPattern alloc] initWithPath:path namespaces:namespaces error:error];
     if (!pattern) {
         return nil;
     }
     return [self initWithPattern:pattern];
 }
 
-- (instancetype) initWithPath:(NSString *) path {
-    return [self initWithPath:path namespaces:nil];
+- (nullable instancetype) initWithPath:(NSString *) path error:(NSError **)error {
+    return [self initWithPath:path namespaces:nil error:error];
 }
 
-
-
-+ (instancetype) handlerWithPattern:(MXPattern *) pattern handlerBlocks:(NSDictionary *) blocks
-{
-    MXMatch * h = [[self alloc] initWithPattern:pattern];
-    h.entryHandler = blocks[@"entry"];
-    h.exitHandler = blocks[@"exit"];
-    h.textHandler = blocks[@"text"];
-    h.attributeHandler = blocks[@"attribute"];
-    h.errorHandler = blocks[@"error"];
-    return h;
-    
-}
-
-+ (instancetype) handlerWithPatternString:(NSString*) str namespaces:(NSDictionary *) namespaces handlerBlocks:(NSDictionary *) blocks
-{
-    MXPattern * pattern = [[MXPattern alloc] initWithPath:str namespaces:namespaces];
-    return [self handlerWithPattern:pattern handlerBlocks:blocks];
-}
-
-- (NSDictionary *) handlerBlockDict
-{
-    NSMutableDictionary * h = [NSMutableDictionary new];
-    if (_entryHandler) h[@"entry"] = _entryHandler;
-    if (_exitHandler) h[@"exit"] = _exitHandler;
-    if (_textHandler) h[@"text"] = _textHandler;
-    if (_attributeHandler) h[@"attribute"] = _attributeHandler;
-    if (_errorHandler) h[@"error"] = _errorHandler;
-    return h;
-    
-}
 
 - (MXPattern *) pattern
 {
@@ -83,11 +52,11 @@
 }
 - (instancetype) init
 {
-    return [self initWithPath:@"//*"];
+    return [self initWithPath:@"//*" error: nil];
 }
 
-- (id) initRootExit {
-    return [self initWithPattern:nil];
++ (instancetype) matchRoot {
+    return [[[self class] alloc] initWithPattern:nil];
 }
 
 - (id) enterElement:(MXElement *) elm

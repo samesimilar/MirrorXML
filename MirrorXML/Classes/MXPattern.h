@@ -10,11 +10,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+FOUNDATION_EXPORT NSErrorDomain MirrorXMLErrorDomain;
+
+typedef enum : NSUInteger {
+    MirrorXMLErrorPathParseFailed,
+    MirrorXMLErrorPathIsNotStreamable
+} MirrorXMLError;
+
 @interface MXPattern : NSObject <NSCopying>
 
-- (nullable instancetype) initWithPath:(NSString *) path namespaces:(nullable NSDictionary<NSString *, NSString *> *) namespaces;
-@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> * namespaceDictionary;
-@property (nonatomic, readonly) NSString * patternString;
+- (nullable instancetype) initWithPath:(NSString *) path
+                            namespaces:(nullable NSDictionary<NSString *, NSString *> *) namespaces
+                                 error:(NSError **)error;
+
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> * namespaces;
+@property (nonatomic, readonly) NSString * path;
 
 @end
 

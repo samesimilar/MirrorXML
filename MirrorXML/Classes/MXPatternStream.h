@@ -15,14 +15,20 @@ typedef NS_ENUM(int, MXPatternStreamMatch)  {
     MXPatternStreamMatchFound = 1,
 };
 
-@interface MXPatternStream : NSObject
-@property (nonatomic, readonly) MXPattern * pattern;
-- (id) initWithPattern:(MXPattern *) pattern;
+NS_ASSUME_NONNULL_BEGIN
 
-- (MXPatternStreamMatch) streamPushString:(NSString *) name namespaceString:(NSString *) namespace;
-- (MXPatternStreamMatch) streamPushAttribute:(NSString *) attrName namespaceString:(NSString *) namespace;
+
+@interface MXPatternStream : NSObject
+
+@property (nonatomic, readonly) MXPattern * pattern;
+
+- (instancetype) initWithPattern:(MXPattern *) pattern;
+- (MXPatternStreamMatch) streamPushString:(nullable NSString *) name namespaceString:(nullable NSString *) namespace;
+- (MXPatternStreamMatch) streamPushAttribute:(nullable NSString *) attrName namespaceString:(nullable NSString *) namespace;
 - (MXPatternStreamMatch) streamPushText;
 - (MXPatternStreamMatch) streamPop;
 - (MXPatternStreamMatch) streamReset;
 
 @end
+
+NS_ASSUME_NONNULL_END

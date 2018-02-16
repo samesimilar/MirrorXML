@@ -25,10 +25,13 @@ typedef void            (^MXErrorHandler)(NSError *, MXElement *);
 @property (nonatomic, copy) MXErrorHandler errorHandler;
 @property (nonatomic, readonly) MXPattern * pattern;
 
-- (nullable instancetype) initWithPath:(NSString *) path namespaces:(nullable NSDictionary <NSString *, NSString *> *)namespaces;
-- (nullable instancetype) initWithPath:(NSString *) path;
+- (nullable instancetype) initWithPath:(NSString *) path
+                            namespaces:(nullable NSDictionary<NSString *, NSString *> *)namespaces
+                                 error:(NSError **) error;
+- (nullable instancetype) initWithPath:(NSString *) path
+                                 error:(NSError **)error;
 - (instancetype) initWithPattern:(nullable MXPattern *) pattern;
-- (instancetype) initRootExit;
++ (instancetype) matchRoot;
 
 @end
 
