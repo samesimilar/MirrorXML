@@ -17,10 +17,13 @@ typedef NS_ENUM(NSInteger, MXElementNodeType) {
     MXelementNodeTypeProcessingInstruction
 } ;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MXElement : NSObject
-@property (nonatomic) NSString * elementName;
-@property (nonatomic) NSString * namespaceURI;
-@property (nonatomic) NSDictionary * attributes;
+
+@property (nonatomic, readonly) NSString * elementName;
+@property (nonatomic, readonly) NSString * namespaceURI;
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> * attributes;
 @property (nonatomic ,readonly) NSString * text;
 @property (nonatomic, readonly, assign) MXElementNodeType nodeType;
 @property (nonatomic) id userInfo;
@@ -29,7 +32,7 @@ typedef NS_ENUM(NSInteger, MXElementNodeType) {
 // - allows you to override previous handlers
 @property (nonatomic, assign) BOOL stop;
 
-- (void)appendCharacters:(const char *)charactersFound
-                  length:(NSInteger)length;
 
 @end
+
+NS_ASSUME_NONNULL_END

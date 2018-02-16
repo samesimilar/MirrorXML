@@ -15,6 +15,18 @@
 
 static xmlSAXHandler simpleSAXHandlerStruct;
 
+@interface MXElement ()
+
+@property (nonatomic) NSString * elementName;
+@property (nonatomic) NSString * namespaceURI;
+@property (nonatomic) NSDictionary<NSString *, NSString *> * attributes;
+
+
+- (void)appendCharacters:(const char *)charactersFound
+                  length:(NSInteger)length;
+
+@end
+
 @interface MXParser ()
 
 @property (nonatomic, assign) xmlParserCtxtPtr context;

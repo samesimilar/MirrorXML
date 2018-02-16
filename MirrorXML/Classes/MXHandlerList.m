@@ -12,6 +12,15 @@
 #import "MXMatch.h"
 #import "MXElement.h"
 
+@interface MXMatch()
+
+- (id) enterElement:(MXElement *) elm;
+- (void) exitElement:(MXElement *) elm;
+- (void) streamReset;
+- (void) errorRaised:(NSError *) error onElement:(MXElement *) elm;
+
+@end
+
 @interface MXHandlerList()
 
 @property (nonatomic) MXHandlerList * parentList;
