@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NSArray <MXMatch *>* _Nonnull (^MXStartElementHandler)(MXElement *);
+typedef NSArray<MXMatch *> * _Nonnull (^MXStartElementHandler)(MXElement *);
 typedef void            (^MXEndElementHandler)(MXElement *);
 typedef void            (^MXTextHandler)(MXElement *);
 typedef void            (^MXAttributeHandler)(NSString *, MXElement *);
