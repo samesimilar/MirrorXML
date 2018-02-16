@@ -20,15 +20,15 @@
 @end
 @implementation MXPattern
 
-- (id) initWithPatternString:(NSString *) pattern namespaces:(NSDictionary *) namespaces
+- (instancetype) initWithPath:(NSString *) path namespaces:(NSDictionary <NSString *, NSString *>*) namespaces;
 {
-    if (!pattern) {
+    if (!path) {
         return nil;
     }
     self = [super init];
     if (self) {
-        NSAssert(pattern, @"pattern must not be nil");
-        self.patternString = [pattern lowercaseString];
+        
+        self.patternString = [path lowercaseString];
         self.namespaceDictionary = namespaces;
         
         const xmlChar * patternCh = (xmlChar *)[_patternString cStringUsingEncoding:NSUTF8StringEncoding];
@@ -55,21 +55,21 @@
         
         free(namespacesCh);
         
-        
-        NSAssert(_patternPtr != NULL, @"pattern compilation failed");
-        
+        if (_patternPtr == NULL) {
+            return nil;
+        }
     }
     return self;
 }
 
-- (id) init
+- (instancetype) init
 {
-    return [self initWithPatternString:@"//*" namespaces:nil];
+    return [self initWithPath:@"//*" namespaces:nil];
 }
 
-- (id) copyWithZone:(NSZone *)zone
+- (instancetype) copyWithZone:(NSZone *)zone
 {
-    return [[[self class] alloc] initWithPatternString:self.patternString namespaces:self.namespaceDictionary];
+    return [[[self class] alloc] initWithPath:self.patternString namespaces:self.namespaceDictionary];
     
 }
 

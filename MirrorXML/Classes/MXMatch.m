@@ -33,7 +33,7 @@
 
 - (instancetype) initWithPath:(NSString *) path namespaces:(NSDictionary *)namespaces
 {
-    MXPattern * pattern = [[MXPattern alloc] initWithPatternString:path namespaces:namespaces];
+    MXPattern * pattern = [[MXPattern alloc] initWithPath:path namespaces:namespaces];
     return [self initWithPattern:pattern];
 }
 
@@ -57,7 +57,7 @@
 
 + (instancetype) handlerWithPatternString:(NSString*) str namespaces:(NSDictionary *) namespaces handlerBlocks:(NSDictionary *) blocks
 {
-    MXPattern * pattern = [[MXPattern alloc] initWithPatternString:str namespaces:namespaces];
+    MXPattern * pattern = [[MXPattern alloc] initWithPath:str namespaces:namespaces];
     return [self handlerWithPattern:pattern handlerBlocks:blocks];
 }
 

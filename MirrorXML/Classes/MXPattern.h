@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MXPattern : NSObject <NSCopying>
-- (id) initWithPatternString:(NSString *) pattern namespaces:(NSDictionary *) namespaces;
-@property (nonatomic, readonly) NSDictionary * namespaceDictionary;
+
+- (instancetype _Nullable) initWithPath:(NSString *) path namespaces:(NSDictionary<NSString *, NSString *> * _Nullable) namespaces;
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> * namespaceDictionary;
 @property (nonatomic, readonly) NSString * patternString;
 
 @end
+
+NS_ASSUME_NONNULL_END
