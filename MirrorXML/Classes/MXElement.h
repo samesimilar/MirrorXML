@@ -22,9 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MXElement : NSObject
 
 @property (nonatomic, readonly) NSString * elementName;
-@property (nonatomic, readonly) NSString * namespaceURI;
+@property (nonatomic, readonly) NSString * _Nullable namespaceURI;
 @property (nonatomic, readonly) NSDictionary<NSString *, NSString *> * attributes;
-@property (nonatomic ,readonly) NSString * text;
+@property (nonatomic ,readonly) NSString * _Nullable text;
 @property (nonatomic, readonly, assign) MXElementNodeType nodeType;
 @property (nonatomic) id userInfo;
 

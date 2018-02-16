@@ -9,16 +9,19 @@
 #import <Foundation/Foundation.h>
 @class MXElement, MXParser;
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MXHandlerList : NSObject
+
+@property (nonatomic) MXElement * _Nullable elm;
+@property (nonatomic) NSArray * _Nullable handlers;
+
 - (MXHandlerList *) enterElement:(MXElement *) elm;
-- (MXHandlerList *) exitElement;
+- (MXHandlerList * _Nullable) exitElement;
 - (void) streamReset;
-- (void) errorRaised:(NSError *) error onElement:(MXElement *) elm;
-//- (void)setObject:(id)object forKeyedSubscript:(id < NSCopying >)aKey;
-//- (id)objectForKeyedSubscript:(id)key;
+- (void) errorRaised:(NSError *) error onElement:(MXElement * _Nullable) elm;
 
-
-@property (nonatomic) MXElement * elm;
-@property (nonatomic) NSArray * handlers;
 
 @end
+
+NS_ASSUME_NONNULL_END

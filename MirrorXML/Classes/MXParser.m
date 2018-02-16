@@ -17,9 +17,9 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 
 @interface MXElement ()
 
-@property (nonatomic) NSString * elementName;
-@property (nonatomic) NSString * namespaceURI;
-@property (nonatomic) NSDictionary<NSString *, NSString *> * attributes;
+@property (nonatomic) NSString * _Nonnull elementName;
+@property (nonatomic) NSString * _Nullable namespaceURI;
+@property (nonatomic) NSDictionary<NSString *, NSString *> * _Nonnull attributes;
 
 
 - (void)appendCharacters:(const char *)charactersFound

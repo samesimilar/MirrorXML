@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 @class MXMatch;
-@class MXHandlerList;
 
 NS_ASSUME_NONNULL_BEGIN
 
