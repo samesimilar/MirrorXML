@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0971737D6115A382876974ED /* Pods_MirrorXML_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F47C14D451228A4C0E0165 /* Pods_MirrorXML_Tests.framework */; };
 		4A2B2E8020368C5900A2DA47 /* subscriptionList.opml in Resources */ = {isa = PBXBuildFile; fileRef = 4A2B2E7F20368C5900A2DA47 /* subscriptionList.opml */; };
+		4A2B2E832036912900A2DA47 /* SwiftTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2B2E822036912900A2DA47 /* SwiftTest.swift */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 		0F7413B999B8CACAE99A2032 /* Pods-MirrorXML_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MirrorXML_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MirrorXML_Tests/Pods-MirrorXML_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		49F47C14D451228A4C0E0165 /* Pods_MirrorXML_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MirrorXML_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A2B2E7F20368C5900A2DA47 /* subscriptionList.opml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = subscriptionList.opml; sourceTree = "<group>"; };
+		4A2B2E812036912900A2DA47 /* MirrorXML_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MirrorXML_Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		4A2B2E822036912900A2DA47 /* SwiftTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTest.swift; sourceTree = "<group>"; };
 		505F5F0E47510E17DD1F80CF /* Pods-MirrorXML_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MirrorXML_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MirrorXML_Example/Pods-MirrorXML_Example.release.xcconfig"; sourceTree = "<group>"; };
 		590D3837DE56C6F7AE090F13 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* MirrorXML_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MirrorXML_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +146,8 @@
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				4A2B2E822036912900A2DA47 /* SwiftTest.swift */,
+				4A2B2E812036912900A2DA47 /* MirrorXML_Example-Bridging-Header.h */,
 			);
 			name = "Example for MirrorXML";
 			path = MirrorXML;
@@ -253,6 +258,9 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "samesimilar@gmail.com";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						LastSwiftMigration = 0920;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -410,6 +418,7 @@
 				6003F59E195388D20070C39A /* MXAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* MXViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				4A2B2E832036912900A2DA47 /* SwiftTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,12 +568,17 @@
 			baseConfigurationReference = 621690A95CA22211F1CE04CB /* Pods-MirrorXML_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MirrorXML/MirrorXML-Prefix.pch";
 				INFOPLIST_FILE = "MirrorXML/MirrorXML-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MirrorXML/MirrorXML_Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -574,12 +588,16 @@
 			baseConfigurationReference = 505F5F0E47510E17DD1F80CF /* Pods-MirrorXML_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MirrorXML/MirrorXML-Prefix.pch";
 				INFOPLIST_FILE = "MirrorXML/MirrorXML-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MirrorXML/MirrorXML_Example-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -588,6 +606,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EC2C47258942FA6732E8964D /* Pods-MirrorXML_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -612,6 +631,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0F7413B999B8CACAE99A2032 /* Pods-MirrorXML_Tests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

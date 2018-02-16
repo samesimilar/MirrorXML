@@ -25,8 +25,8 @@ typedef void            (^MXErrorHandler)(NSError *, MXElement *);
 @property (nonatomic, copy) MXErrorHandler errorHandler;
 @property (nonatomic, readonly) MXPattern * pattern;
 
-- (instancetype) initWithPath:(NSString *) path namespaces:(NSDictionary <NSString *, NSString *> *)namespaces;
-- (instancetype) initWithPath:(NSString *) path;
+- (nullable instancetype) initWithPath:(NSString *) path namespaces:(nullable NSDictionary <NSString *, NSString *> *)namespaces;
+- (nullable instancetype) initWithPath:(NSString *) path;
 - (instancetype) initWithPattern:(nullable MXPattern *) pattern;
 - (instancetype) initRootExit;
 

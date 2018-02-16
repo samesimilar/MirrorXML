@@ -34,11 +34,14 @@
 - (instancetype) initWithPath:(NSString *) path namespaces:(NSDictionary *)namespaces
 {
     MXPattern * pattern = [[MXPattern alloc] initWithPath:path namespaces:namespaces];
+    if (!pattern) {
+        return nil;
+    }
     return [self initWithPattern:pattern];
 }
 
 - (instancetype) initWithPath:(NSString *) path {
-    return [self initWithPath:path namespaces:@{}];
+    return [self initWithPath:path namespaces:nil];
 }
 
 

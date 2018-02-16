@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MXPattern : NSObject <NSCopying>
 
-- (instancetype _Nullable) initWithPath:(NSString *) path namespaces:(NSDictionary<NSString *, NSString *> * _Nullable) namespaces;
+- (nullable instancetype) initWithPath:(NSString *) path namespaces:(nullable NSDictionary<NSString *, NSString *> *) namespaces;
 @property (nonatomic, readonly) NSDictionary<NSString *, NSString *> * namespaceDictionary;
 @property (nonatomic, readonly) NSString * patternString;
 
