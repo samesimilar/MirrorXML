@@ -13,6 +13,8 @@
 #import "MirrorXML.h"
 #import "MXElement.h"
 #import "MXHTMLParser.h"
+#import "MXHTMLToAttributedString.h"
+#import "MXHTMLToAttributedStringDelegateDefault.h"
 #import "MXMatch.h"
 #import "MXMatchList.h"
 #import "MXParser.h"

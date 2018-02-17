@@ -8,31 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		0A6CE54D79AC7B9D976703F4C9B7A52A /* Pods-MirrorXML_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F98F4CDA4B20098B618207CC037DB /* Pods-MirrorXML_Tests-dummy.m */; };
-		0C39E49CF9B9B12A2731BC59D47751F3 /* MXPatternStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 766AB843B6ACE2BA4F231445F8E1110B /* MXPatternStream.m */; };
+		11802854E70CDCAB7CFD2C48174AA5D4 /* MirrorXML-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD9AF38B22B507D18F0D24FF7CBE930B /* MirrorXML-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		139AD6A230AB3A9B998D478E956E8D6B /* Pods-MirrorXML_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E2D3602A2641FD07D14DCD3BB5EA5319 /* Pods-MirrorXML_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2BD25A1A2220824C6A1346215DAB413C /* MXPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7F6BA6416062FFF8B3CAC24CCBDBFA /* MXPattern.m */; };
-		4AB10AC0BFDFAEDC8E410BCCF3211E42 /* MXElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B7D74E5A0B6C3916F99B9B0E47EC080 /* MXElement.m */; };
-		4F08A44F5F45EF22986F95D7213FC349 /* MXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D2EE28C91F1D2B81ED82D8AEC391BA25 /* MXParser.m */; };
-		60BBCD5DFB8230EF6AC5B35ED4724FB1 /* MXHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C28B63E37D17077469E78F9A9AFD8F /* MXHTMLParser.m */; };
-		61140DD7135074307BE5EABC5C0B9933 /* MirrorXML-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FB9CCCB1746ED2B2CB52AA4923A0B10 /* MirrorXML-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6C20566B1FDAF8F015C6C538D09C7F20 /* MXElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 714DBFC48EEAFDC5E8366313D99D7743 /* MXElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		82E6840A2CFB8D59874869DD99B68B8E /* MXHTMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = AECC05B006C2B0C4B7DE8002692B303C /* MXHTMLParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		830938B7707ECA3DB78B1CBD5A123531 /* MXParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B31DA633B034CDCFF7D7317A4A8E9D86 /* MXParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		94E5A93E3998F5E303C7E20334991574 /* MXTextElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB532124B20D9F2A0A9A37E1E57F04B /* MXTextElement.m */; };
+		1DC63ACE0D77EE78371B60A6BDBDB663 /* MXMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 6B5FF1D114BA0C2F412FD6645867A185 /* MXMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		24B4523491BF32E8A70B45A14B3FE073 /* MXHTMLToAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 61222844897B300FCA4F46DEABBC3429 /* MXHTMLToAttributedString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		284F8B7E49B6853B7B862DDCD29C6A34 /* MXHTMLToAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = E696B991F9A195A4FB7A6D82940CBBCA /* MXHTMLToAttributedString.m */; };
+		2A9235664ADEABA434BA9AF806C1D905 /* MXPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 877091853EA80676C0CB091E57A353AE /* MXPattern.m */; };
+		38FFE81580BD8B712ABF768A8E70E1F5 /* MXHTMLToAttributedStringDelegateDefault.h in Headers */ = {isa = PBXBuildFile; fileRef = CEDE1112828717DC3450AE16071124AC /* MXHTMLToAttributedStringDelegateDefault.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		41309595C164BB25CFDAC4B76D953AE2 /* MXHTMLToAttributedStringDelegateDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D10104F0D7CB795CDD631E14D4CCA02 /* MXHTMLToAttributedStringDelegateDefault.m */; };
+		45B142E2B15AB4D51889E69603764A17 /* MXElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 735E5B6E7AEB87017FA805F4A263CA7D /* MXElement.m */; };
+		4D23A46C97528A7258E7505DADD8600E /* MXTextElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 271101A1AFE412383D06C0807DE38996 /* MXTextElement.m */; };
+		4DB8D77C87E9C8E9AC226D7D7F0A274F /* MXParser.h in Headers */ = {isa = PBXBuildFile; fileRef = B545DAF200DAC9DCDD27B0EC2C95D824 /* MXParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A43EA40BD86139F7D1A9DBF9DD5F289 /* MXMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 059B4B2873B3A03AFDE6B84FFEFF5435 /* MXMatch.m */; };
+		7AD58B50C4E1AFF9E9D0644E777A583A /* MXPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D274796D7215F03757411E0ADB1FB2F /* MXPattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		88C21B88EA1FC12E51B3C40DAC6A02AE /* MirrorXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 25154BAEF861228E804ED765E0566A58 /* MirrorXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AAC1D0EE1740678E4C561433579E589 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		A79B981F2F35C89AF35DAAFBF87F7052 /* MXMatchList.h in Headers */ = {isa = PBXBuildFile; fileRef = C33367D7E037D623C34A797654C96920 /* MXMatchList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B60151F9275EC213BC6C6F4AC848A8DF /* MXPatternStream.h in Headers */ = {isa = PBXBuildFile; fileRef = E6880A7DA592190DECBABF1CBA68C47E /* MXPatternStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BCC5FBE66E4E8A6E2C55FA0F735BBB5C /* MirrorXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 65453E438027EB62BF597426105C03CB /* MirrorXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BE14B61C2A060E6566D68E4F9EC51316 /* MirrorXML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 53FDE0CAE6E3CFC0A24646663AE457D7 /* MirrorXML-dummy.m */; };
-		C9FB18EFA48CA0EC0FC2A9EE6DAF5629 /* MXMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 91A0C27496CA09E3E8C00E47D04EE799 /* MXMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D205BC19EB011C9E6B0EA24DC41D55F4 /* MXMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = EE589C5F7C4F6F28779018CD77AD1D17 /* MXMatch.m */; };
-		DDCAC01B300C2A480DCE70FFDC9E4B56 /* MXPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = 3184E1AF1106D5D676AFA5C2ADB9CE9C /* MXPattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A0E9BA746DC59E483113D1233DAB102A /* MXPatternStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4E4C5D64805D895E033E2C762D595D /* MXPatternStream.m */; };
+		BD63B1E32C80D573CD5B93CBE14CD507 /* MXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F60535B10DC72A62C97B5228E1E41631 /* MXParser.m */; };
+		BD9A26055A15E0A023652C20BAEAD019 /* MXTextElement.h in Headers */ = {isa = PBXBuildFile; fileRef = B02E5D25846DD1F15CB502AD1F9995F9 /* MXTextElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C43102520F2A41F409198EFF9C4155B1 /* MXMatchList.m in Sources */ = {isa = PBXBuildFile; fileRef = E565B52843F6EE2FD69789A6A76EB801 /* MXMatchList.m */; };
+		D1D808598A51417D5FB3C2495AD75774 /* MXHTMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 49F990C2387BE34AA4F09C6CDD7AA195 /* MXHTMLParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DE21E2DFE1B7961ABC499A69134AFD20 /* Pods-MirrorXML_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D89BB83C2C5AC0E18FC413792F58E50 /* Pods-MirrorXML_Example-dummy.m */; };
 		DE58D245D3487DBBB358CD1053500646 /* Pods-MirrorXML_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DCFE49F5A3F33E26EE5F0D670FD41265 /* Pods-MirrorXML_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E7BDE0437BD5E76A8F5D61EDF132F2A3 /* MXMatchList.m in Sources */ = {isa = PBXBuildFile; fileRef = FDCC80BB2F94F74547140B5BB2D24060 /* MXMatchList.m */; };
-		ED8E31069A393DBE2B411C3AB00F6AE5 /* MXTextElement.h in Headers */ = {isa = PBXBuildFile; fileRef = B7B954EC3F941148A9E487021A3261E0 /* MXTextElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E473456CE8FDC16391387C2D9728B183 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		E4F60A8505605FA6FE0D0EF21EE72DD6 /* MXHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37AA958A16F0566089FFC1DEF88007 /* MXHTMLParser.m */; };
+		EAB0DF73D8BFE825D3311A9256CE3A36 /* MXPatternStream.h in Headers */ = {isa = PBXBuildFile; fileRef = FB9E2653A9EEDB8399AA122A8C2886A8 /* MXPatternStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F169E851761FF50039D5DA09CECBD669 /* MirrorXML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E16146C5D8C856CB29ED6FD0FC2514B /* MirrorXML-dummy.m */; };
+		F913AA5D9B9213E341A7E26C0036228D /* MXElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 54BCF4372779E11F00DA26801F0561F8 /* MXElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F957CE63EE2524B7B8FCDE16292B64D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		FFB0E0342CC4448B023EDE67537B5E92 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		FCF8D17A05E836622A4194A2508D3E03 /* MXMatchList.h in Headers */ = {isa = PBXBuildFile; fileRef = 77C7DB508F2E37ECD080A5045728B5F1 /* MXMatchList.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,60 +44,64 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = EF4204F030F63A9FEA726320682711B8;
+			remoteGlobalIDString = 15CA2B944A04FAED7488F9072B4B4000;
 			remoteInfo = MirrorXML;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		001A5BB8179CDF63CD2CA777CE45C2FD /* MirrorXML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MirrorXML-prefix.pch"; sourceTree = "<group>"; };
 		04F3859C079A4103B56D74A10E51B9E2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B7D74E5A0B6C3916F99B9B0E47EC080 /* MXElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXElement.m; path = MirrorXML/Classes/MXElement.m; sourceTree = "<group>"; };
+		059B4B2873B3A03AFDE6B84FFEFF5435 /* MXMatch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMatch.m; path = MirrorXML/Classes/MXMatch.m; sourceTree = "<group>"; };
+		16D3F47A2CC3E3E3BF7F15CB6E0633FD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D9F98F4CDA4B20098B618207CC037DB /* Pods-MirrorXML_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MirrorXML_Tests-dummy.m"; sourceTree = "<group>"; };
 		23576148EA7A2BF1B6867577F0B8C600 /* Pods_MirrorXML_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MirrorXML_Example.framework; path = "Pods-MirrorXML_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		25154BAEF861228E804ED765E0566A58 /* MirrorXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MirrorXML.h; path = MirrorXML/Classes/MirrorXML.h; sourceTree = "<group>"; };
+		271101A1AFE412383D06C0807DE38996 /* MXTextElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXTextElement.m; path = MirrorXML/Classes/MXTextElement.m; sourceTree = "<group>"; };
+		2A37AA958A16F0566089FFC1DEF88007 /* MXHTMLParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXHTMLParser.m; path = MirrorXML/Classes/MXHTMLParser.m; sourceTree = "<group>"; };
 		2AA5A7FFF7B806EADE875308227B1FD3 /* Pods-MirrorXML_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MirrorXML_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		3184E1AF1106D5D676AFA5C2ADB9CE9C /* MXPattern.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPattern.h; path = MirrorXML/Classes/MXPattern.h; sourceTree = "<group>"; };
+		2F4E4C5D64805D895E033E2C762D595D /* MXPatternStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXPatternStream.m; path = MirrorXML/Classes/MXPatternStream.m; sourceTree = "<group>"; };
 		3459500AD527F497C5A3B68E85E7BEA6 /* Pods-MirrorXML_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MirrorXML_Example.modulemap"; sourceTree = "<group>"; };
 		399FD19B82E2B6FA1F75B6A736C3C5D0 /* Pods_MirrorXML_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MirrorXML_Tests.framework; path = "Pods-MirrorXML_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3BB532124B20D9F2A0A9A37E1E57F04B /* MXTextElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXTextElement.m; path = MirrorXML/Classes/MXTextElement.m; sourceTree = "<group>"; };
-		4FB9CCCB1746ED2B2CB52AA4923A0B10 /* MirrorXML-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MirrorXML-umbrella.h"; sourceTree = "<group>"; };
+		49F990C2387BE34AA4F09C6CDD7AA195 /* MXHTMLParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXHTMLParser.h; path = MirrorXML/Classes/MXHTMLParser.h; sourceTree = "<group>"; };
 		4FFACABC295425A5E7260CFDC46C0683 /* Pods-MirrorXML_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MirrorXML_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		53FDE0CAE6E3CFC0A24646663AE457D7 /* MirrorXML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MirrorXML-dummy.m"; sourceTree = "<group>"; };
+		54BCF4372779E11F00DA26801F0561F8 /* MXElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXElement.h; path = MirrorXML/Classes/MXElement.h; sourceTree = "<group>"; };
 		558B92B694B7A8D800554BC1866F6514 /* Pods-MirrorXML_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-MirrorXML_Tests.modulemap"; sourceTree = "<group>"; };
-		5A1248C617D7EF9834CF7FF09E432394 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D89BB83C2C5AC0E18FC413792F58E50 /* Pods-MirrorXML_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MirrorXML_Example-dummy.m"; sourceTree = "<group>"; };
-		65453E438027EB62BF597426105C03CB /* MirrorXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MirrorXML.h; path = MirrorXML/Classes/MirrorXML.h; sourceTree = "<group>"; };
+		61222844897B300FCA4F46DEABBC3429 /* MXHTMLToAttributedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXHTMLToAttributedString.h; path = MirrorXML/Classes/MXHTMLToAttributedString.h; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		714DBFC48EEAFDC5E8366313D99D7743 /* MXElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXElement.h; path = MirrorXML/Classes/MXElement.h; sourceTree = "<group>"; };
-		766AB843B6ACE2BA4F231445F8E1110B /* MXPatternStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXPatternStream.m; path = MirrorXML/Classes/MXPatternStream.m; sourceTree = "<group>"; };
-		81E3B17DDE29F326D3F9BAECE57D5750 /* MirrorXML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MirrorXML.xcconfig; sourceTree = "<group>"; };
+		6B5FF1D114BA0C2F412FD6645867A185 /* MXMatch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMatch.h; path = MirrorXML/Classes/MXMatch.h; sourceTree = "<group>"; };
+		6E16146C5D8C856CB29ED6FD0FC2514B /* MirrorXML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MirrorXML-dummy.m"; sourceTree = "<group>"; };
+		735E5B6E7AEB87017FA805F4A263CA7D /* MXElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXElement.m; path = MirrorXML/Classes/MXElement.m; sourceTree = "<group>"; };
+		77C7DB508F2E37ECD080A5045728B5F1 /* MXMatchList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMatchList.h; path = MirrorXML/Classes/MXMatchList.h; sourceTree = "<group>"; };
+		7D10104F0D7CB795CDD631E14D4CCA02 /* MXHTMLToAttributedStringDelegateDefault.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXHTMLToAttributedStringDelegateDefault.m; path = MirrorXML/Classes/MXHTMLToAttributedStringDelegateDefault.m; sourceTree = "<group>"; };
 		875CFE1629457334A5FF148F1970CB21 /* Pods-MirrorXML_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MirrorXML_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		877091853EA80676C0CB091E57A353AE /* MXPattern.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXPattern.m; path = MirrorXML/Classes/MXPattern.m; sourceTree = "<group>"; };
 		8D58B33C95BCA44508ABD047667FE5E8 /* Pods-MirrorXML_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MirrorXML_Example-frameworks.sh"; sourceTree = "<group>"; };
 		8E4FDB5E1A61F94EE8C28497C214B419 /* Pods-MirrorXML_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MirrorXML_Example-resources.sh"; sourceTree = "<group>"; };
 		90016880376E28C81CDA54EE55FBFE3D /* Pods-MirrorXML_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MirrorXML_Example.release.xcconfig"; sourceTree = "<group>"; };
-		91A0C27496CA09E3E8C00E47D04EE799 /* MXMatch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMatch.h; path = MirrorXML/Classes/MXMatch.h; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		952401464297C928A632ED72B9D44C44 /* Pods-MirrorXML_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MirrorXML_Tests-resources.sh"; sourceTree = "<group>"; };
-		A41A9F9EDD601BD02AD567AF79B9195A /* MirrorXML.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MirrorXML.modulemap; sourceTree = "<group>"; };
-		AECC05B006C2B0C4B7DE8002692B303C /* MXHTMLParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXHTMLParser.h; path = MirrorXML/Classes/MXHTMLParser.h; sourceTree = "<group>"; };
-		B31DA633B034CDCFF7D7317A4A8E9D86 /* MXParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXParser.h; path = MirrorXML/Classes/MXParser.h; sourceTree = "<group>"; };
-		B7B954EC3F941148A9E487021A3261E0 /* MXTextElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXTextElement.h; path = MirrorXML/Classes/MXTextElement.h; sourceTree = "<group>"; };
-		BE7F6BA6416062FFF8B3CAC24CCBDBFA /* MXPattern.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXPattern.m; path = MirrorXML/Classes/MXPattern.m; sourceTree = "<group>"; };
-		C33367D7E037D623C34A797654C96920 /* MXMatchList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMatchList.h; path = MirrorXML/Classes/MXMatchList.h; sourceTree = "<group>"; };
-		D0C28B63E37D17077469E78F9A9AFD8F /* MXHTMLParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXHTMLParser.m; path = MirrorXML/Classes/MXHTMLParser.m; sourceTree = "<group>"; };
-		D2EE28C91F1D2B81ED82D8AEC391BA25 /* MXParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXParser.m; path = MirrorXML/Classes/MXParser.m; sourceTree = "<group>"; };
+		9D274796D7215F03757411E0ADB1FB2F /* MXPattern.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPattern.h; path = MirrorXML/Classes/MXPattern.h; sourceTree = "<group>"; };
+		B02E5D25846DD1F15CB502AD1F9995F9 /* MXTextElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXTextElement.h; path = MirrorXML/Classes/MXTextElement.h; sourceTree = "<group>"; };
+		B545DAF200DAC9DCDD27B0EC2C95D824 /* MXParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXParser.h; path = MirrorXML/Classes/MXParser.h; sourceTree = "<group>"; };
+		B9F3469609FE055879E62030063994A3 /* MirrorXML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MirrorXML.xcconfig; sourceTree = "<group>"; };
+		BA8EC88F5BA56A82173D085BA03A3379 /* MirrorXML.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MirrorXML.modulemap; sourceTree = "<group>"; };
+		CEDE1112828717DC3450AE16071124AC /* MXHTMLToAttributedStringDelegateDefault.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXHTMLToAttributedStringDelegateDefault.h; path = MirrorXML/Classes/MXHTMLToAttributedStringDelegateDefault.h; sourceTree = "<group>"; };
 		D32C0C7DDDF0973DEF9062DB117732D7 /* Pods-MirrorXML_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MirrorXML_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D62F1CF2AF3C33C89EC93ECEF709CC84 /* Pods-MirrorXML_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MirrorXML_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		D85224AAF28B459516A650B3F2892614 /* Pods-MirrorXML_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MirrorXML_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		DCFE49F5A3F33E26EE5F0D670FD41265 /* Pods-MirrorXML_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MirrorXML_Example-umbrella.h"; sourceTree = "<group>"; };
+		DD9AF38B22B507D18F0D24FF7CBE930B /* MirrorXML-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MirrorXML-umbrella.h"; sourceTree = "<group>"; };
 		E2D3602A2641FD07D14DCD3BB5EA5319 /* Pods-MirrorXML_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MirrorXML_Tests-umbrella.h"; sourceTree = "<group>"; };
 		E42D0C3D2F17F7F7BFFF242B66476617 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E6880A7DA592190DECBABF1CBA68C47E /* MXPatternStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPatternStream.h; path = MirrorXML/Classes/MXPatternStream.h; sourceTree = "<group>"; };
-		EE589C5F7C4F6F28779018CD77AD1D17 /* MXMatch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMatch.m; path = MirrorXML/Classes/MXMatch.m; sourceTree = "<group>"; };
+		E565B52843F6EE2FD69789A6A76EB801 /* MXMatchList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMatchList.m; path = MirrorXML/Classes/MXMatchList.m; sourceTree = "<group>"; };
+		E696B991F9A195A4FB7A6D82940CBBCA /* MXHTMLToAttributedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXHTMLToAttributedString.m; path = MirrorXML/Classes/MXHTMLToAttributedString.m; sourceTree = "<group>"; };
+		E6A88E5493F753E6D8F30DD85A2F7BDF /* MirrorXML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MirrorXML-prefix.pch"; sourceTree = "<group>"; };
 		F3D1BCFD150263ABB934EB07A39C1713 /* Pods-MirrorXML_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MirrorXML_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		F60535B10DC72A62C97B5228E1E41631 /* MXParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXParser.m; path = MirrorXML/Classes/MXParser.m; sourceTree = "<group>"; };
 		F6E4918AEEDA48C48D6C7F04E2A5FD3A /* Pods-MirrorXML_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MirrorXML_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		F7BEF29B6DB33EDC9ABA2D78072F80F5 /* MirrorXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MirrorXML.framework; path = MirrorXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FDCC80BB2F94F74547140B5BB2D24060 /* MXMatchList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMatchList.m; path = MirrorXML/Classes/MXMatchList.m; sourceTree = "<group>"; };
+		FB9E2653A9EEDB8399AA122A8C2886A8 /* MXPatternStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPatternStream.h; path = MirrorXML/Classes/MXPatternStream.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,11 +121,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F6180096BF87BE54D8F580F1DEAC0C9 /* Frameworks */ = {
+		2907B74C22F64E6A8514769DFE8A5B56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFB0E0342CC4448B023EDE67537B5E92 /* Foundation.framework in Frameworks */,
+				E473456CE8FDC16391387C2D9728B183 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,32 +150,6 @@
 			path = "Target Support Files/Pods-MirrorXML_Tests";
 			sourceTree = "<group>";
 		};
-		2A8B281E601FDBC84D95E073C9929259 /* MirrorXML */ = {
-			isa = PBXGroup;
-			children = (
-				65453E438027EB62BF597426105C03CB /* MirrorXML.h */,
-				714DBFC48EEAFDC5E8366313D99D7743 /* MXElement.h */,
-				1B7D74E5A0B6C3916F99B9B0E47EC080 /* MXElement.m */,
-				AECC05B006C2B0C4B7DE8002692B303C /* MXHTMLParser.h */,
-				D0C28B63E37D17077469E78F9A9AFD8F /* MXHTMLParser.m */,
-				91A0C27496CA09E3E8C00E47D04EE799 /* MXMatch.h */,
-				EE589C5F7C4F6F28779018CD77AD1D17 /* MXMatch.m */,
-				C33367D7E037D623C34A797654C96920 /* MXMatchList.h */,
-				FDCC80BB2F94F74547140B5BB2D24060 /* MXMatchList.m */,
-				B31DA633B034CDCFF7D7317A4A8E9D86 /* MXParser.h */,
-				D2EE28C91F1D2B81ED82D8AEC391BA25 /* MXParser.m */,
-				3184E1AF1106D5D676AFA5C2ADB9CE9C /* MXPattern.h */,
-				BE7F6BA6416062FFF8B3CAC24CCBDBFA /* MXPattern.m */,
-				E6880A7DA592190DECBABF1CBA68C47E /* MXPatternStream.h */,
-				766AB843B6ACE2BA4F231445F8E1110B /* MXPatternStream.m */,
-				B7B954EC3F941148A9E487021A3261E0 /* MXTextElement.h */,
-				3BB532124B20D9F2A0A9A37E1E57F04B /* MXTextElement.m */,
-				87ECA04E9A1A5E9F69E12D59913847AC /* Support Files */,
-			);
-			name = MirrorXML;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 		2E1387D855EE95FEEDCD775CD8B8F6C1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,6 +158,20 @@
 				399FD19B82E2B6FA1F75B6A736C3C5D0 /* Pods_MirrorXML_Tests.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5F6306E2D76ABC263A35EC7F5E100A9B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				16D3F47A2CC3E3E3BF7F15CB6E0633FD /* Info.plist */,
+				BA8EC88F5BA56A82173D085BA03A3379 /* MirrorXML.modulemap */,
+				B9F3469609FE055879E62030063994A3 /* MirrorXML.xcconfig */,
+				6E16146C5D8C856CB29ED6FD0FC2514B /* MirrorXML-dummy.m */,
+				E6A88E5493F753E6D8F30DD85A2F7BDF /* MirrorXML-prefix.pch */,
+				DD9AF38B22B507D18F0D24FF7CBE930B /* MirrorXML-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/MirrorXML";
 			sourceTree = "<group>";
 		};
 		66DF742FAB235A3DA8225C9DFE447E3F /* Pods-MirrorXML_Example */ = {
@@ -196,29 +192,53 @@
 			path = "Target Support Files/Pods-MirrorXML_Example";
 			sourceTree = "<group>";
 		};
+		68952712CAB6DFCD1754E510B439EEC8 /* MirrorXML */ = {
+			isa = PBXGroup;
+			children = (
+				25154BAEF861228E804ED765E0566A58 /* MirrorXML.h */,
+				54BCF4372779E11F00DA26801F0561F8 /* MXElement.h */,
+				735E5B6E7AEB87017FA805F4A263CA7D /* MXElement.m */,
+				49F990C2387BE34AA4F09C6CDD7AA195 /* MXHTMLParser.h */,
+				2A37AA958A16F0566089FFC1DEF88007 /* MXHTMLParser.m */,
+				61222844897B300FCA4F46DEABBC3429 /* MXHTMLToAttributedString.h */,
+				E696B991F9A195A4FB7A6D82940CBBCA /* MXHTMLToAttributedString.m */,
+				CEDE1112828717DC3450AE16071124AC /* MXHTMLToAttributedStringDelegateDefault.h */,
+				7D10104F0D7CB795CDD631E14D4CCA02 /* MXHTMLToAttributedStringDelegateDefault.m */,
+				6B5FF1D114BA0C2F412FD6645867A185 /* MXMatch.h */,
+				059B4B2873B3A03AFDE6B84FFEFF5435 /* MXMatch.m */,
+				77C7DB508F2E37ECD080A5045728B5F1 /* MXMatchList.h */,
+				E565B52843F6EE2FD69789A6A76EB801 /* MXMatchList.m */,
+				B545DAF200DAC9DCDD27B0EC2C95D824 /* MXParser.h */,
+				F60535B10DC72A62C97B5228E1E41631 /* MXParser.m */,
+				9D274796D7215F03757411E0ADB1FB2F /* MXPattern.h */,
+				877091853EA80676C0CB091E57A353AE /* MXPattern.m */,
+				FB9E2653A9EEDB8399AA122A8C2886A8 /* MXPatternStream.h */,
+				2F4E4C5D64805D895E033E2C762D595D /* MXPatternStream.m */,
+				B02E5D25846DD1F15CB502AD1F9995F9 /* MXTextElement.h */,
+				271101A1AFE412383D06C0807DE38996 /* MXTextElement.m */,
+				5F6306E2D76ABC263A35EC7F5E100A9B /* Support Files */,
+			);
+			name = MirrorXML;
+			path = ../..;
+			sourceTree = "<group>";
+		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				F02EC54FC872BF1F7CE751E39A6EB16E /* Development Pods */,
+				8D07E1B6337FDA2F5D9772DF30DF3828 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				2E1387D855EE95FEEDCD775CD8B8F6C1 /* Products */,
 				AAADAA7C67C77D67DAF1F92C4BC88133 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		87ECA04E9A1A5E9F69E12D59913847AC /* Support Files */ = {
+		8D07E1B6337FDA2F5D9772DF30DF3828 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5A1248C617D7EF9834CF7FF09E432394 /* Info.plist */,
-				A41A9F9EDD601BD02AD567AF79B9195A /* MirrorXML.modulemap */,
-				81E3B17DDE29F326D3F9BAECE57D5750 /* MirrorXML.xcconfig */,
-				53FDE0CAE6E3CFC0A24646663AE457D7 /* MirrorXML-dummy.m */,
-				001A5BB8179CDF63CD2CA777CE45C2FD /* MirrorXML-prefix.pch */,
-				4FB9CCCB1746ED2B2CB52AA4923A0B10 /* MirrorXML-umbrella.h */,
+				68952712CAB6DFCD1754E510B439EEC8 /* MirrorXML */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/MirrorXML";
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		AAADAA7C67C77D67DAF1F92C4BC88133 /* Targets Support Files */ = {
@@ -246,17 +266,28 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		F02EC54FC872BF1F7CE751E39A6EB16E /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2A8B281E601FDBC84D95E073C9929259 /* MirrorXML */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		664B9120E0883AE7C1AE6F9630E054CB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11802854E70CDCAB7CFD2C48174AA5D4 /* MirrorXML-umbrella.h in Headers */,
+				88C21B88EA1FC12E51B3C40DAC6A02AE /* MirrorXML.h in Headers */,
+				F913AA5D9B9213E341A7E26C0036228D /* MXElement.h in Headers */,
+				D1D808598A51417D5FB3C2495AD75774 /* MXHTMLParser.h in Headers */,
+				24B4523491BF32E8A70B45A14B3FE073 /* MXHTMLToAttributedString.h in Headers */,
+				38FFE81580BD8B712ABF768A8E70E1F5 /* MXHTMLToAttributedStringDelegateDefault.h in Headers */,
+				1DC63ACE0D77EE78371B60A6BDBDB663 /* MXMatch.h in Headers */,
+				FCF8D17A05E836622A4194A2508D3E03 /* MXMatchList.h in Headers */,
+				4DB8D77C87E9C8E9AC226D7D7F0A274F /* MXParser.h in Headers */,
+				7AD58B50C4E1AFF9E9D0644E777A583A /* MXPattern.h in Headers */,
+				EAB0DF73D8BFE825D3311A9256CE3A36 /* MXPatternStream.h in Headers */,
+				BD9A26055A15E0A023652C20BAEAD019 /* MXTextElement.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DC19DD84C74997338B1DD48347378A50 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -273,26 +304,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAAC3BA44E9C3177541847142BBD1FB9 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				61140DD7135074307BE5EABC5C0B9933 /* MirrorXML-umbrella.h in Headers */,
-				BCC5FBE66E4E8A6E2C55FA0F735BBB5C /* MirrorXML.h in Headers */,
-				6C20566B1FDAF8F015C6C538D09C7F20 /* MXElement.h in Headers */,
-				82E6840A2CFB8D59874869DD99B68B8E /* MXHTMLParser.h in Headers */,
-				C9FB18EFA48CA0EC0FC2A9EE6DAF5629 /* MXMatch.h in Headers */,
-				A79B981F2F35C89AF35DAAFBF87F7052 /* MXMatchList.h in Headers */,
-				830938B7707ECA3DB78B1CBD5A123531 /* MXParser.h in Headers */,
-				DDCAC01B300C2A480DCE70FFDC9E4B56 /* MXPattern.h in Headers */,
-				B60151F9275EC213BC6C6F4AC848A8DF /* MXPatternStream.h in Headers */,
-				ED8E31069A393DBE2B411C3AB00F6AE5 /* MXTextElement.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		15CA2B944A04FAED7488F9072B4B4000 /* MirrorXML */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07A5874070B81E4F84658EAA1DFAB6FC /* Build configuration list for PBXNativeTarget "MirrorXML" */;
+			buildPhases = (
+				93DB1DD5838D148D256F15B192448DEC /* Sources */,
+				2907B74C22F64E6A8514769DFE8A5B56 /* Frameworks */,
+				664B9120E0883AE7C1AE6F9630E054CB /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MirrorXML;
+			productName = MirrorXML;
+			productReference = F7BEF29B6DB33EDC9ABA2D78072F80F5 /* MirrorXML.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		8FB8B1AE41F17BE4DE741021433E824F /* Pods-MirrorXML_Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD9AC9EF5F9EFF4D341638193CF2C585 /* Build configuration list for PBXNativeTarget "Pods-MirrorXML_Tests" */;
@@ -328,23 +359,6 @@
 			productReference = 23576148EA7A2BF1B6867577F0B8C600 /* Pods_MirrorXML_Example.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		EF4204F030F63A9FEA726320682711B8 /* MirrorXML */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 94449325046B567140DDA895E9A1F7E7 /* Build configuration list for PBXNativeTarget "MirrorXML" */;
-			buildPhases = (
-				F94F3EA2EFB88658DFC03F710CFBA660 /* Sources */,
-				1F6180096BF87BE54D8F580F1DEAC0C9 /* Frameworks */,
-				FAAC3BA44E9C3177541847142BBD1FB9 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = MirrorXML;
-			productName = MirrorXML;
-			productReference = F7BEF29B6DB33EDC9ABA2D78072F80F5 /* MirrorXML.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -366,7 +380,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EF4204F030F63A9FEA726320682711B8 /* MirrorXML */,
+				15CA2B944A04FAED7488F9072B4B4000 /* MirrorXML */,
 				A54D66F7AE381E2226527CC2EDC476BC /* Pods-MirrorXML_Example */,
 				8FB8B1AE41F17BE4DE741021433E824F /* Pods-MirrorXML_Tests */,
 			);
@@ -374,6 +388,24 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		93DB1DD5838D148D256F15B192448DEC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F169E851761FF50039D5DA09CECBD669 /* MirrorXML-dummy.m in Sources */,
+				45B142E2B15AB4D51889E69603764A17 /* MXElement.m in Sources */,
+				E4F60A8505605FA6FE0D0EF21EE72DD6 /* MXHTMLParser.m in Sources */,
+				284F8B7E49B6853B7B862DDCD29C6A34 /* MXHTMLToAttributedString.m in Sources */,
+				41309595C164BB25CFDAC4B76D953AE2 /* MXHTMLToAttributedStringDelegateDefault.m in Sources */,
+				7A43EA40BD86139F7D1A9DBF9DD5F289 /* MXMatch.m in Sources */,
+				C43102520F2A41F409198EFF9C4155B1 /* MXMatchList.m in Sources */,
+				BD63B1E32C80D573CD5B93CBE14CD507 /* MXParser.m in Sources */,
+				2A9235664ADEABA434BA9AF806C1D905 /* MXPattern.m in Sources */,
+				A0E9BA746DC59E483113D1233DAB102A /* MXPatternStream.m in Sources */,
+				4D23A46C97528A7258E7505DADD8600E /* MXTextElement.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BA194BA438F7E2E1B13C61378DF5CB3E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -390,37 +422,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F94F3EA2EFB88658DFC03F710CFBA660 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BE14B61C2A060E6566D68E4F9EC51316 /* MirrorXML-dummy.m in Sources */,
-				4AB10AC0BFDFAEDC8E410BCCF3211E42 /* MXElement.m in Sources */,
-				60BBCD5DFB8230EF6AC5B35ED4724FB1 /* MXHTMLParser.m in Sources */,
-				D205BC19EB011C9E6B0EA24DC41D55F4 /* MXMatch.m in Sources */,
-				E7BDE0437BD5E76A8F5D61EDF132F2A3 /* MXMatchList.m in Sources */,
-				4F08A44F5F45EF22986F95D7213FC349 /* MXParser.m in Sources */,
-				2BD25A1A2220824C6A1346215DAB413C /* MXPattern.m in Sources */,
-				0C39E49CF9B9B12A2731BC59D47751F3 /* MXPatternStream.m in Sources */,
-				94E5A93E3998F5E303C7E20334991574 /* MXTextElement.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		2EFEE1DBDE962AD98DC5344DBCDFF0BE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MirrorXML;
-			target = EF4204F030F63A9FEA726320682711B8 /* MirrorXML */;
+			target = 15CA2B944A04FAED7488F9072B4B4000 /* MirrorXML */;
 			targetProxy = 6B9A747B701EE6C8E427522FB49EA242 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1FFF6130678FED3CD77A89194F318AAE /* Debug */ = {
+		1F21B895BE5B3A4ACB795C9CD9BE2234 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 81E3B17DDE29F326D3F9BAECE57D5750 /* MirrorXML.xcconfig */;
+			baseConfigurationReference = B9F3469609FE055879E62030063994A3 /* MirrorXML.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -627,37 +643,6 @@
 			};
 			name = Debug;
 		};
-		98FD312047D25D339FBA95AD2BB6D26A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 81E3B17DDE29F326D3F9BAECE57D5750 /* MirrorXML.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MirrorXML/MirrorXML-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MirrorXML/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/MirrorXML/MirrorXML.modulemap";
-				PRODUCT_NAME = MirrorXML;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		C76483D9335C0595335A2F16954EEFEE /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 90016880376E28C81CDA54EE55FBFE3D /* Pods-MirrorXML_Example.release.xcconfig */;
@@ -684,6 +669,37 @@
 				PRODUCT_NAME = Pods_MirrorXML_Example;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E7176732E880A5816E2B3D9EA6AFBF50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9F3469609FE055879E62030063994A3 /* MirrorXML.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MirrorXML/MirrorXML-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MirrorXML/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MirrorXML/MirrorXML.modulemap";
+				PRODUCT_NAME = MirrorXML;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -727,6 +743,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		07A5874070B81E4F84658EAA1DFAB6FC /* Build configuration list for PBXNativeTarget "MirrorXML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F21B895BE5B3A4ACB795C9CD9BE2234 /* Debug */,
+				E7176732E880A5816E2B3D9EA6AFBF50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -741,15 +766,6 @@
 			buildConfigurations = (
 				48DC007F01608FA36C3072776C77B964 /* Debug */,
 				C76483D9335C0595335A2F16954EEFEE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		94449325046B567140DDA895E9A1F7E7 /* Build configuration list for PBXNativeTarget "MirrorXML" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1FFF6130678FED3CD77A89194F318AAE /* Debug */,
-				98FD312047D25D339FBA95AD2BB6D26A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

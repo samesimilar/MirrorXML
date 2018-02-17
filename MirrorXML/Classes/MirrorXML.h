@@ -12,3 +12,6 @@
 #import <MirrorXML/MXPattern.h>
 #import <MirrorXML/MXMatch.h>
 #import <MirrorXML/MXElement.h>
+#import <MirrorXML/MXHTMLToAttributedString.h>
+#import <MirrorXML/MXHTMLToAttributedStringDelegateDefault.h>
+
