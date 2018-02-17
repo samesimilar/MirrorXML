@@ -7,8 +7,10 @@
 //
 
 #import "MXViewController.h"
+#import "MirrorXML_Example-Swift.h"
 
 @interface MXViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 
 @end
 
@@ -18,6 +20,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    SwiftTest *test = [[SwiftTest alloc] init];
+    self.textView.attributedText = [test attributedString];
 }
 
 - (void)didReceiveMemoryWarning

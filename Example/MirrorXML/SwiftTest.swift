@@ -44,4 +44,11 @@ public class SwiftTest : NSObject {
         
         
     }
+    
+    func attributedString() -> NSAttributedString {
+        let html = try! String(contentsOf: Bundle.main.url(forResource: "markdownish", withExtension: "html")!)
+        
+        let parser = MXHTMLToAttributedString()
+        return parser.convertHTMLString(html)
+    }
 }
