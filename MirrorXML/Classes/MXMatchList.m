@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 samesimilar. All rights reserved.
 //
 
-#import "MXHandlerList.h"
+#import "MXMatchList.h"
 #import "MXPattern.h"
 
 #import "MXMatch.h"
@@ -21,13 +21,13 @@
 
 @end
 
-@interface MXHandlerList()
+@interface MXMatchList()
 
-@property (nonatomic) MXHandlerList * parentList;
+@property (nonatomic) MXMatchList * parentList;
 
 
 @end
-@implementation MXHandlerList
+@implementation MXMatchList
 
 - (id) init
 {
@@ -70,7 +70,7 @@
 //}
 
 
-- (void) enterElementWithElement:(MXElement *) elm childList:(MXHandlerList *) cl
+- (void) enterElementWithElement:(MXElement *) elm childList:(MXMatchList *) cl
 {
     for (MXMatch * h in _handlers) {
         NSArray * newHandlers = [h enterElement:elm];
@@ -86,9 +86,9 @@
     }
 }
 
-- (MXHandlerList *) enterElement:(MXElement *) elm {
+- (MXMatchList *) enterElement:(MXElement *) elm {
     
-    MXHandlerList * childList = [[MXHandlerList alloc] init];
+    MXMatchList * childList = [[MXMatchList alloc] init];
     childList.parentList = self;
     childList.elm = elm;
     
@@ -121,7 +121,7 @@
     }
 }
 
-- (MXHandlerList *) exitElement
+- (MXMatchList *) exitElement
 {
     _elm.stop = NO;
     [self exitElement:_elm];

@@ -11,13 +11,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MXHandlerList : NSObject
+@interface MXMatchList : NSObject
 
 @property (nonatomic, nullable) MXElement * elm;
 @property (nonatomic, nullable) NSArray * handlers;
 
-- (MXHandlerList *) enterElement:(MXElement *) elm;
-- (nullable MXHandlerList *) exitElement;
+- (MXMatchList *) enterElement:(MXElement *) elm;
+- (nullable MXMatchList *) exitElement;
 - (void) streamReset;
 - (void) errorRaised:(NSError *) error onElement:(nullable MXElement * ) elm;
 

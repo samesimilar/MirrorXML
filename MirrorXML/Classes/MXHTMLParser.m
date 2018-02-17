@@ -10,7 +10,7 @@
 #import <libxml/HTMLparser.h>
 
 #import "MXHTMLParser.h"
-#import "MXHandlerList.h"
+#import "MXMatchList.h"
 #import "MXElement.h"
 #import "MXTextElement.h"
 
@@ -31,7 +31,7 @@ static xmlSAXHandler simpleHTMLSAXHandlerStruct;
 @interface MXHTMLParser ()
 
 @property (nonatomic, assign) htmlParserCtxtPtr context;
-@property (nonatomic) MXHandlerList * handlerList;
+@property (nonatomic) MXMatchList * handlerList;
 - (void) raiseError:(NSError *) error;
 
 @end
@@ -43,7 +43,7 @@ static xmlSAXHandler simpleHTMLSAXHandlerStruct;
     self = [super init];
     if (self) {
         self.context = htmlCreatePushParserCtxt(&simpleHTMLSAXHandlerStruct, (__bridge void *)(self), NULL, 0, NULL, XML_CHAR_ENCODING_UTF8);
-        self.handlerList = [[MXHandlerList alloc] init];
+        self.handlerList = [[MXMatchList alloc] init];
         self.handlerList.handlers = matches;
     }
     return self;
