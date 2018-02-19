@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+
 typedef NS_ENUM(NSInteger, MXElementNodeType) {
     MXElementNodeTypeElement,
     MXElementNodeTypeAttribute,
@@ -21,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MXElement : NSObject
 
+//@property (nonatomic, assign, readonly, nullable) const xmlChar *localName;
 @property (nonatomic, readonly) NSString * elementName;
 @property (nonatomic, readonly, nullable) NSString * namespaceURI;
 @property (nonatomic, readonly) NSDictionary<NSString *, NSString *> * attributes;

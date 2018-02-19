@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+
+
 @class MXPattern;
 
 typedef NS_ENUM(int, MXPatternStreamMatch)  {
@@ -23,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) MXPattern * pattern;
 
 - (instancetype) initWithPattern:(MXPattern *) pattern;
-- (MXPatternStreamMatch) streamPushString:(nullable NSString *) name namespaceString:(nullable NSString *) namespace;
+//- (MXPatternStreamMatch) streamPushString:(nullable const xmlChar *) localName namespaceString:(nullable NSString *) namespace;
 - (MXPatternStreamMatch) streamPushAttribute:(nullable NSString *) attrName namespaceString:(nullable NSString *) namespace;
 - (MXPatternStreamMatch) streamPushText;
 - (MXPatternStreamMatch) streamPop;

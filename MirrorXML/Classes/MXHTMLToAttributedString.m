@@ -66,11 +66,11 @@
         
         NSMutableDictionary * oldCounters = counters;
         counters = [NSMutableDictionary new];
-        MXMatch * h = [MXMatch matchRoot];
-        h.exitHandler = ^(MXElement *elm) {
+        MXMatch * h = [MXMatch onRootExit:^(MXElement * elm) {
             counters = oldCounters;
             errorPath = [errorPath stringByDeletingLastPathComponent];
-        };
+
+        }];
         
         return @[h];
         
@@ -137,11 +137,9 @@
         
         attrsDictionary = [self.delegate attributesForTag:elm.elementName currentAttributes:oldDict];
         
-        MXMatch * m = [MXMatch matchRoot];
-        m.exitHandler = ^(MXElement * elm) {
+        MXMatch * m = [MXMatch onRootExit:^(MXElement * elm) {
             attrsDictionary = oldDict;
-        };
-        
+        }];
         
         return  @[m];
         
@@ -156,12 +154,12 @@
 
         attrsDictionary = [self.delegate attributesForTag:elm.elementName currentAttributes:oldDict];
         
-        MXMatch * m = [MXMatch matchRoot];
-        m.exitHandler = ^(MXElement * elm) {
+        MXMatch * m = [MXMatch onRootExit:^(MXElement * elm) {
             attrsDictionary = oldDict;
             NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n" attributes:attrsDictionary];
             [attrString appendAttributedString:str];
-        };
+        }];
+
         return  @[m];
     };
     
@@ -172,11 +170,11 @@
         __block int listCount = 0;
         listLevel++;
         
-        MXMatch * li = [[MXMatch alloc] initWithPath:@"//li" namespaces:nil error:nil];
+        MXMatch * li = [[MXMatch alloc] initWithPath:@"/li" namespaces:nil error:nil];
         li.entryHandler = (id) ^(MXElement *elm) {
-            if (elm.userInfo) return @[];
-            id liObject = [NSObject new];
-            elm.userInfo = liObject;
+//            if (elm.userInfo) return @[];
+//            id liObject = [NSObject new];
+//            elm.userInfo = liObject;
             
             NSDictionary *oldDict = attrsDictionary;
             attrsDictionary = [self.delegate attributesForOrderedListLevel:listLevel currentAttributes:oldDict];
@@ -191,11 +189,10 @@
             NSAttributedString * str = [[NSAttributedString alloc] initWithString:text attributes:attrsDictionary];
             [attrString appendAttributedString:str];
             
-            MXMatch * m = [MXMatch matchRoot];
-            m.exitHandler = ^(MXElement *elm) {
+            MXMatch * m = [MXMatch onRootExit:^(MXElement * elm) {
                 attrsDictionary = oldDict;
-            };
-            
+            }];
+
             return @[m];
             
         };
@@ -215,13 +212,13 @@
         
         listLevel++;
         
-        MXMatch * li = [[MXMatch alloc] initWithPath:@"//li" namespaces:nil error:nil];
+        MXMatch * li = [[MXMatch alloc] initWithPath:@"/li" namespaces:nil error:nil];
 
         li.entryHandler = (id) ^(MXElement *elm) {
             
-            if (elm.userInfo) return @[];
-            id liObject = [NSObject new];
-            elm.userInfo = liObject;
+//            if (elm.userInfo) return @[];
+//            id liObject = [NSObject new];
+//            elm.userInfo = liObject;
             
             
             NSDictionary *oldDict = attrsDictionary;
@@ -234,10 +231,10 @@
             NSAttributedString * str = [[NSAttributedString alloc] initWithString:text attributes:attrsDictionary];
             [attrString appendAttributedString:str];
             
-            MXMatch * m = [MXMatch matchRoot];
-            m.exitHandler = ^(MXElement *elm) {
+            MXMatch * m = [MXMatch onRootExit:^(MXElement * elm) {
                 attrsDictionary = oldDict;
-            };
+            }];
+
             return @[m];
             
         };
@@ -257,10 +254,10 @@
 
             attrsDictionary = [self.delegate attributesForAnchorElementWithHTMLAttributes:elm.attributes currentTextAttributes:oldDict];
             
-            MXMatch * m = [MXMatch matchRoot];
-            m.exitHandler = ^(MXElement * elm) {
+            MXMatch * m = [MXMatch onRootExit:^(MXElement * elm) {
                 attrsDictionary = oldDict;
-            };
+            }];
+
             return @[m];
         }
         return @[];

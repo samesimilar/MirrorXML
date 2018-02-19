@@ -9,6 +9,7 @@
 #import "MXPatternStream.h"
 #import "MXPattern.h"
 
+
 @interface MXPattern (Private)
 
 @property (nonatomic, assign,readonly) xmlPatternPtr patternPtr;
@@ -45,11 +46,11 @@
     
 }
 
-- (MXPatternStreamMatch) streamPushString:(NSString *) name namespaceString:(NSString *) namespace;
+- (MXPatternStreamMatch) streamPushString:(const xmlChar *) localName namespaceString:(const xmlChar *) namespace
 {
-    const xmlChar * nameCh = name ? (xmlChar *)[name cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
-    const xmlChar * namespaceCh = namespace ? (xmlChar *)[namespace cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
-    return xmlStreamPush(self.streamPtr, nameCh, namespaceCh);
+//    const xmlChar * nameCh = name ? (xmlChar *)[name cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
+//    const xmlChar * namespaceCh = namespace ? (xmlChar *)[namespace cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
+    return xmlStreamPush(self.streamPtr, localName, namespace);
     
 }
 
@@ -72,7 +73,7 @@
 
 - (MXPatternStreamMatch) streamReset
 {
-    return [self streamPushString:nil namespaceString:nil];
+    return [self streamPushString:NULL namespaceString:nil];
 }
 - (void) dealloc
 {

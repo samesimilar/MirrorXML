@@ -17,8 +17,10 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 
 @interface MXElement ()
 
-@property (nonatomic, nonnull) NSString * elementName;
-@property (nonatomic, nullable) NSString * namespaceURI;
+//@property (nonatomic, nonnull) NSString * elementName;
+@property (nonatomic, assign) const xmlChar *localName;
+@property (nonatomic, assign) const xmlChar *xmlNamespaceURI;
+//@property (nonatomic, nullable) NSString * namespaceURI;
 @property (nonatomic, nonnull) NSDictionary<NSString *, NSString *> * attributes;
 
 
@@ -122,17 +124,19 @@ static void startElementSAX (void *ctx,
                              const xmlChar **attributes)
 {
     MXParser *ctxSelf = (__bridge MXParser *)ctx;
-    NSString * elementName = [[NSString stringWithUTF8String:(const char *)localname] lowercaseString];
-    NSString * namespaceURI;
+//    NSString * elementName = [[NSString stringWithUTF8String:(const char *)localname] lowercaseString];
+//    NSString * namespaceURI;
     
-    namespaceURI = URI ? [NSString stringWithUTF8String:(const char *)URI] : nil;
+//    namespaceURI = URI ? [NSString stringWithUTF8String:(const char *)URI] : nil;
 
     
     NSDictionary * attributesDictionary = dictionaryForAttributes(nb_attributes, attributes);
     
     MXElement * elm = [[MXElement alloc] init];
-    elm.elementName = elementName;
-    elm.namespaceURI = namespaceURI;
+//    elm.elementName = elementName;
+    elm.localName = localname;
+//    elm.namespaceURI = namespaceURI;
+    elm.xmlNamespaceURI = URI;
     elm.attributes = attributesDictionary;
     
     ctxSelf.handlerList = [ctxSelf.handlerList enterElement:elm];

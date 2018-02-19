@@ -18,7 +18,8 @@ static xmlSAXHandler simpleHTMLSAXHandlerStruct;
 
 @interface MXElement ()
 
-@property (nonatomic) NSString * elementName;
+//@property (nonatomic) NSString * elementName;
+@property (nonatomic, assign) const xmlChar *localName;
 @property (nonatomic) NSString * namespaceURI;
 @property (nonatomic) NSDictionary<NSString *, NSString *> * attributes;
 
@@ -221,7 +222,7 @@ const xmlChar *name,
 const xmlChar **atts)
 {
     MXHTMLParser *ctxSelf = (__bridge MXHTMLParser *)ctx;
-    NSString * elementName = [[NSString stringWithUTF8String:(const char *)name] lowercaseString];
+//    NSString * elementName = [[NSString stringWithUTF8String:(const char *)name] lowercaseString];
     
     
     
@@ -230,7 +231,8 @@ const xmlChar **atts)
     NSDictionary * attributesDictionary = dictionaryForAttributes(atts);
     
     MXElement * elm = [[MXElement alloc] init];
-    elm.elementName = elementName;
+//    elm.elementName = elementName;
+    elm.localName = name;
     elm.attributes = attributesDictionary;
     
     ctxSelf.handlerList = [ctxSelf.handlerList enterElement:elm];

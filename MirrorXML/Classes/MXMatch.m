@@ -6,10 +6,21 @@
 //  Copyright (c) 2014 samesimilar. All rights reserved.
 //
 
+#import <libxml/tree.h>
+
 #import "MXMatch.h"
 #import "MXPattern.h"
 #import "MXPatternStream.h"
 #import "MXElement.h"
+
+@interface MXElement()
+@property (nonatomic, assign, readonly, nullable) const xmlChar *localName;
+@property (nonatomic, assign) const xmlChar *xmlNamespaceURI;
+@end
+
+@interface MXPatternStream()
+- (MXPatternStreamMatch) streamPushString:(const xmlChar *) localName namespaceString:(const xmlChar *) namespace;
+@end
 
 @interface MXMatch ()
 @property (nonatomic) MXPatternStream * matchStream;
@@ -55,8 +66,10 @@
     return [self initWithPath:@"//*" error: nil];
 }
 
-+ (instancetype) matchRoot {
-    return [[[self class] alloc] initWithPattern:nil];
++ (instancetype) onRootExit: (MXEndElementHandler) exitHandler {
+    MXMatch * m = [[[self class] alloc] initWithPattern:nil];
+    m.exitHandler = exitHandler;
+    return m;
 }
 
 - (id) enterElement:(MXElement *) elm
@@ -81,7 +94,7 @@
             _textHandler(elm);
         }
     } else {
-        match =  [_matchStream streamPushString:elm.elementName namespaceString:elm.namespaceURI];
+        match =  [_matchStream streamPushString:elm.localName namespaceString:elm.xmlNamespaceURI];
         if (match == MXPatternStreamMatchFound) {
             if (_entryHandler && !elm.stop) {
                 newHandlers = _entryHandler(elm);

@@ -31,7 +31,7 @@ typedef void            (^MXErrorHandler)(NSError *, MXElement *);
 - (nullable instancetype) initWithPath:(NSString *) path
                                  error:(NSError **)error;
 - (instancetype) initWithPattern:(nullable MXPattern *) pattern;
-+ (instancetype) matchRoot;
++ (instancetype) onRootExit: (MXEndElementHandler) exitHandler;
 
 @end
 

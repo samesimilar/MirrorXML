@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oyk-3f-I7M">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -49,7 +49,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="oyk-3f-I7M" secondAttribute="trailing" id="77f-jw-3kK"/>
                             <constraint firstItem="oyk-3f-I7M" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="KSs-wA-WMc"/>
-                            <constraint firstItem="oyk-3f-I7M" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" id="Xuq-ad-94A"/>
+                            <constraint firstItem="oyk-3f-I7M" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="-64" id="Xxf-29-S3X"/>
                             <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="oyk-3f-I7M" secondAttribute="bottom" id="nPt-j0-HRe"/>
                         </constraints>
                     </view>

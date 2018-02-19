@@ -7,16 +7,42 @@
 //
 
 #import "MXElement.h"
+#import <libxml/tree.h>
 
 @interface MXElement ()
-@property (nonatomic, nonnull) NSString * elementName;
-@property (nonatomic, nullable) NSString * namespaceURI;
+
+@property (nonatomic) NSString *privateElementName;
+@property (nonatomic) NSString *privateNamespaceURI;
+
+@property (nonatomic, assign) const xmlChar *localName;
+@property (nonatomic, assign) const xmlChar *xmlNamespaceURI;
+
+//@property (nonatomic, nonnull) NSString * elementName;
+//@property (nonatomic, nullable) NSString * namespaceURI;
 @property (nonatomic, nonnull) NSDictionary<NSString *, NSString *> * attributes;
 
 @property (nonatomic) NSMutableData * textData;
 @property (nonatomic) NSString * text;
 @end
 @implementation MXElement
+
+- (NSString *) elementName {
+    if (!self.privateElementName) {
+        if (self.localName) {
+            self.privateElementName = [NSString stringWithUTF8String:(const char *)self.localName];
+        } else {
+            self.privateElementName = @"";
+        }
+    }
+    return self.privateElementName;
+}
+
+- (NSString *) namespaceURI {
+    if (!self.privateNamespaceURI && self.xmlNamespaceURI) {
+        self.privateNamespaceURI = [NSString stringWithUTF8String:(const char *)self.xmlNamespaceURI];
+    }
+    return self.privateNamespaceURI;
+}
 
 - (void)appendCharacters:(const char *)charactersFound
                   length:(NSInteger)length

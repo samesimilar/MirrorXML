@@ -30,7 +30,7 @@ NSErrorDomain MirrorXMLErrorDomain = @"com.samesimilar.MirrorXML";
     self = [super init];
     if (self) {
         
-        self.path = [path lowercaseString];
+        self.path = path;
         self.namespaces = namespaces ? namespaces : [NSDictionary new];
         
         const xmlChar * patternCh = (xmlChar *)[_path cStringUsingEncoding:NSUTF8StringEncoding];
