@@ -55,8 +55,13 @@ public class SwiftTest : NSObject {
             return [outline]
         }
         
+        let urls = try! MXMatch(path: "//@xmlUrl")
+        urls.exitHandler = { (elm) in
+            let attr = elm as! MXAttributeElement
+            print("ATTRIBUTE: \(attr.attrValue!)")
+        }
         
-        let parser = MXParser(matches: [ownerName, body])
+        let parser = MXParser(matches: [ownerName, body, urls])
         
         let data = try! Data(contentsOf: Bundle.main.url(forResource: "subscriptionList", withExtension: "opml")!)
         

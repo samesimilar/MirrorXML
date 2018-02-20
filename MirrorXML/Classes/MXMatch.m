@@ -12,10 +12,12 @@
 #import "MXPattern.h"
 #import "MXPatternStream.h"
 #import "MXElement.h"
+#import "MXAttributeElement.h"
 
 @interface MXElement()
 @property (nonatomic, assign, readonly, nullable) const xmlChar *localName;
 @property (nonatomic, assign) const xmlChar *xmlNamespaceURI;
+
 @end
 
 @interface MXPatternStream()
@@ -25,6 +27,7 @@
 @interface MXMatch ()
 @property (nonatomic) MXPatternStream * matchStream;
 @property (nonatomic) NSMutableArray * activeStack;
+
 @end
 
 @implementation MXMatch
@@ -35,6 +38,7 @@
     if (self) {
         if (pattern) {
             self.matchStream = [[MXPatternStream alloc] initWithPattern:pattern];
+            
         }
 
         self.activeStack = [NSMutableArray new];
@@ -72,6 +76,16 @@
     return m;
 }
 
+- (BOOL) isAtMatchedNode {
+    // If the last element in the active stack is @YES (i.e. it matched the current element):
+    return _activeStack.count > 0 && ((id)[_activeStack lastObject] != (id)[NSNull null]);
+}
+
+- (BOOL) isExitingRootNodeMatch {
+    // matchstream nil symantics indicate that this handler wants to be called when it exits the original root element
+    return !_matchStream && _activeStack.count == 0;
+}
+
 - (id) enterElement:(MXElement *) elm
 {
     if (!_matchStream && elm.nodeType != MXElementNodeTypeText) {
@@ -81,45 +95,43 @@
     id newHandlers = nil;
     int match;
     if (elm.nodeType == MXElementNodeTypeText) {
-//        match = [_matchStream streamPushText];
-//        if (match == MXPatternStreamMatchFound) {
-//            if (_entryHandler) {
-//                newHandlers = _entryHandler(elm);
-//            }
-//            
-//            [_activeStack addObject:@YES];
-//        }
-        // libxml pattern matching doesn't handle text nodes so we'll take care of it manually here
-        if (_textHandler && _activeStack.count > 0 && !((id)[_activeStack lastObject] == (id)[NSNull null]) ) {
+        // libxml pattern matching doesn't handle text nodes so we'll take care of it manually here.
+        if (_textHandler && [self isAtMatchedNode]) {
             _textHandler(elm);
         }
     } else {
-        match =  [_matchStream streamPushString:elm.localName namespaceString:elm.xmlNamespaceURI];
+        if (elm.nodeType == MXElementNodeTypeElement) {
+            match =  [_matchStream streamPushString:elm.localName namespaceString:elm.xmlNamespaceURI];
+        } else if (elm.nodeType == MXElementNodeTypeAttribute){
+            match = [_matchStream streamPushAttribute:((MXAttributeElement *)elm).attrName namespaceString:((MXAttributeElement *)elm).attrNamespace];
+        } else {
+            return newHandlers;
+        }
+        
+
         if (match == MXPatternStreamMatchFound) {
             if (_entryHandler && !elm.stop) {
                 newHandlers = _entryHandler(elm);
             }
-            
             [_activeStack addObject:@YES];
         } else {
             [_activeStack addObject:[NSNull null]];
         }
-        
-        for (NSString * attrName in elm.attributes)
-        {
-            int match = [_matchStream streamPushAttribute:attrName namespaceString:elm.namespaceURI];
-            if (match == MXPatternStreamMatchFound)
-            {
-                if (_entryHandler && !elm.stop) {
-                    _entryHandler(elm);
-                }
-                if (_exitHandler && !elm.stop) {
-                    _exitHandler(elm);
-                }
-                
-            }
-            [_matchStream streamPop];
-        }
+//
+//        if (_attributeHandler) {
+//            for (NSString * attrName in elm.attributes)
+//            {
+//                int match = [_matchStream streamPushAttribute:attrName namespaceString:elm.namespaceURI];
+//                if (match == MXPatternStreamMatchFound)
+//                {
+//                    if (!elm.stop) {
+//                        _attributeHandler(elm.attributes[attrName], elm);
+//                    }
+//                }
+//                [_matchStream streamPop];
+//            }
+//        }
+
     }
     
     
@@ -133,26 +145,21 @@
     if (elm.nodeType == MXElementNodeTypeText) {
         return;
     }
-    // matchstream nil symantics indicate that this handler wants to be called when it exits the original root element
-    if (!_matchStream && _activeStack.count == 0 && !elm.stop)  {
+    
+    if ([self isExitingRootNodeMatch] && !elm.stop)  {
         _exitHandler(elm);
-    } else {
-        // this element was matched by the pattern
-        if (_exitHandler && _activeStack.count > 0 && !((id)[_activeStack lastObject] == (id)[NSNull null]) && !elm.stop ) {
+    } else if (_exitHandler && [self isAtMatchedNode] && !elm.stop ) {
             _exitHandler(elm);
-        }
-        
     }
     
-    
     [_activeStack removeLastObject];
-    
     [_matchStream streamPop];
+    
 }
 
 - (void) errorRaised:(NSError *) error onElement:(MXElement *) elm
 {
-    if (_errorHandler && _activeStack.count > 0 && !((id)[_activeStack lastObject] == (id)[NSNull null]) && !elm.stop  ) {
+    if (_errorHandler && [self isAtMatchedNode] && !elm.stop  ) {
         _errorHandler(error, elm);
     }
 

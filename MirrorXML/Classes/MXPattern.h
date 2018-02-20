@@ -26,6 +26,11 @@ typedef enum : NSUInteger {
 @property (nonatomic, readonly) NSDictionary<NSString *, NSString *> * namespaces;
 @property (nonatomic, readonly) NSString * path;
 
+@property (nonatomic, assign, readonly) int maxDepth;
+@property (nonatomic, assign, readonly) int minDepth;
+@property (nonatomic, assign, readonly) BOOL matchesAttribute;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

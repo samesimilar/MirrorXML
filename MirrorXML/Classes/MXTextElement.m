@@ -13,6 +13,5 @@
 - (MXElementNodeType) nodeType
 {
     return MXElementNodeTypeText;
-    
 }
 @end

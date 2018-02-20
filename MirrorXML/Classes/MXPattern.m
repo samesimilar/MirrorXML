@@ -19,6 +19,10 @@ NSErrorDomain MirrorXMLErrorDomain = @"com.samesimilar.MirrorXML";
 /* hold reference to these in case libxml doesn't copy the cstrings internally */
 @property (nonatomic) NSDictionary<NSString *, NSString *> * namespaces;
 @property (nonatomic) NSString * path;
+
+@property (nonatomic, assign) int maxDepth;
+@property (nonatomic, assign) int minDepth;
+@property (nonatomic, assign) BOOL matchesAttribute;
 @end
 @implementation MXPattern
 
@@ -59,7 +63,7 @@ NSErrorDomain MirrorXMLErrorDomain = @"com.samesimilar.MirrorXML";
         
         if (_patternPtr == NULL) {
             if (error) {
-                *error = [NSError errorWithDomain:MirrorXMLErrorDomain code:MirrorXMLErrorPathParseFailed userInfo:nil];
+                *error = [NSError errorWithDomain:MirrorXMLErrorDomain code:MirrorXMLErrorPathParseFailed userInfo: @{NSLocalizedDescriptionKey: @"XML match path could not be compiled."}];
             }
             return nil;
         }
@@ -67,11 +71,15 @@ NSErrorDomain MirrorXMLErrorDomain = @"com.samesimilar.MirrorXML";
         // pattern must be streamable
         if (xmlPatternStreamable(_patternPtr) != 1) {
             if (error) {
-                *error = [NSError errorWithDomain:MirrorXMLErrorDomain code:MirrorXMLErrorPathIsNotStreamable userInfo:nil];
+                *error = [NSError errorWithDomain:MirrorXMLErrorDomain code:MirrorXMLErrorPathIsNotStreamable userInfo:@{NSLocalizedDescriptionKey: @"XML match path must be streamable."}];
             }
             return nil;
         }
         
+        self.matchesAttribute = [path containsString:@"@"];
+        
+        self.maxDepth = xmlPatternMaxDepth(_patternPtr);
+        self.minDepth = xmlPatternMinDepth(_patternPtr);        
     }
     return self;
 }

@@ -23,11 +23,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MXElement : NSObject
 
 //@property (nonatomic, assign, readonly, nullable) const xmlChar *localName;
-@property (nonatomic, readonly) NSString * elementName;
+
+@property (nonatomic, readonly, nullable) NSString * elementName;
 @property (nonatomic, readonly, nullable) NSString * namespaceURI;
 @property (nonatomic, readonly) NSDictionary<NSString *, NSString *> * attributes;
 @property (nonatomic ,readonly, nullable) NSString * text;
 @property (nonatomic, readonly, assign) MXElementNodeType nodeType;
+@property (nonatomic, readonly, nullable) MXElement *parent;
 @property (nonatomic) id userInfo;
 
 // if YES will not process handler blocks for this element further up the chain (but will still add it to the current path for all handlers for pattern matching purposes)

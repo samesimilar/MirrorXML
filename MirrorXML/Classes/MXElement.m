@@ -11,14 +11,13 @@
 
 @interface MXElement ()
 
-@property (nonatomic) NSString *privateElementName;
-@property (nonatomic) NSString *privateNamespaceURI;
+@property (nonatomic) MXElement *parent;
 
 @property (nonatomic, assign) const xmlChar *localName;
 @property (nonatomic, assign) const xmlChar *xmlNamespaceURI;
 
-//@property (nonatomic, nonnull) NSString * elementName;
-//@property (nonatomic, nullable) NSString * namespaceURI;
+@property (nonatomic, nonnull) NSString * elementName;
+@property (nonatomic, nullable) NSString * namespaceURI;
 @property (nonatomic, nonnull) NSDictionary<NSString *, NSString *> * attributes;
 
 @property (nonatomic) NSMutableData * textData;
@@ -27,21 +26,21 @@
 @implementation MXElement
 
 - (NSString *) elementName {
-    if (!self.privateElementName) {
+    if (!_elementName) {
         if (self.localName) {
-            self.privateElementName = [NSString stringWithUTF8String:(const char *)self.localName];
+            self.elementName = [NSString stringWithUTF8String:(const char *)self.localName];
         } else {
-            self.privateElementName = @"";
+            self.elementName = @"";
         }
     }
-    return self.privateElementName;
+    return _elementName;
 }
 
 - (NSString *) namespaceURI {
-    if (!self.privateNamespaceURI && self.xmlNamespaceURI) {
-        self.privateNamespaceURI = [NSString stringWithUTF8String:(const char *)self.xmlNamespaceURI];
+    if (!_namespaceURI && self.xmlNamespaceURI) {
+        _namespaceURI = [NSString stringWithUTF8String:(const char *)self.xmlNamespaceURI];
     }
-    return self.privateNamespaceURI;
+    return _namespaceURI;
 }
 
 - (void)appendCharacters:(const char *)charactersFound

@@ -10,6 +10,7 @@
 #import <MirrorXML/MXParser.h>
 #import <MirrorXML/MXMatchList.h>
 #import <MirrorXML/MXElement.h>
+#import <MirrorXML/MXAttributeElement.h>
 #import <MirrorXML/MXTextElement.h>
 
 
@@ -98,7 +99,7 @@ static NSDictionary * dictionaryForAttributes(int nb_attributes, const xmlChar *
         if (attributes[index + 3] != 0)
         {
             
-            NSString * key = [[[NSString alloc] initWithUTF8String:(const char *)(attributes[index])] lowercaseString];
+            NSString * key = [[NSString alloc] initWithUTF8String:(const char *)(attributes[index])];// lowercaseString];
             
             NSString * value = [[NSString alloc] initWithBytes:(const void *)(attributes[index + 3])
                                                         length:attributes[index + 4] - attributes[index + 3]
@@ -141,9 +142,15 @@ static void startElementSAX (void *ctx,
     
     ctxSelf.handlerList = [ctxSelf.handlerList enterElement:elm];
     
-    
-    
-    
+    for (NSString * attrName in elm.attributes) {
+        MXAttributeElement *atrElm = [[MXAttributeElement alloc] init];
+        atrElm.attrName = attrName;
+        atrElm.attrValue = elm.attributes[attrName];
+        //        atrElm.attrNamespace =
+        ctxSelf.handlerList =  [ctxSelf.handlerList enterElement:atrElm];
+        ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
+    }
+
 }
 
 static void	endElementSAX   (void *ctx,
@@ -153,7 +160,14 @@ static void	endElementSAX   (void *ctx,
 
 {
     MXParser *ctxSelf = (__bridge MXParser *)ctx;
-     ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
+    
+    
+    
+//    for (NSString * attrName in ctxSelf.handlerList.elm.attributes) {
+//        ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
+//    }
+    
+    ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
 }
 
 static void	charactersFoundSAX(void *ctx,

@@ -11,6 +11,7 @@
 #endif
 
 #import "MirrorXML.h"
+#import "MXAttributeElement.h"
 #import "MXElement.h"
 #import "MXHTMLParser.h"
 #import "MXHTMLToAttributedString.h"

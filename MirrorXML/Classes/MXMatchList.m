@@ -11,7 +11,11 @@
 
 #import "MXMatch.h"
 #import "MXElement.h"
+#import "MXAttributeElement.h"
 
+@interface MXElement()
+@property (nonatomic) MXElement *parent;
+@end;
 @interface MXMatch()
 
 - (id) enterElement:(MXElement *) elm;
@@ -91,12 +95,14 @@
     MXMatchList * childList = [[MXMatchList alloc] init];
     childList.parentList = self;
     childList.elm = elm;
-    
+    elm.parent = self.elm;
     
     
     [self enterElementWithElement:elm childList:childList];
     
     [childList streamReset];
+    
+
     
     return childList;
 }
@@ -123,9 +129,10 @@
 
 - (MXMatchList *) exitElement
 {
+    
     _elm.stop = NO;
     [self exitElement:_elm];
-    
+
     return _parentList;
     
 }
