@@ -26,8 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype) initWithPattern:(MXPattern *) pattern;
 //- (MXPatternStreamMatch) streamPushString:(nullable const xmlChar *) localName namespaceString:(nullable NSString *) namespace;
-- (MXPatternStreamMatch) streamPushAttribute:(nullable NSString *) attrName namespaceString:(nullable NSString *) namespace;
-- (MXPatternStreamMatch) streamPushText;
+//- (MXPatternStreamMatch) streamPushAttribute:(nullable NSString *) attrName namespaceString:(nullable NSString *) namespace;
+//- (MXPatternStreamMatch) streamPushText;
 - (MXPatternStreamMatch) streamPop;
 - (MXPatternStreamMatch) streamReset;
 

@@ -15,13 +15,20 @@
 #import "MXAttributeElement.h"
 
 @interface MXElement()
-@property (nonatomic, assign, readonly, nullable) const xmlChar *localName;
+@property (nonatomic, assign) const xmlChar *xmlLocalname;
 @property (nonatomic, assign) const xmlChar *xmlNamespaceURI;
-
+- (void) buildAttributesDictionary;
 @end
+
+@interface MXAttributeElement()
+@property (nonatomic, assign) const xmlChar *xmlAttrName;
+@property (nonatomic, assign) const xmlChar *xmlAttrNamespace;
+@end
+
 
 @interface MXPatternStream()
 - (MXPatternStreamMatch) streamPushString:(const xmlChar *) localName namespaceString:(const xmlChar *) namespace;
+- (MXPatternStreamMatch) streamPushAttribute:(const xmlChar *) attrName namespaceString:(const xmlChar *) namespace;
 @end
 
 @interface MXMatch ()
@@ -101,36 +108,26 @@
         }
     } else {
         if (elm.nodeType == MXElementNodeTypeElement) {
-            match =  [_matchStream streamPushString:elm.localName namespaceString:elm.xmlNamespaceURI];
+            match =  [_matchStream streamPushString:elm.xmlLocalname namespaceString:elm.xmlNamespaceURI];
         } else if (elm.nodeType == MXElementNodeTypeAttribute){
-            match = [_matchStream streamPushAttribute:((MXAttributeElement *)elm).attrName namespaceString:((MXAttributeElement *)elm).attrNamespace];
+            match = [_matchStream streamPushAttribute:((MXAttributeElement *)elm).xmlAttrName namespaceString:((MXAttributeElement *)elm).xmlNamespaceURI];
         } else {
             return newHandlers;
         }
         
 
         if (match == MXPatternStreamMatchFound) {
-            if (_entryHandler && !elm.stop) {
+            // if this node matches, we have to pre-convert the attributes dictionary to strings instead of lazily converting it on access
+            // Why? because if libxml finds special characters in the attribute value, it creates a tmp string somewhere to store
+            // decoded characters, which seems to be released after this stage of parsing
+            [elm buildAttributesDictionary];
+            if (_entryHandler && !elm.stop && elm.nodeType == MXElementNodeTypeElement) {
                 newHandlers = _entryHandler(elm);
             }
             [_activeStack addObject:@YES];
         } else {
             [_activeStack addObject:[NSNull null]];
         }
-//
-//        if (_attributeHandler) {
-//            for (NSString * attrName in elm.attributes)
-//            {
-//                int match = [_matchStream streamPushAttribute:attrName namespaceString:elm.namespaceURI];
-//                if (match == MXPatternStreamMatchFound)
-//                {
-//                    if (!elm.stop) {
-//                        _attributeHandler(elm.attributes[attrName], elm);
-//                    }
-//                }
-//                [_matchStream streamPop];
-//            }
-//        }
 
     }
     
@@ -148,8 +145,10 @@
     
     if ([self isExitingRootNodeMatch] && !elm.stop)  {
         _exitHandler(elm);
-    } else if (_exitHandler && [self isAtMatchedNode] && !elm.stop ) {
-            _exitHandler(elm);
+    } else if (_exitHandler && [self isAtMatchedNode] && !elm.stop && elm.nodeType == MXElementNodeTypeElement) {
+        _exitHandler(elm);
+    } else if (_attributeHandler && elm.nodeType == MXElementNodeTypeAttribute && [self isAtMatchedNode]) {
+        _attributeHandler((MXAttributeElement *) elm);
     }
     
     [_activeStack removeLastObject];

@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic ,readonly, nullable) NSString * text;
 @property (nonatomic, readonly, assign) MXElementNodeType nodeType;
 @property (nonatomic, readonly, nullable) MXElement *parent;
-@property (nonatomic) id userInfo;
+@property (nonatomic, nullable) id userInfo;
 
 // if YES will not process handler blocks for this element further up the chain (but will still add it to the current path for all handlers for pattern matching purposes)
 // - allows you to override previous handlers

@@ -54,17 +54,13 @@
     
 }
 
-- (MXPatternStreamMatch) streamPushAttribute:(NSString *) attrName namespaceString:(NSString *) namespace
+- (MXPatternStreamMatch) streamPushAttribute:(const xmlChar *) attrName namespaceString:(const xmlChar *) namespace
 {
-    const xmlChar * nameCh = attrName ? (xmlChar *)[attrName cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
-    const xmlChar * namespaceCh = namespace ? (xmlChar *)[namespace cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
-    return xmlStreamPushAttr(self.streamPtr, nameCh, namespaceCh);
+//    const xmlChar * nameCh = attrName ? (xmlChar *)[attrName cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
+//    const xmlChar * namespaceCh = namespace ? (xmlChar *)[namespace cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
+    return xmlStreamPushAttr(self.streamPtr, attrName, namespace);
 }
 
-- (MXPatternStreamMatch) streamPushText
-{
-    return xmlStreamPushNode(self.streamPtr, NULL, NULL, XML_TEXT_NODE);
-}
 
 - (MXPatternStreamMatch) streamPop
 {

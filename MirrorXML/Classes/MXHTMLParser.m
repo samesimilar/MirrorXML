@@ -12,17 +12,16 @@
 #import "MXHTMLParser.h"
 #import "MXMatchList.h"
 #import "MXElement.h"
+#import "MXAttributeElement.h"
 #import "MXTextElement.h"
 
 static xmlSAXHandler simpleHTMLSAXHandlerStruct;
 
 @interface MXElement ()
 
-//@property (nonatomic) NSString * elementName;
-@property (nonatomic, assign) const xmlChar *localName;
-@property (nonatomic) NSString * namespaceURI;
-@property (nonatomic) NSDictionary<NSString *, NSString *> * attributes;
-
+@property (nonatomic, assign) const xmlChar *xmlLocalname;
+@property (nonatomic, assign) const xmlChar *xmlNamespaceURI;
+@property (nonatomic, assign) const xmlChar **htmlAttributes;
 
 - (void)appendCharacters:(const char *)charactersFound
                   length:(NSInteger)length;
@@ -90,88 +89,11 @@ static xmlSAXHandler simpleHTMLSAXHandlerStruct;
 @end
 
 #pragma mark SAX Helper Function
-static NSDictionary * dictionaryForAttributes(const xmlChar ** attributes)
-{
-    if (attributes == NULL) {
-        return @{};
-    }
-    NSMutableDictionary * result = [NSMutableDictionary new];
-    
-    const xmlChar ** attr = attributes;
-    
-    while (*attr)
-    {
-        NSString * key = [[[NSString alloc] initWithUTF8String:(const char *)(*attr)] lowercaseString];
-        attr++;
-        NSString * value = nil;
-        if (*attr) {
-            value = [[[NSString alloc] initWithUTF8String:(const char *)(*attr)] lowercaseString];
-        }
-        
-        attr++;
-        if (key && value) {
-            result[key] = value;
-        }
-        
-    }
-    
 
-    return result;
-}
 
 
 #pragma mark SAX Callback Implementations
-//static void htmlStartElementSAX (void *ctx,
-//                             const xmlChar *localname,
-//                             const xmlChar *prefix,
-//                             const xmlChar *URI,
-//                             int nb_namespaces,
-//                             const xmlChar **namespaces,
-//                             int nb_attributes,
-//                             int nb_defaulted,
-//                             const xmlChar **attributes)
-//{
-//    MXHTMLParserContext *myself = (__bridge MXHTMLParserContext *)ctx;
-//    NSString * elementName = [[NSString stringWithUTF8String:(const char *)localname] lowercaseString];
-//    NSString * namespaceURI;
-//    
-//    namespaceURI = URI ? [NSString stringWithUTF8String:(const char *)URI] : nil;
-//    
-//    
-//    NSDictionary * attributesDictionary = dictionaryForAttributes(nb_attributes, attributes);
-//    
-//    for (MXParser * parser in myself.myParsers)
-//    {
-//        [parser startElementWithName:(NSString *)elementName
-//                        namespaceURI:(NSString *)namespaceURI
-//                          attributes:(NSDictionary *)attributesDictionary];
-//    }
-//    
-//    
-//}
-//
-//static void	htmlEndElementSAX   (void *ctx,
-//                             const xmlChar *localname,
-//                             const xmlChar *prefix,
-//                             const xmlChar *URI)
-//
-//{
-//    MXHTMLParserContext *myself = (__bridge MXHTMLParserContext *)ctx;
-//    for (MXParser * parser in myself.myParsers)
-//    {
-//        [parser endElement];
-//    }
-//}
-//
-//static void	charactersFoundSAX(void *ctx,
-//                               const xmlChar *ch,
-//                               int len)
-//{
-//    MXHTMLParser *ctxSelf = (__bridge MXHTMLParser *)ctx;
-//    MXElement * elm = ctxSelf.handlerList.elm;
-//    [elm appendCharacters:(const char *)ch length:len];
-//    
-//}
+
 
 static void	charactersFoundSAX(void *ctx,
                                const xmlChar *ch,
@@ -222,18 +144,11 @@ const xmlChar *name,
 const xmlChar **atts)
 {
     MXHTMLParser *ctxSelf = (__bridge MXHTMLParser *)ctx;
-//    NSString * elementName = [[NSString stringWithUTF8String:(const char *)name] lowercaseString];
-    
-    
-    
-    
-    
-    NSDictionary * attributesDictionary = dictionaryForAttributes(atts);
-    
+
     MXElement * elm = [[MXElement alloc] init];
-//    elm.elementName = elementName;
-    elm.localName = name;
-    elm.attributes = attributesDictionary;
+
+    elm.xmlLocalname = name;
+    elm.htmlAttributes = atts;
     
     ctxSelf.handlerList = [ctxSelf.handlerList enterElement:elm];
     

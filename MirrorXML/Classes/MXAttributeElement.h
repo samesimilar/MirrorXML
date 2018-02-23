@@ -10,7 +10,7 @@
 #import "MXElement.h"
 
 @interface MXAttributeElement : MXElement
-@property (nonatomic, nonnull) NSString *attrName;
-@property (nonatomic, nullable) NSString *attrValue;
-@property (nonatomic, nullable) NSString *attrNamespace;
+@property (nonatomic, nonnull, readonly) NSString *attrName;
+@property (nonatomic, nullable, readonly) NSString *attrValue;
+@property (nonatomic, nullable, readonly) NSString *attrNamespace;
 @end

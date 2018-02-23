@@ -18,15 +18,22 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 
 @interface MXElement ()
 
-//@property (nonatomic, nonnull) NSString * elementName;
-@property (nonatomic, assign) const xmlChar *localName;
+@property (nonatomic, assign) const xmlChar *xmlLocalname;
 @property (nonatomic, assign) const xmlChar *xmlNamespaceURI;
-//@property (nonatomic, nullable) NSString * namespaceURI;
-@property (nonatomic, nonnull) NSDictionary<NSString *, NSString *> * attributes;
-
+@property (nonatomic, assign) int xmlNb_attributes;
+@property (nonatomic, assign) const xmlChar **xmlAttributes;
 
 - (void)appendCharacters:(const char *)charactersFound
                   length:(NSInteger)length;
+
+@end
+
+@interface MXAttributeElement()
+
+@property (nonatomic, assign) const xmlChar *xmlAttrName;
+@property (nonatomic, assign) const xmlChar *xmlAttrValue;
+@property (nonatomic, assign) NSUInteger xmlAttrValueLength;
+@property (nonatomic, assign) const xmlChar *xmlAttrNamespace;
 
 @end
 
@@ -88,29 +95,6 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 @end
 
 #pragma mark SAX Helper Function
-static NSDictionary * dictionaryForAttributes(int nb_attributes, const xmlChar ** attributes)
-{
-    NSMutableDictionary * result = [NSMutableDictionary new];
-    NSInteger index = 0;
-    for (NSInteger i = 0; i < nb_attributes; i++, index += 5)
-    {
-        //[localname/prefix/URI/value/en]
-        // TODO: should have separate entry in dict for each localname/URI *combination* (localnames may overlap within different URIs)
-        if (attributes[index + 3] != 0)
-        {
-            
-            NSString * key = [[NSString alloc] initWithUTF8String:(const char *)(attributes[index])];// lowercaseString];
-            
-            NSString * value = [[NSString alloc] initWithBytes:(const void *)(attributes[index + 3])
-                                                        length:attributes[index + 4] - attributes[index + 3]
-                                                      encoding:NSUTF8StringEncoding];
-            
-            result[key] = value;
-            
-        }
-    }
-    return result;
-}
 
 
 #pragma mark SAX Callback Implementations
@@ -125,31 +109,36 @@ static void startElementSAX (void *ctx,
                              const xmlChar **attributes)
 {
     MXParser *ctxSelf = (__bridge MXParser *)ctx;
-//    NSString * elementName = [[NSString stringWithUTF8String:(const char *)localname] lowercaseString];
-//    NSString * namespaceURI;
-    
-//    namespaceURI = URI ? [NSString stringWithUTF8String:(const char *)URI] : nil;
 
-    
-    NSDictionary * attributesDictionary = dictionaryForAttributes(nb_attributes, attributes);
-    
     MXElement * elm = [[MXElement alloc] init];
-//    elm.elementName = elementName;
-    elm.localName = localname;
-//    elm.namespaceURI = namespaceURI;
+    elm.xmlLocalname = localname;
     elm.xmlNamespaceURI = URI;
-    elm.attributes = attributesDictionary;
+    elm.xmlNb_attributes = nb_attributes;
+    elm.xmlAttributes = attributes;
     
     ctxSelf.handlerList = [ctxSelf.handlerList enterElement:elm];
     
-    for (NSString * attrName in elm.attributes) {
-        MXAttributeElement *atrElm = [[MXAttributeElement alloc] init];
-        atrElm.attrName = attrName;
-        atrElm.attrValue = elm.attributes[attrName];
-        //        atrElm.attrNamespace =
-        ctxSelf.handlerList =  [ctxSelf.handlerList enterElement:atrElm];
-        ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
+    if (nb_attributes > 0) {
+        NSInteger index = 0;
+
+        // share one instance since can be discarded right away
+        MXAttributeElement * attrElement = [[MXAttributeElement alloc] init];
+
+        for (NSInteger i = 0; i < nb_attributes; i++, index += 5)
+        {
+            //[localname/prefix/URI/value/en]
+            // TODO: should have separate entry in dict for each localname/URI *combination* (localnames may overlap within different URIs)
+            if (attributes[index + 3] != 0)
+            {
+                attrElement.xmlAttrName = attributes[index];
+                attrElement.xmlAttrValue = attributes[index + 3];
+                attrElement.xmlAttrValueLength = attributes[index + 4] - attributes[index + 3];
+                ctxSelf.handlerList =  [ctxSelf.handlerList enterElement:attrElement];
+                ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
+            }
+        }
     }
+
 
 }
 

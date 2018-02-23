@@ -56,9 +56,8 @@ public class SwiftTest : NSObject {
         }
         
         let urls = try! MXMatch(path: "//@xmlUrl")
-        urls.exitHandler = { (elm) in
-            let attr = elm as! MXAttributeElement
-            print("ATTRIBUTE: \(attr.attrValue!)")
+        urls.attributeHandler = { (elm) in
+            print("ATTRIBUTE: \(elm.attrValue!)")
         }
         
         let parser = MXParser(matches: [ownerName, body, urls])

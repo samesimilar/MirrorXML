@@ -9,12 +9,70 @@
 #import "MXElement.h"
 #import <libxml/tree.h>
 
+
+static NSDictionary * dictionaryForAttributes(int nb_attributes, const xmlChar ** attributes)
+{
+    NSMutableDictionary * result = [NSMutableDictionary new];
+    NSInteger index = 0;
+    for (NSInteger i = 0; i < nb_attributes; i++, index += 5)
+    {
+        //[localname/prefix/URI/value/en]
+        // TODO: should have separate entry in dict for each localname/URI *combination* (localnames may overlap within different URIs)
+        if (attributes[index + 3] != 0)
+        {
+            
+            NSString * key = [[NSString alloc] initWithUTF8String:(const char *)(attributes[index])];// lowercaseString];
+            
+            NSUInteger valueLength = attributes[index + 4] - attributes[index + 3];
+            
+            NSString * value = [[NSString alloc] initWithBytes:(const void *)(attributes[index + 3])
+                                                        length: valueLength
+                                                      encoding:NSUTF8StringEncoding];
+            
+            result[key] = value;
+            
+        }
+    }
+    return result;
+}
+
+static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
+{
+    if (attributes == NULL) {
+        return @{};
+    }
+    NSMutableDictionary * result = [NSMutableDictionary new];
+    
+    const xmlChar ** attr = attributes;
+    
+    while (*attr)
+    {
+        NSString * key = [[[NSString alloc] initWithUTF8String:(const char *)(*attr)] lowercaseString];
+        attr++;
+        NSString * value = nil;
+        if (*attr) {
+            value = [[[NSString alloc] initWithUTF8String:(const char *)(*attr)] lowercaseString];
+        }
+        
+        attr++;
+        if (key && value) {
+            result[key] = value;
+        }
+        
+    }
+    
+    
+    return result;
+}
 @interface MXElement ()
 
 @property (nonatomic) MXElement *parent;
 
-@property (nonatomic, assign) const xmlChar *localName;
+@property (nonatomic, assign) const xmlChar *xmlLocalname;
 @property (nonatomic, assign) const xmlChar *xmlNamespaceURI;
+@property (nonatomic, assign) int xmlNb_attributes;
+@property (nonatomic, assign) const xmlChar **xmlAttributes;
+@property (nonatomic, assign) const xmlChar **htmlAttributes;
 
 @property (nonatomic, nonnull) NSString * elementName;
 @property (nonatomic, nullable) NSString * namespaceURI;
@@ -27,8 +85,8 @@
 
 - (NSString *) elementName {
     if (!_elementName) {
-        if (self.localName) {
-            self.elementName = [NSString stringWithUTF8String:(const char *)self.localName];
+        if (_xmlLocalname) {
+            self.elementName = [NSString stringWithUTF8String:(const char *)_xmlLocalname];
         } else {
             self.elementName = @"";
         }
@@ -41,6 +99,23 @@
         _namespaceURI = [NSString stringWithUTF8String:(const char *)self.xmlNamespaceURI];
     }
     return _namespaceURI;
+}
+
+- (void) buildAttributesDictionary {
+    if (_xmlAttributes) {
+        _attributes = dictionaryForAttributes(_xmlNb_attributes, _xmlAttributes);
+    } else if (_htmlAttributes) {
+        _attributes = dictionaryForHTMLAttributes(_htmlAttributes);
+    } else {
+        _attributes = [NSDictionary new];
+    }
+}
+
+- (NSDictionary<NSString *, NSString *> *) attributes {
+    if (!_attributes) {
+        [self buildAttributesDictionary];
+    }
+    return _attributes;
 }
 
 - (void)appendCharacters:(const char *)charactersFound

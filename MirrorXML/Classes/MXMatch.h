@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-@class MXPatternStream, MXElement, MXPattern, MXParser, MXMatch;
+@class MXPatternStream, MXElement, MXAttributeElement, MXPattern, MXParser, MXMatch;
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NSArray<MXMatch *> * _Nonnull (^MXStartElementHandler)(MXElement *);
 typedef void            (^MXEndElementHandler)(MXElement *);
 typedef void            (^MXTextHandler)(MXElement *);
-typedef void            (^MXAttributeHandler)(NSString *, MXElement *);
+typedef void            (^MXAttributeHandler)(MXAttributeElement *);
 typedef void            (^MXErrorHandler)(NSError *, MXElement *);
 
 @interface MXMatch : NSObject
