@@ -23,6 +23,8 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 @property (nonatomic, assign) int xmlNb_attributes;
 @property (nonatomic, assign) const xmlChar **xmlAttributes;
 
+
+
 - (void)appendCharacters:(const char *)charactersFound
                   length:(NSInteger)length;
 
@@ -110,7 +112,7 @@ static void startElementSAX (void *ctx,
 {
     MXParser *ctxSelf = (__bridge MXParser *)ctx;
 
-    MXElement * elm = [[MXElement alloc] init];
+    MXElement * elm = [[MXElement alloc] initWithContext:ctxSelf];
     elm.xmlLocalname = localname;
     elm.xmlNamespaceURI = URI;
     elm.xmlNb_attributes = nb_attributes;
@@ -122,8 +124,8 @@ static void startElementSAX (void *ctx,
         NSInteger index = 0;
 
         // share one instance since can be discarded right away
-        MXAttributeElement * attrElement = [[MXAttributeElement alloc] init];
-
+        MXAttributeElement * attrElement = [[MXAttributeElement alloc] initWithContext:ctxSelf];
+        
         for (NSInteger i = 0; i < nb_attributes; i++, index += 5)
         {
             //[localname/prefix/URI/value/en]
@@ -168,7 +170,7 @@ static void	charactersFoundSAX(void *ctx,
     MXElement * elm = ctxSelf.handlerList.elm;
     [elm appendCharacters:(const char *)ch length:len];
 
-    MXTextElement * telm = [[MXTextElement alloc] init];
+    MXTextElement * telm = [[MXTextElement alloc] initWithContext: ctxSelf];
     [telm appendCharacters:(const char *)ch length:len];
     ctxSelf.handlerList = [ctxSelf.handlerList enterElement:telm];
     ctxSelf.handlerList = [ctxSelf.handlerList exitElement];

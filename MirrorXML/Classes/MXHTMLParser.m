@@ -104,7 +104,7 @@ static void	charactersFoundSAX(void *ctx,
     MXElement * elm = ctxSelf.handlerList.elm;
     [elm appendCharacters:(const char *)ch length:len];
     
-    MXTextElement * telm = [[MXTextElement alloc] init];
+    MXTextElement * telm = [[MXTextElement alloc] initWithContext:ctxSelf];
     [telm appendCharacters:(const char *)ch length:len];
     ctxSelf.handlerList = [ctxSelf.handlerList enterElement:telm];
     ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
@@ -145,7 +145,7 @@ const xmlChar **atts)
 {
     MXHTMLParser *ctxSelf = (__bridge MXHTMLParser *)ctx;
 
-    MXElement * elm = [[MXElement alloc] init];
+    MXElement * elm = [[MXElement alloc] initWithContext:ctxSelf];
 
     elm.xmlLocalname = name;
     elm.htmlAttributes = atts;

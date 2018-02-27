@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MXElement : NSObject
 
-//@property (nonatomic, assign, readonly, nullable) const xmlChar *localName;
+- (instancetype) initWithContext:(id) context;
 
 @property (nonatomic, readonly, nullable) NSString * elementName;
 @property (nonatomic, readonly, nullable) NSString * namespaceURI;

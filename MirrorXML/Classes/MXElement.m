@@ -64,6 +64,8 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
     
     return result;
 }
+
+
 @interface MXElement ()
 
 @property (nonatomic) MXElement *parent;
@@ -74,6 +76,10 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
 @property (nonatomic, assign) const xmlChar **xmlAttributes;
 @property (nonatomic, assign) const xmlChar **htmlAttributes;
 
+// used to mark instances of this class invalid once the context has been deallocated
+// since the above resources are owned by the libxml context
+@property (nonatomic, weak, nullable) id livingParserContext;
+
 @property (nonatomic, nonnull) NSString * elementName;
 @property (nonatomic, nullable) NSString * namespaceURI;
 @property (nonatomic, nonnull) NSDictionary<NSString *, NSString *> * attributes;
@@ -83,8 +89,17 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
 @end
 @implementation MXElement
 
+- (instancetype) initWithContext:(id) context {
+    if (self = [super init]) {
+        self.livingParserContext = context;
+    }
+    return self;
+}
+
 - (NSString *) elementName {
     if (!_elementName) {
+        NSAssert(_livingParserContext,
+                 @"MXElement instances are invalid after the parent MXParser context has been deallocated.");
         if (_xmlLocalname) {
             self.elementName = [NSString stringWithUTF8String:(const char *)_xmlLocalname];
         } else {
@@ -96,6 +111,8 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
 
 - (NSString *) namespaceURI {
     if (!_namespaceURI && self.xmlNamespaceURI) {
+        NSAssert(_livingParserContext,
+                 @"MXElement instances are invalid after the parent MXParser context has been deallocated.");
         _namespaceURI = [NSString stringWithUTF8String:(const char *)self.xmlNamespaceURI];
     }
     return _namespaceURI;
@@ -113,6 +130,8 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
 
 - (NSDictionary<NSString *, NSString *> *) attributes {
     if (!_attributes) {
+        NSAssert(_livingParserContext,
+                 @"MXElement instances are invalid after the parent MXParser context has been deallocated.");
         [self buildAttributesDictionary];
     }
     return _attributes;
