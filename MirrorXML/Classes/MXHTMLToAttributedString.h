@@ -27,3 +27,4 @@
 - (NSMutableAttributedString *) convertHTMLString:(NSString *) html;
 
 @end
+

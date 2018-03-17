@@ -31,7 +31,7 @@ public extension Date {
 }
 
 public class SwiftTest : NSObject {
-    func test() {
+    @objc func test() {
         
         let ownerName = try! MXMatch(path: "/opml/head/ownerName")
         ownerName.exitHandler = { print($0.text ?? "")}
@@ -70,7 +70,7 @@ public class SwiftTest : NSObject {
         
     }
     
-    func attributedString() -> NSAttributedString {
+    @objc func attributedString() -> NSAttributedString {
         let html = try! String(contentsOf: Bundle.main.url(forResource: "markdownish", withExtension: "html")!)
         
         let parser = MXHTMLToAttributedString()
@@ -203,7 +203,7 @@ public class SwiftTest : NSObject {
             
         }
     }
-    func plistParser() {
+    @objc func plistParser() {
         
         var root: Any!
         

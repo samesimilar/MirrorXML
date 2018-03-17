@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 samesimilar. All rights reserved.
 //
 #import <libxml/tree.h>
+#import <libxml/parser.h>
 
 #import <MirrorXML/MXParser.h>
 #import <MirrorXML/MXMatchList.h>
