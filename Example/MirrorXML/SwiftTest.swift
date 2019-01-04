@@ -31,9 +31,49 @@ public extension Date {
 }
 
 public class SwiftTest : NSObject {
+    @objc func readWiki() {
+        
+//        var docs = [(String, String)]()
+        var numDocs = 0
+        
+        let doc = try! MXMatch(path: "/feed/doc")
+        doc.entryHandler = { (elm) in
+//            var titleString = ""
+//            var abstractString = ""
+            let title = try! MXMatch(path: "/title")
+            title.exitHandler = { (elm) in
+               
+            }
+//            let abstract = try! MXMatch(path: "/abstract")
+//            abstract.exitHandler = { (elm) in
+//                abstractString = elm.text ?? ""
+//            }
+//
+//            let done = MXMatch.onRootExit({ (elm) in
+////                docs.append((titleString, abstractString))
+//                numDocs += 1
+//            })
+//
+            return [title]
+
+        }
+        doc.exitHandler = { (elm) in
+            numDocs += 1
+        }
+        
+
+        let parser = MXParser(matches: [doc])
+        
+        let data = try! Data(contentsOf: Bundle.main.url(forResource: "enwiki-latest-abstract10", withExtension: "xml")!)
+        
+        parser.parseDataChunk(data)
+        parser.dataFinished()
+        print ("found \(numDocs) docs")
+        
+    }
     @objc func test() {
         
-        let ownerName = try! MXMatch(path: "/opml/head/ownerName")
+        let ownerName = try! MXMatch(path: "/opml/head/ns:ownerName", namespaces:["ns":"http://samesimilar.com/xml/test"])
         ownerName.exitHandler = { print($0.text ?? "")}
         
         let body = try! MXMatch(path: "//body")
@@ -50,14 +90,17 @@ public class SwiftTest : NSObject {
             }
             outline.exitHandler = { (elm) in
                 print(elm.attributes["description"] ?? "")
+                print("Lower Case Attribute: \(elm.lowercasedAttributes["xmlurl"] ?? "not found")")
             }
 
             return [outline]
         }
         
-        let urls = try! MXMatch(path: "//@xmlUrl")
+//        let urls = try! MXMatch(path: "//@xmlUrl")
+        //testns="http://samesimilar.com/xml/test"
+        let urls = try! MXMatch(path: "//@ns:xmlUrl", namespaces: ["ns":"http://samesimilar.com/xml/test"])
         urls.attributeHandler = { (elm) in
-            print("ATTRIBUTE: \(elm.attrValue!)")
+            print("ATTRIBUTE: \(elm.attrNamespace ?? "") \(elm.attrValue!)")
         }
         
         let parser = MXParser(matches: [ownerName, body, urls])

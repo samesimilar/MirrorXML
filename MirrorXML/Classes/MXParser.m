@@ -130,10 +130,11 @@ static void startElementSAX (void *ctx,
         for (NSInteger i = 0; i < nb_attributes; i++, index += 5)
         {
             //[localname/prefix/URI/value/en]
-            // TODO: should have separate entry in dict for each localname/URI *combination* (localnames may overlap within different URIs)
+
             if (attributes[index + 3] != 0)
             {
                 attrElement.xmlAttrName = attributes[index];
+                attrElement.xmlAttrNamespace = attributes[index + 2];
                 attrElement.xmlAttrValue = attributes[index + 3];
                 attrElement.xmlAttrValueLength = attributes[index + 4] - attributes[index + 3];
                 ctxSelf.handlerList =  [ctxSelf.handlerList enterElement:attrElement];

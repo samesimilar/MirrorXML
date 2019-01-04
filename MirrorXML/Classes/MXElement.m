@@ -10,9 +10,11 @@
 #import <libxml/tree.h>
 
 
-static NSDictionary * dictionaryForAttributes(int nb_attributes, const xmlChar ** attributes)
+static NSDictionary * namespacedDictionaryForAttributes(int nb_attributes, const xmlChar ** attributes)
 {
     NSMutableDictionary * result = [NSMutableDictionary new];
+    NSMutableDictionary * noNamespaceAttributes = [NSMutableDictionary new];
+    result[@""] = noNamespaceAttributes;
     NSInteger index = 0;
     for (NSInteger i = 0; i < nb_attributes; i++, index += 5)
     {
@@ -21,15 +23,29 @@ static NSDictionary * dictionaryForAttributes(int nb_attributes, const xmlChar *
         if (attributes[index + 3] != 0)
         {
             
-            NSString * key = [[NSString alloc] initWithUTF8String:(const char *)(attributes[index])];// lowercaseString];
+            NSString * localName = [[NSString alloc] initWithUTF8String:(const char *)(attributes[index])];// lowercaseString];
+            
+//            NSString * prefix = attributes[index + 1] != NULL ? [[NSString alloc] initWithUTF8String:(const char *)(attributes[index + 1])] : @"-";
+            
+            NSString * URI = attributes[index + 2] != NULL ? [[NSString alloc] initWithUTF8String:(const char *)(attributes[index + 2])] : nil;
+            
+//            NSLog(@"ATTRIBUTE INFO: prefix[%@], URI[%@]", prefix, URI);
             
             NSUInteger valueLength = attributes[index + 4] - attributes[index + 3];
             
             NSString * value = [[NSString alloc] initWithBytes:(const void *)(attributes[index + 3])
                                                         length: valueLength
                                                       encoding:NSUTF8StringEncoding];
-            
-            result[key] = value;
+            if (URI == nil) {
+                noNamespaceAttributes[localName] = value;
+            } else {
+                NSMutableDictionary * uriAttributes = result[URI];
+                if (uriAttributes == nil) {
+                    uriAttributes = [NSMutableDictionary new];
+                    result[URI] = uriAttributes;
+                }
+                uriAttributes[localName] = value;
+            }
             
         }
     }
@@ -82,7 +98,9 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
 
 @property (nonatomic, nonnull) NSString * elementName;
 @property (nonatomic, nullable) NSString * namespaceURI;
+@property (nonatomic, nonnull) NSDictionary<NSString *, NSDictionary<NSString *, NSString *> *> * namespacedAttributes;
 @property (nonatomic, nonnull) NSDictionary<NSString *, NSString *> * attributes;
+@property (nonatomic, nonnull) NSDictionary<NSString *, NSString *> * lowercasedAttributes;
 
 @property (nonatomic) NSMutableData * textData;
 @property (nonatomic) NSString * text;
@@ -120,12 +138,25 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
 
 - (void) buildAttributesDictionary {
     if (_xmlAttributes) {
-        _attributes = dictionaryForAttributes(_xmlNb_attributes, _xmlAttributes);
+        _namespacedAttributes = namespacedDictionaryForAttributes(_xmlNb_attributes, _xmlAttributes);
+        _attributes = _namespacedAttributes[@""];
     } else if (_htmlAttributes) {
         _attributes = dictionaryForHTMLAttributes(_htmlAttributes);
+        _namespacedAttributes = @{@"" : _attributes};
+        
     } else {
         _attributes = [NSDictionary new];
+        _namespacedAttributes = @{@"" : _attributes};
     }
+}
+
+- (NSDictionary<NSString *, NSDictionary<NSString *, NSString *> *> *) namespacedAttributes {
+    if (!_namespacedAttributes) {
+        NSAssert(_livingParserContext,
+                 @"MXElement instances are invalid after the parent MXParser context has been deallocated.");
+        [self buildAttributesDictionary];
+    }
+    return _namespacedAttributes;
 }
 
 - (NSDictionary<NSString *, NSString *> *) attributes {
@@ -135,6 +166,29 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
         [self buildAttributesDictionary];
     }
     return _attributes;
+}
+
+- (NSDictionary<NSString *, NSString *> *) lowercasedAttributesForNamespace:(nullable NSString *) namespace {
+    NSDictionary<NSString *, NSString*> * dictionaryToProcess;
+    if (namespace == nil) {
+        dictionaryToProcess = self.attributes;
+    } else {
+        dictionaryToProcess = self.namespacedAttributes[namespace];
+        if (!dictionaryToProcess) return [NSDictionary new];
+    }
+    
+    NSMutableDictionary<NSString *, NSString *> * result = [NSMutableDictionary new];
+    [dictionaryToProcess enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSString * _Nonnull obj, BOOL * _Nonnull stop) {
+        result[[key lowercaseString]] = obj;
+    }];
+    return result;
+}
+
+- (NSDictionary<NSString *, NSString *> *) lowercasedAttributes {
+    if (!_lowercasedAttributes) {
+        _lowercasedAttributes = [self lowercasedAttributesForNamespace:nil];
+    }
+    return _lowercasedAttributes;
 }
 
 - (void)appendCharacters:(const char *)charactersFound

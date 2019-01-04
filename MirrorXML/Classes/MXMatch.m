@@ -110,7 +110,7 @@
         if (elm.nodeType == MXElementNodeTypeElement) {
             match =  [_matchStream streamPushString:elm.xmlLocalname namespaceString:elm.xmlNamespaceURI];
         } else if (elm.nodeType == MXElementNodeTypeAttribute){
-            match = [_matchStream streamPushAttribute:((MXAttributeElement *)elm).xmlAttrName namespaceString:((MXAttributeElement *)elm).xmlNamespaceURI];
+            match = [_matchStream streamPushAttribute:((MXAttributeElement *)elm).xmlAttrName namespaceString:((MXAttributeElement *)elm).xmlAttrNamespace];
         } else {
             return newHandlers;
         }

@@ -26,7 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly, nullable) NSString * elementName;
 @property (nonatomic, readonly, nullable) NSString * namespaceURI;
+@property (nonatomic, readonly) NSDictionary<NSString *, NSDictionary<NSString *, NSString *> *> * namespacedAttributes;
 @property (nonatomic, readonly) NSDictionary<NSString *, NSString *> * attributes;
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> * lowercasedAttributes;
 @property (nonatomic ,readonly, nullable) NSString * text;
 @property (nonatomic, readonly, assign) MXElementNodeType nodeType;
 @property (nonatomic, readonly, nullable) MXElement *parent;

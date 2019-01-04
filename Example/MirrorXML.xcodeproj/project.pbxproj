@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0971737D6115A382876974ED /* Pods_MirrorXML_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F47C14D451228A4C0E0165 /* Pods_MirrorXML_Tests.framework */; };
+		4A037AF321DEF10A00490EB1 /* enwiki-latest-abstract10.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A037AF221DEF10A00490EB1 /* enwiki-latest-abstract10.xml */; };
 		4A2B2E8020368C5900A2DA47 /* subscriptionList.opml in Resources */ = {isa = PBXBuildFile; fileRef = 4A2B2E7F20368C5900A2DA47 /* subscriptionList.opml */; };
 		4A2B2E832036912900A2DA47 /* SwiftTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2B2E822036912900A2DA47 /* SwiftTest.swift */; };
 		4A3BCEA12045A96A00F0DB5E /* IMG_0176.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A3BCEA02045A96A00F0DB5E /* IMG_0176.jpg */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		0F7413B999B8CACAE99A2032 /* Pods-MirrorXML_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MirrorXML_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MirrorXML_Tests/Pods-MirrorXML_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		49F47C14D451228A4C0E0165 /* Pods_MirrorXML_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MirrorXML_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A037AF221DEF10A00490EB1 /* enwiki-latest-abstract10.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "enwiki-latest-abstract10.xml"; sourceTree = "<group>"; };
 		4A2B2E7F20368C5900A2DA47 /* subscriptionList.opml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = subscriptionList.opml; sourceTree = "<group>"; };
 		4A2B2E812036912900A2DA47 /* MirrorXML_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MirrorXML_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A2B2E822036912900A2DA47 /* SwiftTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTest.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 		6003F593195388D20070C39A /* Example for MirrorXML */ = {
 			isa = PBXGroup;
 			children = (
+				4A037AF221DEF10A00490EB1 /* enwiki-latest-abstract10.xml */,
 				4A2B2E7F20368C5900A2DA47 /* subscriptionList.opml */,
 				4ABAD42E2038BE0200F4F7BD /* markdownish.html */,
 				4ABAD4382038D31E00F4F7BD /* plist-example.xml */,
@@ -225,7 +228,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				0D0E7744F226282127D0CC37 /* [CP] Embed Pods Frameworks */,
-				2463C362F0885A20900B48B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,8 +246,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				8CA507221856D20507B70A5C /* [CP] Embed Pods Frameworks */,
-				26F13F49D055D7B7AA4EA8A3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -306,6 +306,7 @@
 				4A2B2E8020368C5900A2DA47 /* subscriptionList.opml in Resources */,
 				4ABAD42F2038BE0200F4F7BD /* markdownish.html in Resources */,
 				4A3BCEA12045A96A00F0DB5E /* IMG_0176.jpg in Resources */,
+				4A037AF321DEF10A00490EB1 /* enwiki-latest-abstract10.xml in Resources */,
 				4ABAD4392038D31E00F4F7BD /* plist-example.xml in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -340,36 +341,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MirrorXML_Example/Pods-MirrorXML_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2463C362F0885A20900B48B5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MirrorXML_Example/Pods-MirrorXML_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		26F13F49D055D7B7AA4EA8A3 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MirrorXML_Tests/Pods-MirrorXML_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		499DE78484C701023BF45215 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,21 +357,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8CA507221856D20507B70A5C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MirrorXML_Tests/Pods-MirrorXML_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E1AB77B69259A6473EE58960 /* [CP] Check Pods Manifest.lock */ = {

@@ -7,38 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00FD8B20BA2041F039A9CB5FA38C49E0 /* MXHTMLToAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 688C9F2F21C6BCD59773915338A3E091 /* MXHTMLToAttributedString.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0A6CE54D79AC7B9D976703F4C9B7A52A /* Pods-MirrorXML_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F98F4CDA4B20098B618207CC037DB /* Pods-MirrorXML_Tests-dummy.m */; };
-		0BC916C5CD4C3802D1372C0075BC26F7 /* MXTextElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 889D43F0A26940FB90EFFBAA3E8D2A80 /* MXTextElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		139AD6A230AB3A9B998D478E956E8D6B /* Pods-MirrorXML_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E2D3602A2641FD07D14DCD3BB5EA5319 /* Pods-MirrorXML_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		141375CE786DF109B61C30DE26B922F1 /* MXPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C98764200CC022D93A98E06F004286 /* MXPattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		22E70E8199F827560DF6BEF77B85913F /* MirrorXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 81B60727658758AACA1A5E980D38EA43 /* MirrorXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		346C437128BDCEC47C8A2DDCA13B4D4C /* MXMatchList.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEED94EFE0FBC495067655896145C68 /* MXMatchList.m */; };
-		388065B91B25DD3DD375A9AB2E467FBC /* MXPatternStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 89D77A56FE02EEA0837A139B7687A2C9 /* MXPatternStream.m */; };
-		52670001675D35F1CC7B62FEE515E880 /* MXPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = D2CF9103FD959C197550C0843255E951 /* MXPattern.m */; };
-		54FD636D07D4D6B1844C0A8EE23BBD9F /* MXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BEC16E68BAFD9C4656AE0B5F2D3003 /* MXParser.m */; };
-		640B8DCC353914180A41B55A7E8C73AB /* MXMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E767F50117C3C470D6295DE1C99106 /* MXMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		76115D879DCE3F2B9EE58974BB8BE7A0 /* MXHTMLToAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A50BBD15430A7341606A80C2354AC3 /* MXHTMLToAttributedString.m */; };
-		806EEF368165372B69C991CC31E35EF2 /* MXTextElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CFEEBB2A23ADB7E1380DE212F8FC33A /* MXTextElement.m */; };
-		80C37BB0F6FED282B65B1D95A969CF5B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		857A4A09D9D9618AFD80940A77A38215 /* MXHTMLToAttributedStringDelegateDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = CC7D209E8E3771195E48220C77E48D3C /* MXHTMLToAttributedStringDelegateDefault.m */; };
-		8CCE9E3BA2E94FCB0E14E7F9F27534F7 /* MirrorXML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6E324FD4E0DA40897BD47AE2FD8467 /* MirrorXML-dummy.m */; };
-		929867CDB80CF4700B1D9E8415D36168 /* MXMatchList.h in Headers */ = {isa = PBXBuildFile; fileRef = 74A8A5B1A69FB3BB41C07108D8FC8FC4 /* MXMatchList.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9AAC1D0EE1740678E4C561433579E589 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		A19B81A4BAFA70ABC98731313E3E44A6 /* MXHTMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 00E3442995CA468BC320EEDB95FDBC5C /* MXHTMLParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A7464357C49461EF856BCBB5E5649C48 /* MXElement.h in Headers */ = {isa = PBXBuildFile; fileRef = B73D642F193367B5272791BD1570AF28 /* MXElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A99D272D1795613598C010544CBB09DD /* MXElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4C0585E0D534CFB0F1DDBB7235D467 /* MXElement.m */; };
-		AB8E35CAB7D50C8060BA2C35CE5D81C2 /* MXHTMLToAttributedStringDelegateDefault.h in Headers */ = {isa = PBXBuildFile; fileRef = 485437578589CA5BB25FBEAD5FDBA7D9 /* MXHTMLToAttributedStringDelegateDefault.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AD66ED36BAE15A320830AF9220C50195 /* MXHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6C8715E99B1503FF91CBD7E9B4E00 /* MXHTMLParser.m */; };
-		ADCBAF50B14540571885C650A616C94E /* MXPatternStream.h in Headers */ = {isa = PBXBuildFile; fileRef = AEC1FA900C29A468F0F403662E4D5C0F /* MXPatternStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B2B0B91D0ACC0746D723ADAD179C057E /* MXMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F63C8D966B81BBFD2B12B9BB0A8FA1 /* MXMatch.m */; };
-		B353AEF717F2D6BD4A0A3A86C6357907 /* MXParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D26D6767922B6FA1FA51940847BE1D9 /* MXParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C17162770E72A5CA8213257AD1D55400 /* MirrorXML-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 807DBE7EC38D5FB70B65494420646D5A /* MirrorXML-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DE21E2DFE1B7961ABC499A69134AFD20 /* Pods-MirrorXML_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D89BB83C2C5AC0E18FC413792F58E50 /* Pods-MirrorXML_Example-dummy.m */; };
-		DE58D245D3487DBBB358CD1053500646 /* Pods-MirrorXML_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DCFE49F5A3F33E26EE5F0D670FD41265 /* Pods-MirrorXML_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECB456A198EF8602D454C55E8B1F0423 /* MXAttributeElement.m in Sources */ = {isa = PBXBuildFile; fileRef = F14E97F5C903A611696B0DC413CC2D0F /* MXAttributeElement.m */; };
-		F957CE63EE2524B7B8FCDE16292B64D7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		FBAD31DEA5A7936A83E58A0CDAD7EFDF /* MXAttributeElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 70E552EF41965307836AF1EA032C8309 /* MXAttributeElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		00FD8B20BA2041F039A9CB5FA38C49E0 /* MXHTMLToAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = A896101F1D2B3CCCC7D77D66C6AFA885 /* MXHTMLToAttributedString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0774165ECF9BB642F610B71EC7420FB8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		0BC916C5CD4C3802D1372C0075BC26F7 /* MXTextElement.h in Headers */ = {isa = PBXBuildFile; fileRef = C475974B7BEA00D9C444654620746974 /* MXTextElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		141375CE786DF109B61C30DE26B922F1 /* MXPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = 35AF341C4275B06D5BED9CA74B65BF80 /* MXPattern.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		22E70E8199F827560DF6BEF77B85913F /* MirrorXML.h in Headers */ = {isa = PBXBuildFile; fileRef = B741E3618F56EEB98CDC5A281D6B37B1 /* MirrorXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		346C437128BDCEC47C8A2DDCA13B4D4C /* MXMatchList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA619321B6AF41BD3526BD7DAC8EDC2 /* MXMatchList.m */; };
+		388065B91B25DD3DD375A9AB2E467FBC /* MXPatternStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 261813CA295ACB8ADDF34229937025F4 /* MXPatternStream.m */; };
+		4AEFCD6F8170BE92D8D830C7EC35C155 /* Pods-MirrorXML_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AF9C57C27CA46B32CCAEDDCAF30AD7 /* Pods-MirrorXML_Tests-dummy.m */; };
+		52670001675D35F1CC7B62FEE515E880 /* MXPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 933786E511B90CDDB96272A079B9F3F3 /* MXPattern.m */; };
+		54FD636D07D4D6B1844C0A8EE23BBD9F /* MXParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DF5CAC109A9BEC64B6A10AB344BAF7 /* MXParser.m */; };
+		640B8DCC353914180A41B55A7E8C73AB /* MXMatch.h in Headers */ = {isa = PBXBuildFile; fileRef = CDABE4FA672839B9DBC9DE9242180C69 /* MXMatch.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		76115D879DCE3F2B9EE58974BB8BE7A0 /* MXHTMLToAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB348822042BA37BDCFF9C23F52ECA9 /* MXHTMLToAttributedString.m */; };
+		806EEF368165372B69C991CC31E35EF2 /* MXTextElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F80A42E5E3AABEE557C587590552E4B /* MXTextElement.m */; };
+		857A4A09D9D9618AFD80940A77A38215 /* MXHTMLToAttributedStringDelegateDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = F32DF376FF4F476D55F69B28E894D4E5 /* MXHTMLToAttributedStringDelegateDefault.m */; };
+		8CCE9E3BA2E94FCB0E14E7F9F27534F7 /* MirrorXML-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6D57646EDC99DECE95BA75BF33D78B /* MirrorXML-dummy.m */; };
+		929867CDB80CF4700B1D9E8415D36168 /* MXMatchList.h in Headers */ = {isa = PBXBuildFile; fileRef = FF49F7B42A86D25B8215C9930E376A40 /* MXMatchList.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A19B81A4BAFA70ABC98731313E3E44A6 /* MXHTMLParser.h in Headers */ = {isa = PBXBuildFile; fileRef = BC1F2B85BEADBFD6B8781E8D7FF41782 /* MXHTMLParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A7464357C49461EF856BCBB5E5649C48 /* MXElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 176D4E43FA11D92ED91CAA271AA8DC3C /* MXElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A99D272D1795613598C010544CBB09DD /* MXElement.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB7BC9EE562C178ABCA662BFCB592A /* MXElement.m */; };
+		AB8E35CAB7D50C8060BA2C35CE5D81C2 /* MXHTMLToAttributedStringDelegateDefault.h in Headers */ = {isa = PBXBuildFile; fileRef = DAEC61931637E7E359EE95CF7BA57236 /* MXHTMLToAttributedStringDelegateDefault.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD66ED36BAE15A320830AF9220C50195 /* MXHTMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F168203AD4AC03AE580F3DD7EE6ED78 /* MXHTMLParser.m */; };
+		ADCBAF50B14540571885C650A616C94E /* MXPatternStream.h in Headers */ = {isa = PBXBuildFile; fileRef = 927374D45240B01461C9794236DB62E9 /* MXPatternStream.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B2B0B91D0ACC0746D723ADAD179C057E /* MXMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 101B9D394B40553624A7801557F930B3 /* MXMatch.m */; };
+		B353AEF717F2D6BD4A0A3A86C6357907 /* MXParser.h in Headers */ = {isa = PBXBuildFile; fileRef = AEEC1D9FC1C0FAAC408A92A7E65680CE /* MXParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BD5680E265011E8044A1B33788B13270 /* Pods-MirrorXML_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 84C2E9906AF98770224D52C06BC26C27 /* Pods-MirrorXML_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C17162770E72A5CA8213257AD1D55400 /* MirrorXML-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F30F7FA0D852DD68BC990E34FA43B1A /* MirrorXML-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CF6CDB48F474A84D3A794427862F141B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		D64CA10894A9F54DB70A2FF8C00930B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
+		DE21E2DFE1B7961ABC499A69134AFD20 /* Pods-MirrorXML_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9145D1BD643CA68232AE16141662426 /* Pods-MirrorXML_Example-dummy.m */; };
+		DE58D245D3487DBBB358CD1053500646 /* Pods-MirrorXML_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4FF29E0B8917B87ECDFA028262739461 /* Pods-MirrorXML_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		ECB456A198EF8602D454C55E8B1F0423 /* MXAttributeElement.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AD705B760CF646E98A563F1EA7C3C5 /* MXAttributeElement.m */; };
+		FBAD31DEA5A7936A83E58A0CDAD7EFDF /* MXAttributeElement.h in Headers */ = {isa = PBXBuildFile; fileRef = F6ECB158B938F23220EE4C9B0B061F1F /* MXAttributeElement.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,79 +49,81 @@
 			remoteGlobalIDString = 026AB8178A75710E3F2F02920AF86913;
 			remoteInfo = MirrorXML;
 		};
+		77CCBBC64BD29759AA8B2298C70147F8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A54D66F7AE381E2226527CC2EDC476BC;
+			remoteInfo = "Pods-MirrorXML_Example";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E3442995CA468BC320EEDB95FDBC5C /* MXHTMLParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXHTMLParser.h; path = MirrorXML/Classes/MXHTMLParser.h; sourceTree = "<group>"; };
-		04F3859C079A4103B56D74A10E51B9E2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05F63C8D966B81BBFD2B12B9BB0A8FA1 /* MXMatch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMatch.m; path = MirrorXML/Classes/MXMatch.m; sourceTree = "<group>"; };
-		1D9F98F4CDA4B20098B618207CC037DB /* Pods-MirrorXML_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MirrorXML_Tests-dummy.m"; sourceTree = "<group>"; };
+		101B9D394B40553624A7801557F930B3 /* MXMatch.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMatch.m; path = MirrorXML/Classes/MXMatch.m; sourceTree = "<group>"; };
+		176D4E43FA11D92ED91CAA271AA8DC3C /* MXElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXElement.h; path = MirrorXML/Classes/MXElement.h; sourceTree = "<group>"; };
+		17ED21194797C9F3E9E51B6EA9D15EDB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		1EA619321B6AF41BD3526BD7DAC8EDC2 /* MXMatchList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMatchList.m; path = MirrorXML/Classes/MXMatchList.m; sourceTree = "<group>"; };
+		1F80A42E5E3AABEE557C587590552E4B /* MXTextElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXTextElement.m; path = MirrorXML/Classes/MXTextElement.m; sourceTree = "<group>"; };
 		23576148EA7A2BF1B6867577F0B8C600 /* Pods_MirrorXML_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MirrorXML_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2AA5A7FFF7B806EADE875308227B1FD3 /* Pods-MirrorXML_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MirrorXML_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		2D26D6767922B6FA1FA51940847BE1D9 /* MXParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXParser.h; path = MirrorXML/Classes/MXParser.h; sourceTree = "<group>"; };
-		3459500AD527F497C5A3B68E85E7BEA6 /* Pods-MirrorXML_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MirrorXML_Example.modulemap"; sourceTree = "<group>"; };
+		25AF9C57C27CA46B32CCAEDDCAF30AD7 /* Pods-MirrorXML_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MirrorXML_Tests-dummy.m"; sourceTree = "<group>"; };
+		261813CA295ACB8ADDF34229937025F4 /* MXPatternStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXPatternStream.m; path = MirrorXML/Classes/MXPatternStream.m; sourceTree = "<group>"; };
+		2D693CC4BEE319C01D23232345241CE9 /* MirrorXML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MirrorXML-prefix.pch"; sourceTree = "<group>"; };
+		322556BC1FF9D0210BDA26EA7566A4DF /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35AF341C4275B06D5BED9CA74B65BF80 /* MXPattern.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPattern.h; path = MirrorXML/Classes/MXPattern.h; sourceTree = "<group>"; };
 		399FD19B82E2B6FA1F75B6A736C3C5D0 /* Pods_MirrorXML_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MirrorXML_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		485437578589CA5BB25FBEAD5FDBA7D9 /* MXHTMLToAttributedStringDelegateDefault.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXHTMLToAttributedStringDelegateDefault.h; path = MirrorXML/Classes/MXHTMLToAttributedStringDelegateDefault.h; sourceTree = "<group>"; };
-		4C6E324FD4E0DA40897BD47AE2FD8467 /* MirrorXML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MirrorXML-dummy.m"; sourceTree = "<group>"; };
-		4FFACABC295425A5E7260CFDC46C0683 /* Pods-MirrorXML_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MirrorXML_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		5093B2D1640B4F9FD744F89819168F2D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		558B92B694B7A8D800554BC1866F6514 /* Pods-MirrorXML_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-MirrorXML_Tests.modulemap"; sourceTree = "<group>"; };
-		5BB06F82ACFCEE26D2765089A94D5E12 /* MirrorXML.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MirrorXML.modulemap; sourceTree = "<group>"; };
-		5C4C0585E0D534CFB0F1DDBB7235D467 /* MXElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXElement.m; path = MirrorXML/Classes/MXElement.m; sourceTree = "<group>"; };
-		5D89BB83C2C5AC0E18FC413792F58E50 /* Pods-MirrorXML_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MirrorXML_Example-dummy.m"; sourceTree = "<group>"; };
-		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		66BEC16E68BAFD9C4656AE0B5F2D3003 /* MXParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXParser.m; path = MirrorXML/Classes/MXParser.m; sourceTree = "<group>"; };
-		688C9F2F21C6BCD59773915338A3E091 /* MXHTMLToAttributedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXHTMLToAttributedString.h; path = MirrorXML/Classes/MXHTMLToAttributedString.h; sourceTree = "<group>"; };
-		70E552EF41965307836AF1EA032C8309 /* MXAttributeElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXAttributeElement.h; path = MirrorXML/Classes/MXAttributeElement.h; sourceTree = "<group>"; };
-		74A8A5B1A69FB3BB41C07108D8FC8FC4 /* MXMatchList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMatchList.h; path = MirrorXML/Classes/MXMatchList.h; sourceTree = "<group>"; };
-		76C6C8715E99B1503FF91CBD7E9B4E00 /* MXHTMLParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXHTMLParser.m; path = MirrorXML/Classes/MXHTMLParser.m; sourceTree = "<group>"; };
-		807DBE7EC38D5FB70B65494420646D5A /* MirrorXML-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MirrorXML-umbrella.h"; sourceTree = "<group>"; };
-		81B60727658758AACA1A5E980D38EA43 /* MirrorXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MirrorXML.h; path = MirrorXML/Classes/MirrorXML.h; sourceTree = "<group>"; };
-		82291135A5DB3316CAE91A47B532A31D /* MirrorXML-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MirrorXML-prefix.pch"; sourceTree = "<group>"; };
-		86A50BBD15430A7341606A80C2354AC3 /* MXHTMLToAttributedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXHTMLToAttributedString.m; path = MirrorXML/Classes/MXHTMLToAttributedString.m; sourceTree = "<group>"; };
-		875CFE1629457334A5FF148F1970CB21 /* Pods-MirrorXML_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MirrorXML_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		889D43F0A26940FB90EFFBAA3E8D2A80 /* MXTextElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXTextElement.h; path = MirrorXML/Classes/MXTextElement.h; sourceTree = "<group>"; };
-		89D77A56FE02EEA0837A139B7687A2C9 /* MXPatternStream.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXPatternStream.m; path = MirrorXML/Classes/MXPatternStream.m; sourceTree = "<group>"; };
-		8CFEEBB2A23ADB7E1380DE212F8FC33A /* MXTextElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXTextElement.m; path = MirrorXML/Classes/MXTextElement.m; sourceTree = "<group>"; };
-		8D58B33C95BCA44508ABD047667FE5E8 /* Pods-MirrorXML_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MirrorXML_Example-frameworks.sh"; sourceTree = "<group>"; };
-		8E4FDB5E1A61F94EE8C28497C214B419 /* Pods-MirrorXML_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MirrorXML_Example-resources.sh"; sourceTree = "<group>"; };
-		90016880376E28C81CDA54EE55FBFE3D /* Pods-MirrorXML_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MirrorXML_Example.release.xcconfig"; sourceTree = "<group>"; };
+		3C90E95DD602EA527FFD11349D63061C /* Pods-MirrorXML_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MirrorXML_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		4FF29E0B8917B87ECDFA028262739461 /* Pods-MirrorXML_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MirrorXML_Example-umbrella.h"; sourceTree = "<group>"; };
+		595F5856B53A07A922A7FF0AE56061DA /* Pods-MirrorXML_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MirrorXML_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5AEB07E8353FB8CB9F9BAF61D8ACD43B /* Pods-MirrorXML_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MirrorXML_Example-frameworks.sh"; sourceTree = "<group>"; };
+		5F69E614372222DA47189BB476D7DCF7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C4B65EAF9F7773D9391949DA8800605 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6EE24CE1070C19D60E9979F6D977A0B0 /* Pods-MirrorXML_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MirrorXML_Example.release.xcconfig"; sourceTree = "<group>"; };
+		7223C0BEF2504E191B1583387AB89BCA /* Pods-MirrorXML_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MirrorXML_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		7F30F7FA0D852DD68BC990E34FA43B1A /* MirrorXML-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MirrorXML-umbrella.h"; sourceTree = "<group>"; };
+		822183C9DB279D013BF7B04978D1EA6D /* Pods-MirrorXML_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MirrorXML_Tests-resources.sh"; sourceTree = "<group>"; };
+		842DE35F567CEDF8CA03C3AB6F0134FB /* Pods-MirrorXML_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MirrorXML_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		84C2E9906AF98770224D52C06BC26C27 /* Pods-MirrorXML_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MirrorXML_Tests-umbrella.h"; sourceTree = "<group>"; };
+		8C6D57646EDC99DECE95BA75BF33D78B /* MirrorXML-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MirrorXML-dummy.m"; sourceTree = "<group>"; };
+		927374D45240B01461C9794236DB62E9 /* MXPatternStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPatternStream.h; path = MirrorXML/Classes/MXPatternStream.h; sourceTree = "<group>"; };
+		933786E511B90CDDB96272A079B9F3F3 /* MXPattern.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXPattern.m; path = MirrorXML/Classes/MXPattern.m; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		93E767F50117C3C470D6295DE1C99106 /* MXMatch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMatch.h; path = MirrorXML/Classes/MXMatch.h; sourceTree = "<group>"; };
-		952401464297C928A632ED72B9D44C44 /* Pods-MirrorXML_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MirrorXML_Tests-resources.sh"; sourceTree = "<group>"; };
-		AEC1FA900C29A468F0F403662E4D5C0F /* MXPatternStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPatternStream.h; path = MirrorXML/Classes/MXPatternStream.h; sourceTree = "<group>"; };
-		B1C5AD9B0284EFC6E8C693E369A63A02 /* MirrorXML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MirrorXML.xcconfig; sourceTree = "<group>"; };
-		B73D642F193367B5272791BD1570AF28 /* MXElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXElement.h; path = MirrorXML/Classes/MXElement.h; sourceTree = "<group>"; };
-		CC7D209E8E3771195E48220C77E48D3C /* MXHTMLToAttributedStringDelegateDefault.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXHTMLToAttributedStringDelegateDefault.m; path = MirrorXML/Classes/MXHTMLToAttributedStringDelegateDefault.m; sourceTree = "<group>"; };
-		CCEED94EFE0FBC495067655896145C68 /* MXMatchList.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXMatchList.m; path = MirrorXML/Classes/MXMatchList.m; sourceTree = "<group>"; };
-		D2CF9103FD959C197550C0843255E951 /* MXPattern.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXPattern.m; path = MirrorXML/Classes/MXPattern.m; sourceTree = "<group>"; };
-		D32C0C7DDDF0973DEF9062DB117732D7 /* Pods-MirrorXML_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MirrorXML_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D62F1CF2AF3C33C89EC93ECEF709CC84 /* Pods-MirrorXML_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MirrorXML_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		D85224AAF28B459516A650B3F2892614 /* Pods-MirrorXML_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MirrorXML_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		DCFE49F5A3F33E26EE5F0D670FD41265 /* Pods-MirrorXML_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MirrorXML_Example-umbrella.h"; sourceTree = "<group>"; };
-		E2D3602A2641FD07D14DCD3BB5EA5319 /* Pods-MirrorXML_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MirrorXML_Tests-umbrella.h"; sourceTree = "<group>"; };
-		E42D0C3D2F17F7F7BFFF242B66476617 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E4C98764200CC022D93A98E06F004286 /* MXPattern.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXPattern.h; path = MirrorXML/Classes/MXPattern.h; sourceTree = "<group>"; };
-		F14E97F5C903A611696B0DC413CC2D0F /* MXAttributeElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXAttributeElement.m; path = MirrorXML/Classes/MXAttributeElement.m; sourceTree = "<group>"; };
-		F3D1BCFD150263ABB934EB07A39C1713 /* Pods-MirrorXML_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MirrorXML_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		F6E4918AEEDA48C48D6C7F04E2A5FD3A /* Pods-MirrorXML_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MirrorXML_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		93C73F0DEE01A02189BBC710E170FF68 /* Pods-MirrorXML_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MirrorXML_Tests.modulemap"; sourceTree = "<group>"; };
+		94FA97D11B5BCEC390EA1F5B7F410AED /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		97DF5CAC109A9BEC64B6A10AB344BAF7 /* MXParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXParser.m; path = MirrorXML/Classes/MXParser.m; sourceTree = "<group>"; };
+		9F168203AD4AC03AE580F3DD7EE6ED78 /* MXHTMLParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXHTMLParser.m; path = MirrorXML/Classes/MXHTMLParser.m; sourceTree = "<group>"; };
+		A41474AE562561EE12221DE5DBD384C5 /* Pods-MirrorXML_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MirrorXML_Example-resources.sh"; sourceTree = "<group>"; };
+		A7E262818C828B94DBCAD41F6292DAF6 /* Pods-MirrorXML_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MirrorXML_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A896101F1D2B3CCCC7D77D66C6AFA885 /* MXHTMLToAttributedString.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXHTMLToAttributedString.h; path = MirrorXML/Classes/MXHTMLToAttributedString.h; sourceTree = "<group>"; };
+		AEEC1D9FC1C0FAAC408A92A7E65680CE /* MXParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXParser.h; path = MirrorXML/Classes/MXParser.h; sourceTree = "<group>"; };
+		B2037642962713B087A03A44DAAD7533 /* Pods-MirrorXML_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MirrorXML_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		B4F7B6472794980954F9C397E158E0E0 /* Pods-MirrorXML_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MirrorXML_Example.modulemap"; sourceTree = "<group>"; };
+		B741E3618F56EEB98CDC5A281D6B37B1 /* MirrorXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MirrorXML.h; path = MirrorXML/Classes/MirrorXML.h; sourceTree = "<group>"; };
+		BC1F2B85BEADBFD6B8781E8D7FF41782 /* MXHTMLParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXHTMLParser.h; path = MirrorXML/Classes/MXHTMLParser.h; sourceTree = "<group>"; };
+		BD94004EF9F6A78ECB0934294A646D84 /* Pods-MirrorXML_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MirrorXML_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C475974B7BEA00D9C444654620746974 /* MXTextElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXTextElement.h; path = MirrorXML/Classes/MXTextElement.h; sourceTree = "<group>"; };
+		C9145D1BD643CA68232AE16141662426 /* Pods-MirrorXML_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MirrorXML_Example-dummy.m"; sourceTree = "<group>"; };
+		CDABE4FA672839B9DBC9DE9242180C69 /* MXMatch.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMatch.h; path = MirrorXML/Classes/MXMatch.h; sourceTree = "<group>"; };
+		CFE7147FB2A6598F7C06F5064671B968 /* MirrorXML.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = MirrorXML.modulemap; sourceTree = "<group>"; };
+		D8DB7BC9EE562C178ABCA662BFCB592A /* MXElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXElement.m; path = MirrorXML/Classes/MXElement.m; sourceTree = "<group>"; };
+		DAEC61931637E7E359EE95CF7BA57236 /* MXHTMLToAttributedStringDelegateDefault.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXHTMLToAttributedStringDelegateDefault.h; path = MirrorXML/Classes/MXHTMLToAttributedStringDelegateDefault.h; sourceTree = "<group>"; };
+		DDB348822042BA37BDCFF9C23F52ECA9 /* MXHTMLToAttributedString.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXHTMLToAttributedString.m; path = MirrorXML/Classes/MXHTMLToAttributedString.m; sourceTree = "<group>"; };
+		E571FFE42DD398B898887C9CFE85ECD7 /* MirrorXML.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MirrorXML.xcconfig; sourceTree = "<group>"; };
+		E8AD705B760CF646E98A563F1EA7C3C5 /* MXAttributeElement.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXAttributeElement.m; path = MirrorXML/Classes/MXAttributeElement.m; sourceTree = "<group>"; };
+		EBDF80701D4048B6424B1F5F731806DD /* Pods-MirrorXML_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MirrorXML_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F32DF376FF4F476D55F69B28E894D4E5 /* MXHTMLToAttributedStringDelegateDefault.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MXHTMLToAttributedStringDelegateDefault.m; path = MirrorXML/Classes/MXHTMLToAttributedStringDelegateDefault.m; sourceTree = "<group>"; };
+		F6ECB158B938F23220EE4C9B0B061F1F /* MXAttributeElement.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXAttributeElement.h; path = MirrorXML/Classes/MXAttributeElement.h; sourceTree = "<group>"; };
 		F7BEF29B6DB33EDC9ABA2D78072F80F5 /* MirrorXML.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MirrorXML.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF49F7B42A86D25B8215C9930E376A40 /* MXMatchList.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MXMatchList.h; path = MirrorXML/Classes/MXMatchList.h; sourceTree = "<group>"; };
+		FFA21284627AB3C8E16ADCE1E52397E5 /* MirrorXML.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = MirrorXML.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0E3FA3F1918EA79872ECCF1478F32A12 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F957CE63EE2524B7B8FCDE16292B64D7 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		1123C4B8BCA491B89CE8D599874F40E6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AAC1D0EE1740678E4C561433579E589 /* Foundation.framework in Frameworks */,
+				0774165ECF9BB642F610B71EC7420FB8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,39 +131,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80C37BB0F6FED282B65B1D95A969CF5B /* Foundation.framework in Frameworks */,
+				CF6CDB48F474A84D3A794427862F141B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3855F7C2D5B78D9D18600BC3A08B2EE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D64CA10894A9F54DB70A2FF8C00930B4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		06619942B2597D87EC3CDF6A4C064B52 /* Pods-MirrorXML_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				04F3859C079A4103B56D74A10E51B9E2 /* Info.plist */,
-				558B92B694B7A8D800554BC1866F6514 /* Pods-MirrorXML_Tests.modulemap */,
-				D85224AAF28B459516A650B3F2892614 /* Pods-MirrorXML_Tests-acknowledgements.markdown */,
-				4FFACABC295425A5E7260CFDC46C0683 /* Pods-MirrorXML_Tests-acknowledgements.plist */,
-				1D9F98F4CDA4B20098B618207CC037DB /* Pods-MirrorXML_Tests-dummy.m */,
-				F3D1BCFD150263ABB934EB07A39C1713 /* Pods-MirrorXML_Tests-frameworks.sh */,
-				952401464297C928A632ED72B9D44C44 /* Pods-MirrorXML_Tests-resources.sh */,
-				E2D3602A2641FD07D14DCD3BB5EA5319 /* Pods-MirrorXML_Tests-umbrella.h */,
-				2AA5A7FFF7B806EADE875308227B1FD3 /* Pods-MirrorXML_Tests.debug.xcconfig */,
-				D62F1CF2AF3C33C89EC93ECEF709CC84 /* Pods-MirrorXML_Tests.release.xcconfig */,
-			);
-			name = "Pods-MirrorXML_Tests";
-			path = "Target Support Files/Pods-MirrorXML_Tests";
-			sourceTree = "<group>";
-		};
-		245D6057826867FF80D6CE1A4FBF6B24 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E5617506A8BB8057A929312BE6FDF557 /* MirrorXML */,
-			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
 		2E1387D855EE95FEEDCD775CD8B8F6C1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,54 +156,107 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		66DF742FAB235A3DA8225C9DFE447E3F /* Pods-MirrorXML_Example */ = {
+		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				E42D0C3D2F17F7F7BFFF242B66476617 /* Info.plist */,
-				3459500AD527F497C5A3B68E85E7BEA6 /* Pods-MirrorXML_Example.modulemap */,
-				D32C0C7DDDF0973DEF9062DB117732D7 /* Pods-MirrorXML_Example-acknowledgements.markdown */,
-				F6E4918AEEDA48C48D6C7F04E2A5FD3A /* Pods-MirrorXML_Example-acknowledgements.plist */,
-				5D89BB83C2C5AC0E18FC413792F58E50 /* Pods-MirrorXML_Example-dummy.m */,
-				8D58B33C95BCA44508ABD047667FE5E8 /* Pods-MirrorXML_Example-frameworks.sh */,
-				8E4FDB5E1A61F94EE8C28497C214B419 /* Pods-MirrorXML_Example-resources.sh */,
-				DCFE49F5A3F33E26EE5F0D670FD41265 /* Pods-MirrorXML_Example-umbrella.h */,
-				875CFE1629457334A5FF148F1970CB21 /* Pods-MirrorXML_Example.debug.xcconfig */,
-				90016880376E28C81CDA54EE55FBFE3D /* Pods-MirrorXML_Example.release.xcconfig */,
+				5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */,
 			);
-			name = "Pods-MirrorXML_Example";
-			path = "Target Support Files/Pods-MirrorXML_Example";
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		6E12B0A00AB03096A563E767EDDD45D4 /* Pods-MirrorXML_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				322556BC1FF9D0210BDA26EA7566A4DF /* Info.plist */,
+				93C73F0DEE01A02189BBC710E170FF68 /* Pods-MirrorXML_Tests.modulemap */,
+				BD94004EF9F6A78ECB0934294A646D84 /* Pods-MirrorXML_Tests-acknowledgements.markdown */,
+				7223C0BEF2504E191B1583387AB89BCA /* Pods-MirrorXML_Tests-acknowledgements.plist */,
+				25AF9C57C27CA46B32CCAEDDCAF30AD7 /* Pods-MirrorXML_Tests-dummy.m */,
+				3C90E95DD602EA527FFD11349D63061C /* Pods-MirrorXML_Tests-frameworks.sh */,
+				822183C9DB279D013BF7B04978D1EA6D /* Pods-MirrorXML_Tests-resources.sh */,
+				84C2E9906AF98770224D52C06BC26C27 /* Pods-MirrorXML_Tests-umbrella.h */,
+				595F5856B53A07A922A7FF0AE56061DA /* Pods-MirrorXML_Tests.debug.xcconfig */,
+				842DE35F567CEDF8CA03C3AB6F0134FB /* Pods-MirrorXML_Tests.release.xcconfig */,
+			);
+			name = "Pods-MirrorXML_Tests";
+			path = "Target Support Files/Pods-MirrorXML_Tests";
+			sourceTree = "<group>";
+		};
+		729D8C7F4D5847477F839F0EF6BF0618 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				73BFDBCE410734748B5DA5EE7449C1DC /* MirrorXML */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		73BFDBCE410734748B5DA5EE7449C1DC /* MirrorXML */ = {
+			isa = PBXGroup;
+			children = (
+				B741E3618F56EEB98CDC5A281D6B37B1 /* MirrorXML.h */,
+				F6ECB158B938F23220EE4C9B0B061F1F /* MXAttributeElement.h */,
+				E8AD705B760CF646E98A563F1EA7C3C5 /* MXAttributeElement.m */,
+				176D4E43FA11D92ED91CAA271AA8DC3C /* MXElement.h */,
+				D8DB7BC9EE562C178ABCA662BFCB592A /* MXElement.m */,
+				BC1F2B85BEADBFD6B8781E8D7FF41782 /* MXHTMLParser.h */,
+				9F168203AD4AC03AE580F3DD7EE6ED78 /* MXHTMLParser.m */,
+				A896101F1D2B3CCCC7D77D66C6AFA885 /* MXHTMLToAttributedString.h */,
+				DDB348822042BA37BDCFF9C23F52ECA9 /* MXHTMLToAttributedString.m */,
+				DAEC61931637E7E359EE95CF7BA57236 /* MXHTMLToAttributedStringDelegateDefault.h */,
+				F32DF376FF4F476D55F69B28E894D4E5 /* MXHTMLToAttributedStringDelegateDefault.m */,
+				CDABE4FA672839B9DBC9DE9242180C69 /* MXMatch.h */,
+				101B9D394B40553624A7801557F930B3 /* MXMatch.m */,
+				FF49F7B42A86D25B8215C9930E376A40 /* MXMatchList.h */,
+				1EA619321B6AF41BD3526BD7DAC8EDC2 /* MXMatchList.m */,
+				AEEC1D9FC1C0FAAC408A92A7E65680CE /* MXParser.h */,
+				97DF5CAC109A9BEC64B6A10AB344BAF7 /* MXParser.m */,
+				35AF341C4275B06D5BED9CA74B65BF80 /* MXPattern.h */,
+				933786E511B90CDDB96272A079B9F3F3 /* MXPattern.m */,
+				927374D45240B01461C9794236DB62E9 /* MXPatternStream.h */,
+				261813CA295ACB8ADDF34229937025F4 /* MXPatternStream.m */,
+				C475974B7BEA00D9C444654620746974 /* MXTextElement.h */,
+				1F80A42E5E3AABEE557C587590552E4B /* MXTextElement.m */,
+				F6680376A5A7F91D11F3864264E253FC /* Pod */,
+				E565887A35F52F533BEFB9BD4BA5F3AD /* Support Files */,
+			);
+			name = MirrorXML;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				245D6057826867FF80D6CE1A4FBF6B24 /* Development Pods */,
+				729D8C7F4D5847477F839F0EF6BF0618 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				2E1387D855EE95FEEDCD775CD8B8F6C1 /* Products */,
 				AAADAA7C67C77D67DAF1F92C4BC88133 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		87C831E07F190C00D62EF67C86AAF9CD /* Support Files */ = {
+		839D100A13110F3D3348BD39457105AD /* Pods-MirrorXML_Example */ = {
 			isa = PBXGroup;
 			children = (
-				5093B2D1640B4F9FD744F89819168F2D /* Info.plist */,
-				5BB06F82ACFCEE26D2765089A94D5E12 /* MirrorXML.modulemap */,
-				B1C5AD9B0284EFC6E8C693E369A63A02 /* MirrorXML.xcconfig */,
-				4C6E324FD4E0DA40897BD47AE2FD8467 /* MirrorXML-dummy.m */,
-				82291135A5DB3316CAE91A47B532A31D /* MirrorXML-prefix.pch */,
-				807DBE7EC38D5FB70B65494420646D5A /* MirrorXML-umbrella.h */,
+				5F69E614372222DA47189BB476D7DCF7 /* Info.plist */,
+				B4F7B6472794980954F9C397E158E0E0 /* Pods-MirrorXML_Example.modulemap */,
+				EBDF80701D4048B6424B1F5F731806DD /* Pods-MirrorXML_Example-acknowledgements.markdown */,
+				B2037642962713B087A03A44DAAD7533 /* Pods-MirrorXML_Example-acknowledgements.plist */,
+				C9145D1BD643CA68232AE16141662426 /* Pods-MirrorXML_Example-dummy.m */,
+				5AEB07E8353FB8CB9F9BAF61D8ACD43B /* Pods-MirrorXML_Example-frameworks.sh */,
+				A41474AE562561EE12221DE5DBD384C5 /* Pods-MirrorXML_Example-resources.sh */,
+				4FF29E0B8917B87ECDFA028262739461 /* Pods-MirrorXML_Example-umbrella.h */,
+				A7E262818C828B94DBCAD41F6292DAF6 /* Pods-MirrorXML_Example.debug.xcconfig */,
+				6EE24CE1070C19D60E9979F6D977A0B0 /* Pods-MirrorXML_Example.release.xcconfig */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/MirrorXML";
+			name = "Pods-MirrorXML_Example";
+			path = "Target Support Files/Pods-MirrorXML_Example";
 			sourceTree = "<group>";
 		};
 		AAADAA7C67C77D67DAF1F92C4BC88133 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				66DF742FAB235A3DA8225C9DFE447E3F /* Pods-MirrorXML_Example */,
-				06619942B2597D87EC3CDF6A4C064B52 /* Pods-MirrorXML_Tests */,
+				839D100A13110F3D3348BD39457105AD /* Pods-MirrorXML_Example */,
+				6E12B0A00AB03096A563E767EDDD45D4 /* Pods-MirrorXML_Tests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -227,49 +264,33 @@
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
+				5E0D919E635D23B70123790B8308F8EF /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
+		E565887A35F52F533BEFB9BD4BA5F3AD /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */,
+				6C4B65EAF9F7773D9391949DA8800605 /* Info.plist */,
+				CFE7147FB2A6598F7C06F5064671B968 /* MirrorXML.modulemap */,
+				E571FFE42DD398B898887C9CFE85ECD7 /* MirrorXML.xcconfig */,
+				8C6D57646EDC99DECE95BA75BF33D78B /* MirrorXML-dummy.m */,
+				2D693CC4BEE319C01D23232345241CE9 /* MirrorXML-prefix.pch */,
+				7F30F7FA0D852DD68BC990E34FA43B1A /* MirrorXML-umbrella.h */,
 			);
-			name = iOS;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/MirrorXML";
 			sourceTree = "<group>";
 		};
-		E5617506A8BB8057A929312BE6FDF557 /* MirrorXML */ = {
+		F6680376A5A7F91D11F3864264E253FC /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				81B60727658758AACA1A5E980D38EA43 /* MirrorXML.h */,
-				70E552EF41965307836AF1EA032C8309 /* MXAttributeElement.h */,
-				F14E97F5C903A611696B0DC413CC2D0F /* MXAttributeElement.m */,
-				B73D642F193367B5272791BD1570AF28 /* MXElement.h */,
-				5C4C0585E0D534CFB0F1DDBB7235D467 /* MXElement.m */,
-				00E3442995CA468BC320EEDB95FDBC5C /* MXHTMLParser.h */,
-				76C6C8715E99B1503FF91CBD7E9B4E00 /* MXHTMLParser.m */,
-				688C9F2F21C6BCD59773915338A3E091 /* MXHTMLToAttributedString.h */,
-				86A50BBD15430A7341606A80C2354AC3 /* MXHTMLToAttributedString.m */,
-				485437578589CA5BB25FBEAD5FDBA7D9 /* MXHTMLToAttributedStringDelegateDefault.h */,
-				CC7D209E8E3771195E48220C77E48D3C /* MXHTMLToAttributedStringDelegateDefault.m */,
-				93E767F50117C3C470D6295DE1C99106 /* MXMatch.h */,
-				05F63C8D966B81BBFD2B12B9BB0A8FA1 /* MXMatch.m */,
-				74A8A5B1A69FB3BB41C07108D8FC8FC4 /* MXMatchList.h */,
-				CCEED94EFE0FBC495067655896145C68 /* MXMatchList.m */,
-				2D26D6767922B6FA1FA51940847BE1D9 /* MXParser.h */,
-				66BEC16E68BAFD9C4656AE0B5F2D3003 /* MXParser.m */,
-				E4C98764200CC022D93A98E06F004286 /* MXPattern.h */,
-				D2CF9103FD959C197550C0843255E951 /* MXPattern.m */,
-				AEC1FA900C29A468F0F403662E4D5C0F /* MXPatternStream.h */,
-				89D77A56FE02EEA0837A139B7687A2C9 /* MXPatternStream.m */,
-				889D43F0A26940FB90EFFBAA3E8D2A80 /* MXTextElement.h */,
-				8CFEEBB2A23ADB7E1380DE212F8FC33A /* MXTextElement.m */,
-				87C831E07F190C00D62EF67C86AAF9CD /* Support Files */,
+				17ED21194797C9F3E9E51B6EA9D15EDB /* LICENSE */,
+				FFA21284627AB3C8E16ADCE1E52397E5 /* MirrorXML.podspec */,
+				94FA97D11B5BCEC390EA1F5B7F410AED /* README.md */,
 			);
-			name = MirrorXML;
-			path = ../..;
+			name = Pod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,11 +316,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DC19DD84C74997338B1DD48347378A50 /* Headers */ = {
+		E3A11C78CFF37295A41A19D980CA99F2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				139AD6A230AB3A9B998D478E956E8D6B /* Pods-MirrorXML_Tests-umbrella.h in Headers */,
+				BD5680E265011E8044A1B33788B13270 /* Pods-MirrorXML_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,17 +352,18 @@
 			productReference = F7BEF29B6DB33EDC9ABA2D78072F80F5 /* MirrorXML.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		8FB8B1AE41F17BE4DE741021433E824F /* Pods-MirrorXML_Tests */ = {
+		942AB0638957D16BB78524B502AE6313 /* Pods-MirrorXML_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD9AC9EF5F9EFF4D341638193CF2C585 /* Build configuration list for PBXNativeTarget "Pods-MirrorXML_Tests" */;
+			buildConfigurationList = 108F34D09D9CAC4BC71859869A418217 /* Build configuration list for PBXNativeTarget "Pods-MirrorXML_Tests" */;
 			buildPhases = (
-				BB0A6E59A62963699FFE6EC51B2BDF62 /* Sources */,
-				0E3FA3F1918EA79872ECCF1478F32A12 /* Frameworks */,
-				DC19DD84C74997338B1DD48347378A50 /* Headers */,
+				BD97DEB9D55A130E2EEF8F0DAC4E6083 /* Sources */,
+				A3855F7C2D5B78D9D18600BC3A08B2EE /* Frameworks */,
+				E3A11C78CFF37295A41A19D980CA99F2 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8563CFF6879EFB54723717FD60EA5649 /* PBXTargetDependency */,
 			);
 			name = "Pods-MirrorXML_Tests";
 			productName = "Pods-MirrorXML_Tests";
@@ -372,13 +394,8 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
-				TargetAttributes = {
-					026AB8178A75710E3F2F02920AF86913 = {
-						LastSwiftMigration = "";
-					};
-				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -394,7 +411,7 @@
 			targets = (
 				026AB8178A75710E3F2F02920AF86913 /* MirrorXML */,
 				A54D66F7AE381E2226527CC2EDC476BC /* Pods-MirrorXML_Example */,
-				8FB8B1AE41F17BE4DE741021433E824F /* Pods-MirrorXML_Tests */,
+				942AB0638957D16BB78524B502AE6313 /* Pods-MirrorXML_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -427,11 +444,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BB0A6E59A62963699FFE6EC51B2BDF62 /* Sources */ = {
+		BD97DEB9D55A130E2EEF8F0DAC4E6083 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A6CE54D79AC7B9D976703F4C9B7A52A /* Pods-MirrorXML_Tests-dummy.m in Sources */,
+				4AEFCD6F8170BE92D8D830C7EC35C155 /* Pods-MirrorXML_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,14 +461,120 @@
 			target = 026AB8178A75710E3F2F02920AF86913 /* MirrorXML */;
 			targetProxy = 6B9A747B701EE6C8E427522FB49EA242 /* PBXContainerItemProxy */;
 		};
+		8563CFF6879EFB54723717FD60EA5649 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-MirrorXML_Example";
+			target = A54D66F7AE381E2226527CC2EDC476BC /* Pods-MirrorXML_Example */;
+			targetProxy = 77CCBBC64BD29759AA8B2298C70147F8 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0ECAAE6E806442E8A7667C0E83ADD48C /* Release */ = {
+		4BD88B849930AE89A645A3B732A85902 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1C5AD9B0284EFC6E8C693E369A63A02 /* MirrorXML.xcconfig */;
+			baseConfigurationReference = 842DE35F567CEDF8CA03C3AB6F0134FB /* Pods-MirrorXML_Tests.release.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MirrorXML_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MirrorXML_Tests/Pods-MirrorXML_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		78E9E6D53B551729EF7F985C42C0DC13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6EE24CE1070C19D60E9979F6D977A0B0 /* Pods-MirrorXML_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MirrorXML_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MirrorXML_Example/Pods-MirrorXML_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7CE99E1C1DE6923BE75CCF8C52F471FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7E262818C828B94DBCAD41F6292DAF6 /* Pods-MirrorXML_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MirrorXML_Example/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MirrorXML_Example/Pods-MirrorXML_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7FF0F38AEE52AA95D591E621CBBA46A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E571FFE42DD398B898887C9CFE85ECD7 /* MirrorXML.xcconfig */;
+			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -467,11 +590,12 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/MirrorXML/MirrorXML.modulemap";
+				PRODUCT_MODULE_NAME = MirrorXML;
 				PRODUCT_NAME = MirrorXML;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -479,7 +603,7 @@
 			};
 			name = Release;
 		};
-		33DA7F43A1D2FA3C74A8C8FC246E1FA6 /* Debug */ = {
+		8B33C5230DE4A9DFA6D8F46505DD7AF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -489,6 +613,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -510,6 +635,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -534,46 +660,13 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		48DC007F01608FA36C3072776C77B964 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 875CFE1629457334A5FF148F1970CB21 /* Pods-MirrorXML_Example.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-MirrorXML_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MirrorXML_Example/Pods-MirrorXML_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_MirrorXML_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		731DC216E1A58545B559F6E0A2418060 /* Release */ = {
+		B42B54097A876E8A982CBF5DAA91B1AB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -583,6 +676,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
@@ -604,6 +698,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -624,16 +719,16 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		7D1C1DECA77DACBC09278CA6A51181D0 /* Debug */ = {
+		F456604DCE9BA20AAFB4663C939FA558 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AA5A7FFF7B806EADE875308227B1FD3 /* Pods-MirrorXML_Tests.debug.xcconfig */;
+			baseConfigurationReference = 595F5856B53A07A922A7FF0AE56061DA /* Pods-MirrorXML_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -653,7 +748,7 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_MirrorXML_Tests;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -662,11 +757,10 @@
 			};
 			name = Debug;
 		};
-		B2B09F573F503251E095D86BCB06EC84 /* Debug */ = {
+		F9A3A7D584466264197530A18098C0E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B1C5AD9B0284EFC6E8C693E369A63A02 /* MirrorXML.xcconfig */;
+			baseConfigurationReference = E571FFE42DD398B898887C9CFE85ECD7 /* MirrorXML.xcconfig */;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -682,92 +776,35 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/MirrorXML/MirrorXML.modulemap";
+				PRODUCT_MODULE_NAME = MirrorXML;
 				PRODUCT_NAME = MirrorXML;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		C76483D9335C0595335A2F16954EEFEE /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 90016880376E28C81CDA54EE55FBFE3D /* Pods-MirrorXML_Example.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-MirrorXML_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MirrorXML_Example/Pods-MirrorXML_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_MirrorXML_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		F819DA3E217D16E7DBFEBD6FB66E0815 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = D62F1CF2AF3C33C89EC93ECEF709CC84 /* Pods-MirrorXML_Tests.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-MirrorXML_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MirrorXML_Tests/Pods-MirrorXML_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_MirrorXML_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		108F34D09D9CAC4BC71859869A418217 /* Build configuration list for PBXNativeTarget "Pods-MirrorXML_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F456604DCE9BA20AAFB4663C939FA558 /* Debug */,
+				4BD88B849930AE89A645A3B732A85902 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				33DA7F43A1D2FA3C74A8C8FC246E1FA6 /* Debug */,
-				731DC216E1A58545B559F6E0A2418060 /* Release */,
+				8B33C5230DE4A9DFA6D8F46505DD7AF7 /* Debug */,
+				B42B54097A876E8A982CBF5DAA91B1AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -775,8 +812,8 @@
 		6F4F0BDF14D3BEFD50650BEE64033EEC /* Build configuration list for PBXNativeTarget "MirrorXML" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B2B09F573F503251E095D86BCB06EC84 /* Debug */,
-				0ECAAE6E806442E8A7667C0E83ADD48C /* Release */,
+				F9A3A7D584466264197530A18098C0E9 /* Debug */,
+				7FF0F38AEE52AA95D591E621CBBA46A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -784,17 +821,8 @@
 		893633E08DE841CC232BF47E544F8E9B /* Build configuration list for PBXNativeTarget "Pods-MirrorXML_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				48DC007F01608FA36C3072776C77B964 /* Debug */,
-				C76483D9335C0595335A2F16954EEFEE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		DD9AC9EF5F9EFF4D341638193CF2C585 /* Build configuration list for PBXNativeTarget "Pods-MirrorXML_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7D1C1DECA77DACBC09278CA6A51181D0 /* Debug */,
-				F819DA3E217D16E7DBFEBD6FB66E0815 /* Release */,
+				7CE99E1C1DE6923BE75CCF8C52F471FC /* Debug */,
+				78E9E6D53B551729EF7F985C42C0DC13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
