@@ -61,13 +61,32 @@ public class SwiftTest : NSObject {
             numDocs += 1
         }
         
-
+        let fileHandle = try! FileHandle(forReadingFrom: Bundle.main.url(forResource: "enwiki-latest-abstract10", withExtension: "xml")!)
         let parser = MXParser(matches: [doc])
         
-        let data = try! Data(contentsOf: Bundle.main.url(forResource: "enwiki-latest-abstract10", withExtension: "xml")!)
+        while true {
+            let shouldbreak =
+            autoreleasepool { () -> Bool in
+                let data = fileHandle.readData(ofLength: 1024)
+                if (data.isEmpty) {
+                    parser.dataFinished()
+                    fileHandle.closeFile()
+                    return true
+                } else {
+                    parser.parseDataChunk(data)
+                    return false
+                }
+                
+            }
+            if shouldbreak {
+                break
+            }
+
+        }
+//        let data = try! Data(contentsOf: Bundle.main.url(forResource: "enwiki-latest-abstract10", withExtension: "xml")!)
         
-        parser.parseDataChunk(data)
-        parser.dataFinished()
+//        parser.parseDataChunk(data)
+//        parser.dataFinished()
         print ("found \(numDocs) docs")
         
     }

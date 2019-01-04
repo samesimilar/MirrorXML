@@ -72,6 +72,7 @@ static xmlSAXHandler simpleHTMLSAXHandlerStruct;
 {
 //    xmlParseChunk(self.context, (const char *)[data bytes], (int)[data length], 0);
     htmlParseChunk(self.context,  (const char *)[data bytes], (int)[data length], 0);
+
 }
 
 

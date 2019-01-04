@@ -111,6 +111,7 @@ static void startElementSAX (void *ctx,
                              int nb_defaulted,
                              const xmlChar **attributes)
 {
+    
     MXParser *ctxSelf = (__bridge MXParser *)ctx;
 
     MXElement * elm = [[MXElement alloc] initWithContext:ctxSelf];
@@ -119,6 +120,7 @@ static void startElementSAX (void *ctx,
     elm.xmlNb_attributes = nb_attributes;
     elm.xmlAttributes = attributes;
     
+
     ctxSelf.handlerList = [ctxSelf.handlerList enterElement:elm];
     
     if (nb_attributes > 0) {
@@ -142,8 +144,6 @@ static void startElementSAX (void *ctx,
             }
         }
     }
-
-
 }
 
 static void	endElementSAX   (void *ctx,
