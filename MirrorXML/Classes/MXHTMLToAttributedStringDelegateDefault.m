@@ -12,9 +12,9 @@
 
 - (NSDictionary *) initialAttributes
 {
-    UIFont *bodyfont = [UIFont fontWithName:@"AvenirNext-Regular" size:15];
+    UIFont *bodyfont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     NSMutableParagraphStyle * ps = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    ps.paragraphSpacing = 5;
+    ps.paragraphSpacing = 2;
     
     return @{NSFontAttributeName: bodyfont, NSParagraphStyleAttributeName: ps};
 }
@@ -50,11 +50,11 @@
         //        newAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
         
     } else if ([tag isEqualToString:@"h1"]) {
-        newAttrs[NSFontAttributeName] = [UIFont fontWithName:@"AvenirNext-Regular" size:24];
+        newAttrs[NSFontAttributeName] = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle1];
     } else if ([tag isEqualToString:@"h2"]) {
-        newAttrs[NSFontAttributeName] = [UIFont fontWithName:@"AvenirNext-Regular" size:20];
+        newAttrs[NSFontAttributeName] = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle2];
     } else if ([tag isEqualToString:@"h3"] || [tag isEqualToString:@"h4"]) {
-        newAttrs[NSFontAttributeName] = [UIFont fontWithName:@"AvenirNext-Regular" size:18];
+        newAttrs[NSFontAttributeName] = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
     }
     
     

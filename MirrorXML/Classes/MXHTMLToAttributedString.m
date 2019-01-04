@@ -89,13 +89,16 @@
         
         NSString * t = [self collapseString:elm.text];
         NSString * mainText = attrString.string;
-        
-        NSMutableCharacterSet * c;
-        c = [NSMutableCharacterSet characterSetWithCharactersInString:@",.:;?!"];
-        
-        if (mainText.length > 0 && ![mainText hasSuffix:@"\n"] && t.length > 0 && ([t rangeOfCharacterFromSet:c options:0 range:NSMakeRange(0, 1)].location == NSNotFound)) {
-            t = [@" " stringByAppendingString:t];
+        if ([mainText hasSuffix:@"\n"] || [mainText hasSuffix:@" "] || [mainText hasSuffix:@"\t"]) {
+            t = [t stringByReplacingOccurrencesOfString:@"^[ \t\n]+" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, t.length)];
         }
+//
+//        NSMutableCharacterSet * c;
+//        c = [NSMutableC haracterSet characterSetWithCharactersInString:@",.:;?!"];
+        
+//        if (mainText.length > 0 && ![mainText hasSuffix:@"\n"] && t.length > 0 && ([t rangeOfCharacterFromSet:c options:0 range:NSMakeRange(0, 1)].location == NSNotFound)) {
+//            t = [@" " stringByAppendingString:t];
+//        }
         
         
         NSAttributedString * str = [[NSAttributedString alloc] initWithString:t attributes:attrsDictionary];
@@ -114,10 +117,11 @@
     MXMatch * br = [[MXMatch alloc] initWithPath:@"//br" namespaces:nil error:nil];
     br.entryHandler = (id)^(MXElement *br) {
         NSString * mainText = attrString.string;
-        if (![mainText hasSuffix:@"\n"]) {
+//        if (![mainText hasSuffix:@"\n"]) {
             NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n" attributes:attrsDictionary];
             [attrString appendAttributedString:str];
-        }
+//        }
+        
         return nil;
     };
     
@@ -298,6 +302,7 @@
     handlers = [handlers arrayByAddingObject:errorHandler];
 #endif
     
+//    html = [html stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     MXHTMLParser *parser = [[MXHTMLParser alloc] initWithMatches:handlers];
     [parser parseDataChunk:[html dataUsingEncoding:NSUTF8StringEncoding]];
     [parser dataFinished];
@@ -309,31 +314,41 @@
 
 - (NSString *) collapseString:(NSString *) str
 {
-    str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    str = [str stringByReplacingOccurrencesOfString:@"\\s+"
+
+    str = [str stringByReplacingOccurrencesOfString:@"\\n+" withString:@" "
+                                            options:NSRegularExpressionSearch range:NSMakeRange(0, str.length)];
+    str = [str stringByReplacingOccurrencesOfString:@"\\r+" withString:@" "
+                                            options:NSRegularExpressionSearch range:NSMakeRange(0, str.length)];
+    str = [str stringByReplacingOccurrencesOfString:@" +"
                                          withString:@" "
                                             options:NSRegularExpressionSearch
                                               range:NSMakeRange(0, str.length)];
-    
+    str = [str stringByReplacingOccurrencesOfString:@"\\t+" withString:@"\t"
+                                            options:NSRegularExpressionSearch range:NSMakeRange(0, str.length)];
+
+//    str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     return str;
-    
+
 }
 
 - (void) addNewParagraphToString:(NSMutableAttributedString *) attrString attributes:(NSDictionary *) attrsDictionary
 {
     NSString * mainText = attrString.string;
     if (mainText.length == 0) return;
-    if ([mainText hasSuffix:@"\n\n"]) {
-        return ;
-    }
-    if ([mainText hasSuffix:@"\n"]) {
-        NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n" attributes:attrsDictionary];
-        [attrString appendAttributedString:str];
-        return ;
-    }
-    NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n\n" attributes:attrsDictionary];
+    NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n" attributes:attrsDictionary];
     [attrString appendAttributedString:str];
-    return ;
+    return;
+//    if ([mainText hasSuffix:@"\n\n"]) {
+//        return ;
+//    }
+//    if ([mainText hasSuffix:@"\n"]) {
+//        NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n" attributes:attrsDictionary];
+//        [attrString appendAttributedString:str];
+//        return ;
+//    }
+//    NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n\n" attributes:attrsDictionary];
+//    [attrString appendAttributedString:str];
+//    return ;
     
 }
 

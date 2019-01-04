@@ -20,10 +20,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    SwiftTest *test = [[SwiftTest alloc] init];
-    self.textView.attributedText = [test attributedString];
 }
 
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    SwiftTest *test = [[SwiftTest alloc] init];
+    self.textView.attributedText = [test attributedString];
+
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
