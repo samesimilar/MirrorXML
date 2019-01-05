@@ -18,6 +18,10 @@
 - (NSString *) textForUnorderedListItemAtListLevel:(NSInteger) level;
 - (NSDictionary *) attributesForAnchorElementWithHTMLAttributes:(NSDictionary *) htmlAttributes currentTextAttributes:(NSDictionary *) currentAttrs;
 
+- (NSDictionary *) attributesForOrderedListRemainingParagraphsAtLevel:(NSInteger) level currentAttributes:(NSDictionary *) currentAttrs;
+
+- (NSDictionary *) attributesForUnorderedListRemainingParagraphsAtLevel:(NSInteger) level currentAttributes:(NSDictionary *) currentAttrs;
+
 
 @end
 @interface MXHTMLToAttributedString : NSObject

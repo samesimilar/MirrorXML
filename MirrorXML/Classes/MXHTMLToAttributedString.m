@@ -33,6 +33,7 @@
 - (NSMutableAttributedString *) convertHTMLString:(NSString *) html
 {
     __block int ignoreText = 0;
+    __block int preformattedTextFlag = 0;
     
     __block NSDictionary *attrsDictionary = [NSMutableDictionary new];
     NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] init];
@@ -86,6 +87,11 @@
     MXMatch * textHandler = [[MXMatch alloc] initWithPath:@"//*" namespaces:nil error: nil];
     textHandler.textHandler = ^(MXElement *elm) {
         if (ignoreText > 0) return;
+        if (preformattedTextFlag > 0) {
+            NSAttributedString * str = [[NSAttributedString alloc] initWithString:elm.text attributes:attrsDictionary];
+            [attrString appendAttributedString:str];
+            return;
+        }
         
         NSString * t = [self collapseString:elm.text];
         NSString * mainText = attrString.string;
@@ -112,6 +118,23 @@
     };
     script.exitHandler = ^(MXElement *elm) {
         if (ignoreText > 0) ignoreText--;
+    };
+    
+    MXMatch * pre = [[MXMatch alloc] initWithPath:@"//pre" error:nil];
+    pre.entryHandler = ^NSArray<MXMatch *> * _Nonnull(MXElement * _Nonnull elm) {
+        preformattedTextFlag++;
+        NSDictionary *oldDict = attrsDictionary;
+        
+        attrsDictionary = [self.delegate attributesForTag:elm.elementName currentAttributes:oldDict];
+        
+        MXMatch * m = [MXMatch onRootExit:^(MXElement * elm) {
+            attrsDictionary = oldDict;
+            if (preformattedTextFlag > 0) preformattedTextFlag--;
+        }];
+        
+        return  @[m];
+        
+       
     };
     
     MXMatch * br = [[MXMatch alloc] initWithPath:@"//br" namespaces:nil error:nil];
@@ -186,12 +209,19 @@
             listCount++;
             
             NSString * number = [self.delegate textForOrderedListItemIndex:listCount atListLevel:listLevel];
-            NSString * text = [NSString stringWithFormat:@"\n%@", number];
+            NSString * mainText = [attrString string];
+            NSString * text = [NSString stringWithFormat:@"%@", number];
+            if (![mainText hasSuffix:@"\n"]) {
+                text = [@"\n" stringByAppendingString:text];
+            }
+            
             
             
             
             NSAttributedString * str = [[NSAttributedString alloc] initWithString:text attributes:attrsDictionary];
             [attrString appendAttributedString:str];
+            
+            attrsDictionary = [self.delegate attributesForOrderedListRemainingParagraphsAtLevel:listLevel currentAttributes:attrsDictionary];
             
             MXMatch * m = [MXMatch onRootExit:^(MXElement * elm) {
                 attrsDictionary = oldDict;
@@ -225,15 +255,22 @@
 //            elm.userInfo = liObject;
             
             
+            
             NSDictionary *oldDict = attrsDictionary;
             attrsDictionary = [self.delegate attributesForUnorderedListLevel:listLevel currentAttributes:oldDict];
             
             
             NSString * text = [self.delegate textForUnorderedListItemAtListLevel:listLevel];
-            text = [NSString stringWithFormat:@"\n%@", text];
+            NSString * mainText = [attrString string];
+            if (![mainText hasSuffix:@"\n"]) {
+                text = [NSString stringWithFormat:@"\n%@", text];
+            }
+            
             
             NSAttributedString * str = [[NSAttributedString alloc] initWithString:text attributes:attrsDictionary];
             [attrString appendAttributedString:str];
+            
+            attrsDictionary = [self.delegate attributesForUnorderedListRemainingParagraphsAtLevel:listLevel currentAttributes:attrsDictionary];
             
             MXMatch * m = [MXMatch onRootExit:^(MXElement * elm) {
                 attrsDictionary = oldDict;
@@ -296,7 +333,7 @@
                                                     
     };
     
-    NSArray * handlers = @[textHandler, script, br, p, tags1, tags2, ol, ul, a, img];
+    NSArray * handlers = @[textHandler, script, br, p, tags1, tags2, ol, ul, a, img, pre];
     
 #ifdef DEBUG
     handlers = [handlers arrayByAddingObject:errorHandler];
@@ -335,20 +372,17 @@
 {
     NSString * mainText = attrString.string;
     if (mainText.length == 0) return;
-    NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n" attributes:attrsDictionary];
+    if ([mainText hasSuffix:@"\n\n"]) {
+        return ;
+    }
+    if ([mainText hasSuffix:@"\n"]) {
+        NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n" attributes:attrsDictionary];
+        [attrString appendAttributedString:str];
+        return ;
+    }
+    NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n\n" attributes:attrsDictionary];
     [attrString appendAttributedString:str];
-    return;
-//    if ([mainText hasSuffix:@"\n\n"]) {
-//        return ;
-//    }
-//    if ([mainText hasSuffix:@"\n"]) {
-//        NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n" attributes:attrsDictionary];
-//        [attrString appendAttributedString:str];
-//        return ;
-//    }
-//    NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n\n" attributes:attrsDictionary];
-//    [attrString appendAttributedString:str];
-//    return ;
+    return ;
     
 }
 
