@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MXHTMLToAttributedString.h"
-
+NS_ASSUME_NONNULL_BEGIN
 @interface MXHTMLToAttributedStringDelegateDefault : NSObject <MXHTMLToAttributedStringDelegate>
 @property (nonatomic, assign)   NSLineBreakMode  lineBreakMode;
 @property (nonatomic, nonnull)  UIFont *         bodyFont;
@@ -29,3 +29,4 @@
 // Controls the size of each indentation 'step' for nested lists. This is multiplied by the point size of a single space in the current font.
 @property (nonatomic, assign)   int              listItemIndentCharacterCount;
 @end
+NS_ASSUME_NONNULL_END

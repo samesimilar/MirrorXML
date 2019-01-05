@@ -136,7 +136,19 @@ public class SwiftTest : NSObject {
         let html = try! String(contentsOf: Bundle.main.url(forResource: "markdownish", withExtension: "html")!)
         
         let parser = MXHTMLToAttributedString()
-        return parser.convertHTMLString(html)
+        let result = parser.convertHTMLString(html)
+        
+        for attachment in parser.imageAttachments {
+            if let image = UIImage(named: attachment.src) {
+                attachment.width = 300.0
+                MXHTMLToAttributedString.insert(image, with: attachment, to: result)
+            }
+            
+        }
+        
+        
+        
+        return result
     }
     
     func dictHandler(onExit: @escaping ([String: Any]) -> Void) -> MXStartElementHandler {

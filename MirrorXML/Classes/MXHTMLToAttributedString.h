@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class MXHTMLImageAttachmentInfo;
+
+NS_ASSUME_NONNULL_BEGIN
 @protocol MXHTMLToAttributedStringDelegate <NSObject>
 
 - (NSDictionary *) initialAttributes;
@@ -24,11 +27,13 @@
 
 
 @end
+
 @interface MXHTMLToAttributedString : NSObject
 
 @property (nonatomic, assign) id <MXHTMLToAttributedStringDelegate> delegate;
-@property (nonatomic, readonly) NSArray * imageSources;
+@property (nonatomic, readonly) NSArray<MXHTMLImageAttachmentInfo *> * imageAttachments;
 - (NSMutableAttributedString *) convertHTMLString:(NSString *) html;
-
++ (void) insertImage:(UIImage *) image withInfo:(MXHTMLImageAttachmentInfo *) info toString:(NSMutableAttributedString *) string;
 @end
 
+NS_ASSUME_NONNULL_END

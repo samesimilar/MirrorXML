@@ -67,7 +67,7 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
         attr++;
         NSString * value = nil;
         if (*attr) {
-            value = [[[NSString alloc] initWithUTF8String:(const char *)(*attr)] lowercaseString];
+            value = [[NSString alloc] initWithUTF8String:(const char *)(*attr)];
         }
         
         attr++;
@@ -142,10 +142,13 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
         _attributes = _namespacedAttributes[@""];
     } else if (_htmlAttributes) {
         _attributes = dictionaryForHTMLAttributes(_htmlAttributes);
+        // html attributes are already converted to lowercase
+        _lowercasedAttributes = _attributes;
         _namespacedAttributes = @{@"" : _attributes};
         
     } else {
         _attributes = [NSDictionary new];
+        _lowercasedAttributes = _attributes;
         _namespacedAttributes = @{@"" : _attributes};
     }
 }

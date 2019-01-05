@@ -11,15 +11,42 @@
 
 #import "MirrorXML.h"
 #import "MXHTMLToAttributedStringDelegateDefault.h"
+#import "MXHTMLImageAttachmentInfo.h"
 
+@interface MXHTMLImageAttachmentInfo()
+@property (nonatomic, nonnull) NSString * src;
+@property (nonatomic, assign) NSRange location;
+@property (nonatomic, nullable) NSDictionary * textAttributes;
+@end
 
 @interface MXHTMLToAttributedString ()
 @property (nonatomic) id <MXHTMLToAttributedStringDelegate> defaultDelegate;
-@property (nonatomic) NSArray * imageSources;
+@property (nonatomic) NSArray * imageAttachments;
 @end
 @implementation MXHTMLToAttributedString
 
++ (void) insertImage:(UIImage *) image withInfo:(MXHTMLImageAttachmentInfo *) info toString:(NSMutableAttributedString *) string {
+    
+    NSTextAttachment * ta = [[NSTextAttachment alloc] initWithData:nil ofType:nil];
+    ta.image = image;
+    if (info.width == CGSizeZero.width && info.height == CGSizeZero.height) {
+        ta.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
+    } else if (info.width != CGSizeZero.width && info.height == CGSizeZero.height) {
+        ta.bounds = CGRectMake(0, 0, info.width, image.size.height * (info.width / image.size.width));
+    } else if (info.width == CGSizeZero.width && info.height != CGSizeZero.height) {
+        ta.bounds = CGRectMake(0, 0, image.size.width * (info.height / image.size.height), info.height);
+    } else {
+        ta.bounds = CGRectMake(0, 0, info.width, info.height);
+    }
+    NSMutableAttributedString * taStr = [[NSAttributedString attributedStringWithAttachment:ta] mutableCopy];
+    
+    if (info.textAttributes) {
+        [taStr addAttributes:info.textAttributes range:NSMakeRange(0, [taStr length])];
+    }
+//    [string insertAttributedString:taStr atIndex:info.location];
+    [string replaceCharactersInRange:info.location withAttributedString:taStr];
 
+}
 - (id) init
 {
     self = [super init];
@@ -30,7 +57,7 @@
     return self;
 }
 
-- (NSMutableAttributedString *) convertHTMLString:(NSString *) html
+- (nonnull NSMutableAttributedString *) convertHTMLString:(NSString *) html
 {
     __block int ignoreText = 0;
     __block int preformattedTextFlag = 0;
@@ -139,24 +166,47 @@
     
     MXMatch * br = [[MXMatch alloc] initWithPath:@"//br" namespaces:nil error:nil];
     br.entryHandler = (id)^(MXElement *br) {
-        NSString * mainText = attrString.string;
-//        if (![mainText hasSuffix:@"\n"]) {
-            NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n" attributes:attrsDictionary];
-            [attrString appendAttributedString:str];
-//        }
-        
+        NSAttributedString * str = [[NSAttributedString alloc] initWithString:@"\n" attributes:attrsDictionary];
+        [attrString appendAttributedString:str];
         return nil;
     };
     
     MXMatch * p = [[MXMatch alloc] initWithPath:@"//p" namespaces:nil error:nil];
-    p.entryHandler = (id)^(MXElement *br) {
+    p.entryHandler = (id)^(MXElement *elm) {
+        
+        NSDictionary *oldDict = attrsDictionary;
+        NSMutableDictionary * newAttrs = [oldDict mutableCopy];
+        NSMutableParagraphStyle * ps = [newAttrs[NSParagraphStyleAttributeName] mutableCopy];
+        
+        
+        NSString * attr = elm.lowercasedAttributes[@"align"];
+        if (attr) {
+            attr = [attr lowercaseString];
+            if ([attr isEqualToString:@"center"]) {
+                ps.alignment = NSTextAlignmentCenter;
+            } else if ([attr isEqualToString:@"left"]) {
+                ps.alignment = NSTextAlignmentLeft;
+            } else if ([attr isEqualToString:@"right"]) {
+                ps.alignment = NSTextAlignmentRight;
+            } else if ([attr isEqualToString:@"justify"]) {
+                ps.alignment = NSTextAlignmentJustified;
+            }
+        }
+        newAttrs[NSParagraphStyleAttributeName] = ps;
+        attrsDictionary = newAttrs;
+        
         [self addNewParagraphToString:attrString attributes:attrsDictionary];
-        return nil;
+        
+        MXMatch *m = [MXMatch onRootExit:^(MXElement * _Nonnull elm) {
+            [self addNewParagraphToString:attrString attributes:attrsDictionary];
+            attrsDictionary = oldDict;
+        }];
+        return @[m];
         
     };
-    p.exitHandler = ^(MXElement *br) {
-        [self addNewParagraphToString:attrString attributes:attrsDictionary];
-    };
+//    p.exitHandler = ^(MXElement *br) {
+//        [self addNewParagraphToString:attrString attributes:attrsDictionary];
+//    };
     
     MXMatch * tags1 = [[MXMatch alloc] initWithPath:@"//small|//strong|//b|//em|//i|//code" namespaces:nil error:nil];
     tags1.entryHandler = (id)^(MXElement *elm) {
@@ -308,25 +358,40 @@
     NSMutableArray * imgSrc = [NSMutableArray new];
     
     img.entryHandler = (id) ^(MXElement *elm) {
-        NSTextAttachment * ta = [[NSTextAttachment alloc] initWithData:nil ofType:nil];
-        if (elm.attributes[@"src"]) {
-            [imgSrc addObject:elm.attributes[@"src"]];
-            ta.image = [UIImage imageNamed:@"IMG_0176.jpg"]; 
-            ta.bounds = CGRectMake(0, 0, 200, ta.image.size.height * (200 / ta.image.size.width));
-            
-            NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init] ;
-            
-            [paragraphStyle setAlignment:NSTextAlignmentCenter];            // centers image horizontally
-            
-            [paragraphStyle setParagraphSpacing:5];   // adds some padding between the image and the following section
-            NSMutableAttributedString * taStr = [[NSAttributedString attributedStringWithAttachment:ta] mutableCopy];
-            [taStr addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, taStr.length)];
-            
-            [self addNewParagraphToString:attrString attributes:attrsDictionary];
-            [attrString appendAttributedString:taStr];
-            [self addNewParagraphToString:attrString attributes:attrsDictionary];
+
+        NSString * attr = elm.lowercasedAttributes[@"src"];
+        if (!attr) {
+            return nil;
+        }
+        MXHTMLImageAttachmentInfo * info = [[MXHTMLImageAttachmentInfo alloc] init];
+        info.src = attr;
+        
+        attr = elm.lowercasedAttributes[@"width"];
+        if (attr) {
+            NSScanner * scanner = [[NSScanner alloc] initWithString:attr];
+            CGFloat width = 0.0;
+            if ([scanner scanDouble:&width]) {
+                info.width = width;
+            }
+        }
+        attr = elm.lowercasedAttributes[@"height"];
+        if (attr) {
+            NSScanner * scanner = [[NSScanner alloc] initWithString:attr];
+            CGFloat height = 0.0;
+            if ([scanner scanDouble:&height]) {
+                info.height = height;
+            }
         }
         
+        
+        NSAttributedString * placeholder = [[NSAttributedString alloc] initWithString:@"<img>" attributes:attrsDictionary];
+        
+        info.location = NSMakeRange([attrString length], [placeholder length]);
+        info.textAttributes = attrsDictionary;
+        [attrString appendAttributedString:placeholder];
+        
+        [imgSrc addObject:info];
+
 
         
         return nil;
@@ -344,7 +409,7 @@
     [parser parseDataChunk:[html dataUsingEncoding:NSUTF8StringEncoding]];
     [parser dataFinished];
 
-    self.imageSources = imgSrc;
+    self.imageAttachments = imgSrc;
     
     return attrString;
 }

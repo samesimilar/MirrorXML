@@ -14,4 +14,4 @@
 #import <MirrorXML/MXElement.h>
 #import <MirrorXML/MXHTMLToAttributedString.h>
 #import <MirrorXML/MXHTMLToAttributedStringDelegateDefault.h>
-
+#import <MirrorXML/MXHTMLImageAttachmentInfo.h>

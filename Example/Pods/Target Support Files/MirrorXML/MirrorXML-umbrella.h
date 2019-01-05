@@ -16,6 +16,7 @@
 #import "MXHTMLParser.h"
 #import "MXHTMLToAttributedString.h"
 #import "MXHTMLToAttributedStringDelegateDefault.h"
+#import "MXHTMLImageAttachmentInfo.h"
 #import "MXMatch.h"
 #import "MXMatchList.h"
 #import "MXParser.h"
