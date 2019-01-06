@@ -39,10 +39,10 @@
 //    [parser parseDataChunk:data];
 //    [parser dataFinished];
     
-//    SwiftTest *test = [[SwiftTest alloc] init];
-//    [test readWiki];
-//    [test test];
-//    [test plistParser];
+    SwiftTest *test = [[SwiftTest alloc] init];
+    [test readWiki];
+    [test test];
+    [test plistParser];
     
     return YES;
 }

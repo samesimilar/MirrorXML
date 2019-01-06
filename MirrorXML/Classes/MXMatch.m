@@ -34,7 +34,6 @@
 @interface MXMatch ()
 @property (nonatomic) MXPatternStream * matchStream;
 @property (nonatomic) NSMutableArray * activeStack;
-
 @end
 
 @implementation MXMatch
@@ -120,7 +119,8 @@
             // if this node matches, we have to pre-convert the attributes dictionary to strings instead of lazily converting it on access
             // Why? because if libxml finds special characters in the attribute value, it creates a tmp string somewhere to store
             // decoded characters, which seems to be released after this stage of parsing
-            [elm buildAttributesDictionary];
+            // edit: to avoid creating unneccesary objects and strings, we'll only make this available during the "enterElement" phase
+//            [elm buildAttributesDictionary];
             if (_entryHandler && !elm.stop && elm.nodeType == MXElementNodeTypeElement) {
                 newHandlers = _entryHandler(elm);
             }

@@ -12,6 +12,9 @@
 
 static NSDictionary * namespacedDictionaryForAttributes(int nb_attributes, const xmlChar ** attributes)
 {
+    if (nb_attributes == 0) {
+        return @{@"": @{}};
+    }
     NSMutableDictionary * result = [NSMutableDictionary new];
     NSMutableDictionary * noNamespaceAttributes = [NSMutableDictionary new];
     result[@""] = noNamespaceAttributes;
@@ -91,33 +94,55 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
 @property (nonatomic, assign) int xmlNb_attributes;
 @property (nonatomic, assign) const xmlChar **xmlAttributes;
 @property (nonatomic, assign) const xmlChar **htmlAttributes;
+@property (nonatomic, assign) BOOL attributesExpired;
 
 // used to mark instances of this class invalid once the context has been deallocated
 // since the above resources are owned by the libxml context
 @property (nonatomic, weak, nullable) id livingParserContext;
 
-@property (nonatomic, nonnull) NSString * elementName;
+@property (nonatomic) NSString * elementName;
 @property (nonatomic, nullable) NSString * namespaceURI;
-@property (nonatomic, nonnull) NSDictionary<NSString *, NSDictionary<NSString *, NSString *> *> * namespacedAttributes;
-@property (nonatomic, nonnull) NSDictionary<NSString *, NSString *> * attributes;
-@property (nonatomic, nonnull) NSDictionary<NSString *, NSString *> * lowercasedAttributes;
+@property (nonatomic) NSDictionary<NSString *, NSDictionary<NSString *, NSString *> *> * namespacedAttributes;
+@property (nonatomic) NSDictionary<NSString *, NSString *> * attributes;
+@property (nonatomic) NSDictionary<NSString *, NSString *> * lowercasedAttributes;
 
 @property (nonatomic) NSMutableData * textData;
 @property (nonatomic) NSString * text;
+
 @end
 @implementation MXElement
 
 - (instancetype) initWithContext:(id) context {
     if (self = [super init]) {
         self.livingParserContext = context;
+        self.attributesExpired = NO;
     }
     return self;
+}
+
+- (instancetype) init {
+    return [self initWithContext:nil];
+}
+- (void) reset {
+    self.parent = nil;
+    self.xmlLocalname = NULL;
+    self.xmlNamespaceURI = NULL;
+    self.xmlNb_attributes = 0;
+    self.xmlAttributes = NULL;
+    self.attributesExpired = NO;
+    self.elementName = nil;
+    self.namespaceURI = nil;
+    self.namespacedAttributes = nil;
+    self.attributes = nil;
+    self.lowercasedAttributes = nil;
+    self.textData = nil;
+    self.text = nil;
 }
 
 - (NSString *) elementName {
     if (!_elementName) {
         NSAssert(_livingParserContext,
-                 @"MXElement instances are invalid after the parent MXParser context has been deallocated.");
+                 @"MirroXML: MXElement instances are invalid after the parent MXParser context has been deallocated.");
         if (_xmlLocalname) {
             self.elementName = [NSString stringWithUTF8String:(const char *)_xmlLocalname];
         } else {
@@ -130,13 +155,14 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
 - (NSString *) namespaceURI {
     if (!_namespaceURI && self.xmlNamespaceURI) {
         NSAssert(_livingParserContext,
-                 @"MXElement instances are invalid after the parent MXParser context has been deallocated.");
+                 @"MirroXML: MXElement instances are invalid after the parent MXParser context has been deallocated.");
         _namespaceURI = [NSString stringWithUTF8String:(const char *)self.xmlNamespaceURI];
     }
     return _namespaceURI;
 }
 
 - (void) buildAttributesDictionary {
+    NSAssert(!_attributesExpired, @"MirroXML: The element attributes dictionary can only be first accessed during the entryHandler & attributeHandler phase of matching, since libxml may overwrite certain values in memory while scanning following elements.");
     if (_xmlAttributes) {
         _namespacedAttributes = namespacedDictionaryForAttributes(_xmlNb_attributes, _xmlAttributes);
         _attributes = _namespacedAttributes[@""];
@@ -156,7 +182,7 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
 - (NSDictionary<NSString *, NSDictionary<NSString *, NSString *> *> *) namespacedAttributes {
     if (!_namespacedAttributes) {
         NSAssert(_livingParserContext,
-                 @"MXElement instances are invalid after the parent MXParser context has been deallocated.");
+                 @"MirroXML: MXElement instances are invalid after the parent MXParser context has been deallocated.");
         [self buildAttributesDictionary];
     }
     return _namespacedAttributes;
@@ -165,7 +191,7 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
 - (NSDictionary<NSString *, NSString *> *) attributes {
     if (!_attributes) {
         NSAssert(_livingParserContext,
-                 @"MXElement instances are invalid after the parent MXParser context has been deallocated.");
+                 @"MirroXML: MXElement instances are invalid after the parent MXParser context has been deallocated.");
         [self buildAttributesDictionary];
     }
     return _attributes;

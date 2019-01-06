@@ -37,56 +37,66 @@ public class SwiftTest : NSObject {
         var numDocs = 0
         
         let doc = try! MXMatch(path: "/feed/doc")
+//        let titlePattern = try! MXPattern(path: "/title", namespaces: nil)
         doc.entryHandler = { (elm) in
-//            var titleString = ""
-//            var abstractString = ""
-            let title = try! MXMatch(path: "/title")
-            title.exitHandler = { (elm) in
-               
-            }
-//            let abstract = try! MXMatch(path: "/abstract")
-//            abstract.exitHandler = { (elm) in
-//                abstractString = elm.text ?? ""
+////            var titleString = ""
+////            var abstractString = ""
+//            let title = MXMatch(pattern: titlePattern)
+//            title.exitHandler = { (elm) in
+//
 //            }
-//
-//            let done = MXMatch.onRootExit({ (elm) in
-////                docs.append((titleString, abstractString))
-//                numDocs += 1
-//            })
-//
-            return [title]
-
+////            let abstract = try! MXMatch(path: "/abstract")
+////            abstract.exitHandler = { (elm) in
+////                abstractString = elm.text ?? ""
+////            }
+////
+////            let done = MXMatch.onRootExit({ (elm) in
+//////                docs.append((titleString, abstractString))
+////                numDocs += 1
+////            })
+////
+//            return [title]
+            return nil
         }
         doc.exitHandler = { (elm) in
             numDocs += 1
         }
+//        let title = try! MXMatch(path: "/feed/doc/title")
+//        title.exitHandler = { (elm) in
+//            print(elm.text ?? "no text")
+//            if (elm.text?.hasSuffix("t") == true) {
+//                elm.stop = true
+//            }
+//        }
         
-        let fileHandle = try! FileHandle(forReadingFrom: Bundle.main.url(forResource: "enwiki-latest-abstract10", withExtension: "xml")!)
+//
         let parser = MXParser(matches: [doc])
-        
-        while true {
-            let shouldbreak =
-            autoreleasepool { () -> Bool in
-                let data = fileHandle.readData(ofLength: 1024)
-                if (data.isEmpty) {
-                    parser.dataFinished()
-                    fileHandle.closeFile()
-                    return true
-                } else {
-                    parser.parseDataChunk(data)
-                    return false
-                }
-                
-            }
-            if shouldbreak {
-                break
-            }
+//        let fileHandle = try! FileHandle(forReadingFrom: Bundle.main.url(forResource: "enwiki-latest-abstract10", withExtension: "xml")!)
+//
+//
+//        while true {
+//            let shouldbreak =
+//            autoreleasepool { () -> Bool in
+//                let data = fileHandle.readData(ofLength: 1024)
+//                if (data.isEmpty) {
+//                    parser.dataFinished()
+//                    fileHandle.closeFile()
+//                    return true
+//                } else {
+//                    parser.parseDataChunk(data)
+//                    return false
+//                }
+//
+//            }
+//            if shouldbreak {
+//                break
+//            }
+//
+//        }
+        let data = try! Data(contentsOf: Bundle.main.url(forResource: "enwiki-latest-abstract10", withExtension: "xml")!)
 
-        }
-//        let data = try! Data(contentsOf: Bundle.main.url(forResource: "enwiki-latest-abstract10", withExtension: "xml")!)
-        
-//        parser.parseDataChunk(data)
-//        parser.dataFinished()
+        parser.parseDataChunk(data)
+        parser.dataFinished()
         print ("found \(numDocs) docs")
         
     }
@@ -101,8 +111,9 @@ public class SwiftTest : NSObject {
             
             
             outline.entryHandler = { (elm) in
+                let text = elm.attributes["text"] ?? "No text"
                 let root = MXMatch.onRootExit { (elm) in
-                    print (elm.attributes["text"] ?? "No text")
+                    print (text)
                 }
 
                 return [root]

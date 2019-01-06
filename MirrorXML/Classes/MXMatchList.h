@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class MXElement, MXParser;
+@class MXElement, MXTextElement, MXParser;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,12 +15,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, nullable) MXElement * elm;
 @property (nonatomic, nullable) NSArray * handlers;
+@property (nonatomic, readonly) MXMatchList * parentList;
 
+
+- (void) reset;
+- (void) removeChildren;
 - (MXMatchList *) enterElement:(MXElement *) elm;
-- (nullable MXMatchList *) exitElement;
+- (void) exitElement;
+- (void) exitElement:(MXElement *) elm;
 - (void) streamReset;
 - (void) errorRaised:(NSError *) error onElement:(nullable MXElement * ) elm;
-
+- (MXElement *) childElement;
+- (MXTextElement *) childTextElement;
 
 @end
 

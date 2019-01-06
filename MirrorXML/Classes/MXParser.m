@@ -23,7 +23,7 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 @property (nonatomic, assign) const xmlChar *xmlNamespaceURI;
 @property (nonatomic, assign) int xmlNb_attributes;
 @property (nonatomic, assign) const xmlChar **xmlAttributes;
-
+@property (nonatomic, weak, nullable) id livingParserContext;
 
 
 - (void)appendCharacters:(const char *)charactersFound
@@ -72,6 +72,7 @@ static xmlSAXHandler simpleSAXHandlerStruct;
         xmlFreeParserCtxt(self.context);
     }
     self.context = NULL;
+    [self.handlerList removeChildren];
 }
 
 - (void) parseDataChunk:(NSData *) data
@@ -88,6 +89,9 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 - (void) raiseError:(NSError *) error
 {
     [self.handlerList errorRaised:error onElement:self.handlerList.elm];
+    if (self.handlerList.elm.stop) {
+        [self stopParsing];
+    }
 }
 
 - (void) stopParsing
@@ -114,36 +118,20 @@ static void startElementSAX (void *ctx,
     
     MXParser *ctxSelf = (__bridge MXParser *)ctx;
 
-    MXElement * elm = [[MXElement alloc] initWithContext:ctxSelf];
+    MXElement * elm = [ctxSelf.handlerList childElement];
+    elm.livingParserContext = ctxSelf;
     elm.xmlLocalname = localname;
     elm.xmlNamespaceURI = URI;
     elm.xmlNb_attributes = nb_attributes;
     elm.xmlAttributes = attributes;
-    
+
 
     ctxSelf.handlerList = [ctxSelf.handlerList enterElement:elm];
-    
-    if (nb_attributes > 0) {
-        NSInteger index = 0;
 
-        // share one instance since can be discarded right away
-        MXAttributeElement * attrElement = [[MXAttributeElement alloc] initWithContext:ctxSelf];
-        
-        for (NSInteger i = 0; i < nb_attributes; i++, index += 5)
-        {
-            //[localname/prefix/URI/value/en]
-
-            if (attributes[index + 3] != 0)
-            {
-                attrElement.xmlAttrName = attributes[index];
-                attrElement.xmlAttrNamespace = attributes[index + 2];
-                attrElement.xmlAttrValue = attributes[index + 3];
-                attrElement.xmlAttrValueLength = attributes[index + 4] - attributes[index + 3];
-                ctxSelf.handlerList =  [ctxSelf.handlerList enterElement:attrElement];
-                ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
-            }
-        }
+    if (elm.stop) {
+        [ctxSelf stopParsing];
     }
+
 }
 
 static void	endElementSAX   (void *ctx,
@@ -153,14 +141,15 @@ static void	endElementSAX   (void *ctx,
 
 {
     MXParser *ctxSelf = (__bridge MXParser *)ctx;
-    
-    
-    
-//    for (NSString * attrName in ctxSelf.handlerList.elm.attributes) {
-//        ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
-//    }
-    
-    ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
+
+
+
+    [ctxSelf.handlerList exitElement];
+    ctxSelf.handlerList = ctxSelf.handlerList.parentList;
+
+    if (ctxSelf.handlerList.elm.stop) {
+        [ctxSelf stopParsing];
+    }
 }
 
 static void	charactersFoundSAX(void *ctx,
@@ -168,15 +157,20 @@ static void	charactersFoundSAX(void *ctx,
                                int len)
 {
     MXParser *ctxSelf = (__bridge MXParser *)ctx;
-    
+
     MXElement * elm = ctxSelf.handlerList.elm;
     [elm appendCharacters:(const char *)ch length:len];
 
-    MXTextElement * telm = [[MXTextElement alloc] initWithContext: ctxSelf];
+    MXTextElement * telm = [ctxSelf.handlerList childTextElement];
+    telm.livingParserContext = ctxSelf;
     [telm appendCharacters:(const char *)ch length:len];
     ctxSelf.handlerList = [ctxSelf.handlerList enterElement:telm];
-    ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
-    
+    [ctxSelf.handlerList exitElement:telm];
+    ctxSelf.handlerList = ctxSelf.handlerList.parentList;
+
+    if (telm.stop) {
+        [ctxSelf stopParsing];
+    }
 }
 
 

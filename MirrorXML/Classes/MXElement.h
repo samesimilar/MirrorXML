@@ -15,14 +15,15 @@ typedef NS_ENUM(NSInteger, MXElementNodeType) {
     MXElementNodeTypeText,
     MXElementNodeTypeCData,
     MXElementNodeTypeComment,
-    MXelementNodeTypeProcessingInstruction
+    MXElementNodeTypeProcessingInstruction,
 } ;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MXElement : NSObject
 
-- (instancetype) initWithContext:(id) context;
+- (instancetype) initWithContext:(nullable id) context;
+- (void) reset;
 
 @property (nonatomic, readonly, nullable) NSString * elementName;
 @property (nonatomic, readonly, nullable) NSString * namespaceURI;

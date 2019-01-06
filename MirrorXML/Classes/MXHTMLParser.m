@@ -22,6 +22,7 @@ static xmlSAXHandler simpleHTMLSAXHandlerStruct;
 @property (nonatomic, assign) const xmlChar *xmlLocalname;
 @property (nonatomic, assign) const xmlChar *xmlNamespaceURI;
 @property (nonatomic, assign) const xmlChar **htmlAttributes;
+@property (nonatomic, weak, nullable) id livingParserContext;
 
 - (void)appendCharacters:(const char *)charactersFound
                   length:(NSInteger)length;
@@ -61,6 +62,7 @@ static xmlSAXHandler simpleHTMLSAXHandlerStruct;
         htmlFreeParserCtxt(self.context);
     }
     self.context = NULL;
+    [self.handlerList removeChildren];
 }
 
 //- (void) addParser:(MXParser *) parser
@@ -105,10 +107,12 @@ static void	charactersFoundSAX(void *ctx,
     MXElement * elm = ctxSelf.handlerList.elm;
     [elm appendCharacters:(const char *)ch length:len];
     
-    MXTextElement * telm = [[MXTextElement alloc] initWithContext:ctxSelf];
+    MXTextElement * telm = [ctxSelf.handlerList childTextElement];
+    telm.livingParserContext = ctxSelf;
     [telm appendCharacters:(const char *)ch length:len];
     ctxSelf.handlerList = [ctxSelf.handlerList enterElement:telm];
-    ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
+    [ctxSelf.handlerList exitElement:telm];
+    ctxSelf.handlerList = ctxSelf.handlerList.parentList;
     
 }
 
@@ -146,8 +150,8 @@ const xmlChar **atts)
 {
     MXHTMLParser *ctxSelf = (__bridge MXHTMLParser *)ctx;
 
-    MXElement * elm = [[MXElement alloc] initWithContext:ctxSelf];
-
+    MXElement * elm = [ctxSelf.handlerList childElement];
+    elm.livingParserContext = ctxSelf;
     elm.xmlLocalname = name;
     elm.htmlAttributes = atts;
     
@@ -160,7 +164,8 @@ void endElementSAX(void *ctx,
                            const xmlChar *name)
 {
     MXHTMLParser *ctxSelf = (__bridge MXHTMLParser *)ctx;
-    ctxSelf.handlerList = [ctxSelf.handlerList exitElement];
+    [ctxSelf.handlerList exitElement];
+    ctxSelf.handlerList = ctxSelf.handlerList.parentList;
 }
 
 static xmlSAXHandler simpleHTMLSAXHandlerStruct = {
