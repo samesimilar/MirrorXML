@@ -21,8 +21,12 @@
 
 @interface MXHTMLToAttributedString ()
 @property (nonatomic) id <MXHTMLToAttributedStringDelegate> defaultDelegate;
-@property (nonatomic) NSArray * imageAttachments;
+@property (nonatomic) NSArray<MXHTMLImageAttachmentInfo *>  * imageAttachments;
+@property (nonatomic) NSArray<NSError *> * errors;
 @end
+
+NSInteger const MXHTMLToAttirbutedStringParseError = 100;
+
 @implementation MXHTMLToAttributedString
 
 + (void) insertImage:(UIImage *) image withInfo:(MXHTMLImageAttachmentInfo *) info toString:(NSMutableAttributedString *) string {
@@ -53,12 +57,15 @@
     if (self) {
         self.defaultDelegate = [[MXHTMLToAttributedStringDelegateDefault alloc] init];
         self.delegate = self.defaultDelegate;
+        self.detectParsingErrors = YES;
+        self.errors = nil;
     }
     return self;
 }
 
-- (nonnull NSMutableAttributedString *) convertHTMLString:(NSString *) html
+- (NSMutableAttributedString *) convertHTMLString:(NSString *) html
 {
+    self.errors = nil;
     __block int ignoreText = 0;
     __block int preformattedTextFlag = 0;
     
@@ -67,14 +74,10 @@
     
     attrsDictionary = [self.delegate initialAttributes];
     
-//    MXHTMLParser * mp = [[MXHTMLParser alloc] init];
-//    MXHandlerList * ml = [[MXHandlerList alloc] init];
-    
-    
+    NSMutableArray<NSError *> * errorMessages = [NSMutableArray new];
     MXMatch *errorHandler = [[MXMatch alloc] initWithPath:@"//*" namespaces:nil error: nil];
     
     __block NSString * errorPath = @"/";
-//    __block NSInteger counter = 0;
     __block NSMutableDictionary * counters = [NSMutableDictionary new];
     
     errorHandler.entryHandler = (id)^(MXElement *elm) {
@@ -108,7 +111,7 @@
     
     errorHandler.errorHandler = ^(NSError * error, MXElement * elm)
     {
-        NSLog(@"HTML Parse error: %@ Path: %@", error.localizedDescription, errorPath);
+        [errorMessages addObject:[[NSError alloc] initWithDomain:MirrorXMLErrorDomain code:MXHTMLToAttirbutedStringParseError userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"HTML Parse error: %@ Path: %@", error.localizedDescription, errorPath]}]];
     };
     
     MXMatch * textHandler = [[MXMatch alloc] initWithPath:@"//*" namespaces:nil error: nil];
@@ -399,10 +402,11 @@
     };
     
     NSArray * handlers = @[textHandler, script, br, p, tags1, tags2, ol, ul, a, img, pre];
+
+    if (self.detectParsingErrors) {
+        handlers = [handlers arrayByAddingObject:errorHandler];
+    }
     
-#ifdef DEBUG
-    handlers = [handlers arrayByAddingObject:errorHandler];
-#endif
     
 //    html = [html stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     MXHTMLParser *parser = [[MXHTMLParser alloc] initWithMatches:handlers];
@@ -410,6 +414,10 @@
     [parser dataFinished];
 
     self.imageAttachments = imgSrc;
+    
+    if (self.detectParsingErrors && errorMessages.count > 0) {
+        self.errors = errorMessages;
+    }
     
     return attrString;
 }

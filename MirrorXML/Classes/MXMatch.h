@@ -27,9 +27,9 @@ typedef void            (^MXErrorHandler)(NSError *, MXElement *);
 
 - (nullable instancetype) initWithPath:(NSString *) path
                             namespaces:(nullable NSDictionary<NSString *, NSString *> *)namespaces
-                                 error:(NSError **) error;
+                                 error:(NSError * __nullable * __null_unspecified) error;
 - (nullable instancetype) initWithPath:(NSString *) path
-                                 error:(NSError **)error;
+                                 error:(NSError * __nullable * __null_unspecified)error;
 - (instancetype) initWithPattern:(nullable MXPattern *) pattern;
 + (instancetype) onRootExit: (MXEndElementHandler) exitHandler;
 

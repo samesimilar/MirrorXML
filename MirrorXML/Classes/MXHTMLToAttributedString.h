@@ -10,6 +10,8 @@
 
 @class MXHTMLImageAttachmentInfo;
 
+FOUNDATION_EXPORT NSInteger const MXHTMLToAttirbutedStringParseError;
+
 NS_ASSUME_NONNULL_BEGIN
 @protocol MXHTMLToAttributedStringDelegate <NSObject>
 
@@ -32,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) id <MXHTMLToAttributedStringDelegate> delegate;
 @property (nonatomic, readonly) NSArray<MXHTMLImageAttachmentInfo *> * imageAttachments;
+@property (nonatomic, readonly, nullable) NSArray<NSError *> * errors;
+@property (nonatomic, assign) BOOL detectParsingErrors;
 - (NSMutableAttributedString *) convertHTMLString:(NSString *) html;
 + (void) insertImage:(UIImage *) image withInfo:(MXHTMLImageAttachmentInfo *) info toString:(NSMutableAttributedString *) string;
 @end

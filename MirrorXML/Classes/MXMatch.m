@@ -52,7 +52,7 @@
     return self;
 }
 
-- (nullable instancetype) initWithPath:(NSString *) path namespaces:(nullable NSDictionary<NSString *, NSString *> *)namespaces error:(NSError **) error
+- (nullable instancetype) initWithPath:(NSString *) path namespaces:(nullable NSDictionary<NSString *, NSString *> *)namespaces error:(NSError * __nullable * __null_unspecified) error
 {
     MXPattern * pattern = [[MXPattern alloc] initWithPath:path namespaces:namespaces error:error];
     if (!pattern) {

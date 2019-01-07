@@ -148,7 +148,6 @@ public class SwiftTest : NSObject {
         
         let parser = MXHTMLToAttributedString()
         let result = parser.convertHTMLString(html)
-        
         for attachment in parser.imageAttachments {
             if let image = UIImage(named: attachment.src) {
                 attachment.width = 300.0
@@ -156,10 +155,11 @@ public class SwiftTest : NSObject {
             }
             
         }
-        
-        
-        
+        if let errors = parser.errors {
+            print(errors)
+        }
         return result
+       
     }
     
     func dictHandler(onExit: @escaping ([String: Any]) -> Void) -> MXStartElementHandler {

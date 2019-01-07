@@ -28,7 +28,7 @@ NSErrorDomain MirrorXMLErrorDomain = @"com.samesimilar.MirrorXML";
 
 - (nullable instancetype) initWithPath:(NSString *) path
                             namespaces:(nullable NSDictionary<NSString *, NSString *> *) namespaces
-                                 error:(NSError **)error
+                                 error:(NSError * __nullable * __null_unspecified)error
 {
 
     self = [super init];

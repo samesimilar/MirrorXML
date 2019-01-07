@@ -21,7 +21,7 @@ typedef enum : NSUInteger {
 
 - (nullable instancetype) initWithPath:(NSString *) path
                             namespaces:(nullable NSDictionary<NSString *, NSString *> *) namespaces
-                                 error:(NSError **)error;
+                                 error:(NSError * __nullable * __null_unspecified)error;
 
 @property (nonatomic, readonly) NSDictionary<NSString *, NSString *> * namespaces;
 @property (nonatomic, readonly) NSString * path;
