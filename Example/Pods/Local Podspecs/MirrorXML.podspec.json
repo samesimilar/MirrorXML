@@ -1,6 +1,6 @@
 {
   "name": "MirrorXML",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "summary": "A short description of MirrorXML.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/samesimilar@gmail.com/MirrorXML",
@@ -13,14 +13,22 @@
   },
   "source": {
     "git": "https://github.com/samesimilar@gmail.com/MirrorXML.git",
-    "tag": "0.1.0"
+    "tag": "1.0.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "osx": "10.10",
+    "ios": "9.0"
   },
-  "source_files": "MirrorXML/Classes/**/*",
+  "source_files": "MirrorXML/Classes/common/**/*",
+  "ios": {
+    "source_files": "MirrorXML/Classes/MXHTML/**/*",
+    "frameworks": "UIKit"
+  },
   "libraries": "xml2",
   "xcconfig": {
     "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
+  },
+  "osx": {
+    "frameworks": "Foundation"
   }
 }

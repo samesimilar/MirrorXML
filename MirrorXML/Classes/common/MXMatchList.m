@@ -42,10 +42,11 @@
 @end
 @interface MXMatch()
 
-- (id) enterElement:(MXElement *) elm;
+- (void) enterElement:(MXElement *) elm;
 - (void) exitElement:(MXElement *) elm;
 - (void) streamReset;
 - (void) errorRaised:(NSError *) error onElement:(MXElement *) elm;
+@property (nonatomic, readonly) id returnedHandlers;
 
 @end
 
@@ -155,7 +156,8 @@
 - (void) enterElementWithElement:(MXElement *) elm childList:(MXMatchList *) cl
 {
     for (MXMatch * h in _handlers) {
-        NSArray * newHandlers = [h enterElement:elm];
+        [h enterElement:elm];
+        NSArray * newHandlers = h.returnedHandlers;
         if (newHandlers) {
             cl.handlers = [newHandlers arrayByAddingObjectsFromArray:cl.handlers];
             

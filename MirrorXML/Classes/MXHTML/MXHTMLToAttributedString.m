@@ -9,7 +9,11 @@
 #import "MXHTMLToAttributedString.h"
 #import <AVFoundation/AVFoundation.h>
 
-#import "MirrorXML.h"
+//#import "MirrorXML.h"
+#import "MXMatch.h"
+#import "MXElement.h"
+#import "MXHTMLParser.h"
+#import "MXPattern.h"
 #import "MXHTMLToAttributedStringDelegateDefault.h"
 #import "MXHTMLImageAttachmentInfo.h"
 

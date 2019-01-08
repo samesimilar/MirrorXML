@@ -37,40 +37,41 @@ public class SwiftTest : NSObject {
         var numDocs = 0
         
         let doc = try! MXMatch(path: "/feed/doc")
-//        let titlePattern = try! MXPattern(path: "/title", namespaces: nil)
+        let titlePattern = try! MXPattern(path: "/title", namespaces: nil)
         doc.entryHandler = { (elm) in
-////            var titleString = ""
-////            var abstractString = ""
-//            let title = MXMatch(pattern: titlePattern)
-//            title.exitHandler = { (elm) in
-//
+//            var titleString = ""
+//            var abstractString = ""
+            let title = MXMatch(pattern: titlePattern)
+            title.exitHandler = { (elm) in
+
+            }
+//            let abstract = try! MXMatch(path: "/abstract")
+//            abstract.exitHandler = { (elm) in
+//                abstractString = elm.text ?? ""
 //            }
-////            let abstract = try! MXMatch(path: "/abstract")
-////            abstract.exitHandler = { (elm) in
-////                abstractString = elm.text ?? ""
-////            }
-////
-////            let done = MXMatch.onRootExit({ (elm) in
-//////                docs.append((titleString, abstractString))
-////                numDocs += 1
-////            })
-////
-//            return [title]
-            return nil
+//
+//            let done = MXMatch.onRootExit({ (elm) in
+////                docs.append((titleString, abstractString))
+//                numDocs += 1
+//            })
+//
+            return [title]
+//            return nil
         }
         doc.exitHandler = { (elm) in
             numDocs += 1
         }
-//        let title = try! MXMatch(path: "/feed/doc/title")
-//        title.exitHandler = { (elm) in
+        let title = try! MXMatch(path: "/feed/doc/title")
+        title.exitHandler = { (elm) in
 //            print(elm.text ?? "no text")
-//            if (elm.text?.hasSuffix("t") == true) {
+            if (elm.text?.hasSuffix("t") == true) {
 //                elm.stop = true
-//            }
-//        }
+            }
+        }
         
 //
-        let parser = MXParser(matches: [doc])
+//        let parser = MXParser(matches: [doc, title])
+        let parser = MXParser(matches: [])
 //        let fileHandle = try! FileHandle(forReadingFrom: Bundle.main.url(forResource: "enwiki-latest-abstract10", withExtension: "xml")!)
 //
 //

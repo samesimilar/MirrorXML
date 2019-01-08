@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MirrorXML'
-  s.version          = '0.1.0'
+  s.version          = '1.0.0'
   s.summary          = 'A short description of MirrorXML.'
 
 # This description is used to generate tags and improve search results.
@@ -28,11 +28,17 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/samesimilar@gmail.com/MirrorXML.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
+  s.osx.deployment_target = '10.10'
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'MirrorXML/Classes/**/*'
+  s.source_files = 'MirrorXML/Classes/common/**/*'
+  s.ios.source_files = 'MirrorXML/Classes/MXHTML/**/*'
+
   s.library = "xml2"
   s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+
+  s.ios.framework = 'UIKit'
+  s.osx.framework = 'Foundation'
 
   # s.resource_bundles = {
   #   'MirrorXML' => ['MirrorXML/Assets/*.png']

@@ -34,6 +34,7 @@
 @interface MXMatch ()
 @property (nonatomic) MXPatternStream * matchStream;
 @property (nonatomic) NSMutableArray * activeStack;
+@property (nonatomic) id returnedHandlers;
 @end
 
 @implementation MXMatch
@@ -92,13 +93,14 @@
     return !_matchStream && _activeStack.count == 0;
 }
 
-- (id) enterElement:(MXElement *) elm
+- (void) enterElement:(MXElement *) elm
 {
     if (!_matchStream && elm.nodeType != MXElementNodeTypeText) {
         [_activeStack addObject:[NSNull null]];
-        return nil;
+        return;
     }
-    id newHandlers = nil;
+//    id newHandlers = nil;
+    _returnedHandlers = nil;
     int match;
     if (elm.nodeType == MXElementNodeTypeText) {
         // libxml pattern matching doesn't handle text nodes so we'll take care of it manually here.
@@ -111,7 +113,7 @@
         } else if (elm.nodeType == MXElementNodeTypeAttribute){
             match = [_matchStream streamPushAttribute:((MXAttributeElement *)elm).xmlAttrName namespaceString:((MXAttributeElement *)elm).xmlAttrNamespace];
         } else {
-            return newHandlers;
+            return;
         }
         
 
@@ -122,7 +124,7 @@
             // edit: to avoid creating unneccesary objects and strings, we'll only make this available during the "enterElement" phase
 //            [elm buildAttributesDictionary];
             if (_entryHandler && !elm.stop && elm.nodeType == MXElementNodeTypeElement) {
-                newHandlers = _entryHandler(elm);
+                _returnedHandlers = _entryHandler(elm);
             }
             [_activeStack addObject:@YES];
         } else {
@@ -133,7 +135,7 @@
     
     
 
-    return newHandlers;
+    return;
     
 }
 

@@ -14,15 +14,16 @@
 #import "MXAttributeElement.h"
 #import "MXElement.h"
 #import "MXHTMLParser.h"
-#import "MXHTMLToAttributedString.h"
-#import "MXHTMLToAttributedStringDelegateDefault.h"
-#import "MXHTMLImageAttachmentInfo.h"
 #import "MXMatch.h"
 #import "MXMatchList.h"
 #import "MXParser.h"
 #import "MXPattern.h"
 #import "MXPatternStream.h"
 #import "MXTextElement.h"
+#import "MXHTML.h"
+#import "MXHTMLImageAttachmentInfo.h"
+#import "MXHTMLToAttributedString.h"
+#import "MXHTMLToAttributedStringDelegateDefault.h"
 
 FOUNDATION_EXPORT double MirrorXMLVersionNumber;
 FOUNDATION_EXPORT const unsigned char MirrorXMLVersionString[];

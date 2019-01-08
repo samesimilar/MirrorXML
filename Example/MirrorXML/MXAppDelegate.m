@@ -8,6 +8,7 @@
 
 #import "MXAppDelegate.h"
 #import <MirrorXML/MirrorXML.h>
+#import <MirrorXML/MXHTML.h>
 #import "MirrorXML_Example-Swift.h"
 
 @implementation MXAppDelegate
@@ -40,10 +41,12 @@
 //    [parser dataFinished];
     
     SwiftTest *test = [[SwiftTest alloc] init];
-//    [test readWiki];
+    [test readWiki];
     [test test];
     [test plistParser];
     
+    MXHTMLToAttributedString * htmlparser = [[MXHTMLToAttributedString alloc] init];
+    htmlparser.detectParsingErrors = NO;
     return YES;
 }
 
