@@ -17,8 +17,8 @@
 - (instancetype) init {
     self = [super init];
     if (self) {
-        self.width = CGSizeZero.width;
-        self.height = CGSizeZero.height;
+        self.width = 0.0;
+        self.height = 0.0;
         
     }
     return self;

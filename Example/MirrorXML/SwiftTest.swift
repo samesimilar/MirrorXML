@@ -64,14 +64,14 @@ public class SwiftTest : NSObject {
         let title = try! MXMatch(path: "/feed/doc/title")
         title.exitHandler = { (elm) in
 //            print(elm.text ?? "no text")
-            if (elm.text?.hasSuffix("t") == true) {
+//            if (elm.text?.hasSuffix("t") == true) {
 //                elm.stop = true
-            }
+//            }
         }
         
 //
-//        let parser = MXParser(matches: [doc, title])
-        let parser = MXParser(matches: [])
+        let parser = MXParser(matches: [doc, title])
+//        let parser = MXParser(matches: [])
 //        let fileHandle = try! FileHandle(forReadingFrom: Bundle.main.url(forResource: "enwiki-latest-abstract10", withExtension: "xml")!)
 //
 //

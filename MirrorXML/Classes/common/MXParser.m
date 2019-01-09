@@ -56,7 +56,7 @@ static xmlSAXHandler simpleSAXHandlerStruct;
     if (self) {
         self.context = xmlCreatePushParserCtxt(&simpleSAXHandlerStruct, (__bridge void *)(self), NULL, 0, NULL);
         self.handlerList = [[MXMatchList alloc] init];
-        self.handlerList.handlers = matches;
+        self.handlerList.handlers = [NSMutableArray arrayWithArray:matches];
     }
     return self;
 }

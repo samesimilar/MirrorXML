@@ -42,11 +42,12 @@
 @end
 @interface MXMatch()
 
-- (void) enterElement:(MXElement *) elm;
+//- (void) enterElement:(MXElement *) elm;
+- (void) enterElement:(MXElement *) elm handlers:(NSMutableArray *) handlers;
 - (void) exitElement:(MXElement *) elm;
 - (void) streamReset;
 - (void) errorRaised:(NSError *) error onElement:(MXElement *) elm;
-@property (nonatomic, readonly) id returnedHandlers;
+//@property (nonatomic, readonly) id returnedHandlers;
 
 @end
 
@@ -63,14 +64,14 @@
 {
     self = [super init];
     if (self){
-//        self.handlers = [NSMutableArray new];
+        self.handlers = [NSMutableArray new];
 
     }
     return self;
 }
 
 - (void) reset {
-    self.handlers = nil;
+    [self.handlers removeAllObjects];
 }
 
 - (void) removeChildren {
@@ -156,12 +157,14 @@
 - (void) enterElementWithElement:(MXElement *) elm childList:(MXMatchList *) cl
 {
     for (MXMatch * h in _handlers) {
-        [h enterElement:elm];
-        NSArray * newHandlers = h.returnedHandlers;
-        if (newHandlers) {
-            cl.handlers = [newHandlers arrayByAddingObjectsFromArray:cl.handlers];
-            
-        }
+        [h enterElement:elm handlers:cl.handlers];
+//        [h enterElement:elm];
+////        NSArray * newHandlers = h.returnedHandlers;
+//        if (newHandlers) {
+////            cl.handlers = [newHandlers arrayByAddingObjectsFromArray:cl.handlers];
+//            [cl.handlers addObjectsFromArray:newHandlers];
+//
+//        }
 
     }
     

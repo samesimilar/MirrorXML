@@ -7,7 +7,7 @@
 //
 
 #import "MXHTMLToAttributedString.h"
-#import <AVFoundation/AVFoundation.h>
+//#import <AVFoundation/AVFoundation.h>
 
 //#import "MirrorXML.h"
 #import "MXMatch.h"
@@ -376,16 +376,16 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
         attr = elm.lowercasedAttributes[@"width"];
         if (attr) {
             NSScanner * scanner = [[NSScanner alloc] initWithString:attr];
-            CGFloat width = 0.0;
-            if ([scanner scanDouble:&width]) {
+            float width = 0.0;
+            if ([scanner scanFloat:&width]) {
                 info.width = width;
             }
         }
         attr = elm.lowercasedAttributes[@"height"];
         if (attr) {
             NSScanner * scanner = [[NSScanner alloc] initWithString:attr];
-            CGFloat height = 0.0;
-            if ([scanner scanDouble:&height]) {
+            float height = 0.0;
+            if ([scanner scanFloat:&height]) {
                 info.height = height;
             }
         }

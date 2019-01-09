@@ -41,7 +41,7 @@
 //    [parser dataFinished];
     
     SwiftTest *test = [[SwiftTest alloc] init];
-    [test readWiki];
+//    [test readWiki];
     [test test];
     [test plistParser];
     

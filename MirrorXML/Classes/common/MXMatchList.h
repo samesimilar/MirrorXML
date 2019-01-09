@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MXMatchList : NSObject
 
 @property (nonatomic, nullable) MXElement * elm;
-@property (nonatomic, nullable) NSArray * handlers;
+@property (nonatomic, nullable) NSMutableArray * handlers;
 @property (nonatomic, readonly) MXMatchList * parentList;
 
 
