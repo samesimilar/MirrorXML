@@ -11,6 +11,8 @@
 		4A037AF321DEF10A00490EB1 /* enwiki-latest-abstract10.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A037AF221DEF10A00490EB1 /* enwiki-latest-abstract10.xml */; };
 		4A2B2E8020368C5900A2DA47 /* subscriptionList.opml in Resources */ = {isa = PBXBuildFile; fileRef = 4A2B2E7F20368C5900A2DA47 /* subscriptionList.opml */; };
 		4A2B2E832036912900A2DA47 /* SwiftTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2B2E822036912900A2DA47 /* SwiftTest.swift */; };
+		4A2B9EF021E6F27B007441A4 /* tests.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A2B9EEF21E6F27B007441A4 /* tests.xml */; };
+		4A2B9EF121E6F27B007441A4 /* tests.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4A2B9EEF21E6F27B007441A4 /* tests.xml */; };
 		4A3BCEA12045A96A00F0DB5E /* IMG_0176.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4A3BCEA02045A96A00F0DB5E /* IMG_0176.jpg */; };
 		4ABAD42F2038BE0200F4F7BD /* markdownish.html in Resources */ = {isa = PBXBuildFile; fileRef = 4ABAD42E2038BE0200F4F7BD /* markdownish.html */; };
 		4ABAD4392038D31E00F4F7BD /* plist-example.xml in Resources */ = {isa = PBXBuildFile; fileRef = 4ABAD4382038D31E00F4F7BD /* plist-example.xml */; };
@@ -49,6 +51,7 @@
 		4A2B2E7F20368C5900A2DA47 /* subscriptionList.opml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = subscriptionList.opml; sourceTree = "<group>"; };
 		4A2B2E812036912900A2DA47 /* MirrorXML_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MirrorXML_Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		4A2B2E822036912900A2DA47 /* SwiftTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftTest.swift; sourceTree = "<group>"; };
+		4A2B9EEF21E6F27B007441A4 /* tests.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = tests.xml; sourceTree = "<group>"; };
 		4A3BCEA02045A96A00F0DB5E /* IMG_0176.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0176.jpg; sourceTree = "<group>"; };
 		4ABAD42E2038BE0200F4F7BD /* markdownish.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = markdownish.html; sourceTree = "<group>"; };
 		4ABAD4382038D31E00F4F7BD /* plist-example.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "plist-example.xml"; sourceTree = "<group>"; };
@@ -180,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				6003F5BB195388D20070C39A /* Tests.m */,
+				4A2B9EEF21E6F27B007441A4 /* tests.xml */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -301,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				4A2B9EF021E6F27B007441A4 /* tests.xml in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				4A2B2E8020368C5900A2DA47 /* subscriptionList.opml in Resources */,
@@ -317,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
+				4A2B9EF121E6F27B007441A4 /* tests.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

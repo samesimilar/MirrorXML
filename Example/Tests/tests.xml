@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <testStructure>
+        <child>child text.<child src="http://example.com/url/1">Inner child.</child>More child text.</child>
+        <child src="http://example.com/url/2">child text.</child>
+        <child>child text.</child>        
+        <otherChild src="http://example.com/url/3"></otherChild>
+    </testStructure>
+    <testNamespaces xmlns:ns="http://example.com/xml/ns1">
+        <child id="a"></child>
+        <ns:child id="b"></ns:child>
+        <otherChild ns:id="c"></otherChild>
+    </testNamespaces>
+    <testSpecial>
+        <data1><![CDATA[<<Here is some text.>>]]></data1>
+        <data2>Here are some entities: &lt; &gt; &quot;</data2>
+        <data3 Special="Entity inside attribute: &quot;&quot;" />
+    </testSpecial>
+    <testError></testWhat>
+</root>
