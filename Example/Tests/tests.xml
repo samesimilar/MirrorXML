@@ -3,8 +3,9 @@
     <testStructure>
         <child>child text.<child src="http://example.com/url/1">Inner child.</child>More child text.</child>
         <child src="http://example.com/url/2">child text.</child>
-        <child>child text.</child>        
+        <child>child text.</child>
         <otherChild src="http://example.com/url/3"></otherChild>
+        <CHILD>Element names are case-sensitive.</CHILD>
     </testStructure>
     <testNamespaces xmlns:ns="http://example.com/xml/ns1">
         <child id="a"></child>

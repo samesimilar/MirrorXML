@@ -40,9 +40,11 @@
     MXMatch * child = [[MXMatch alloc] initWithPath:@"/root/testStructure/child" error:nil];
     child.entryHandler = ^MXInnerMatches(MXElement * _Nonnull elm) {
         entryCount++;
+        XCTAssertEqualObjects(elm.elementName, @"child", @"Incorrect element name in %s", __PRETTY_FUNCTION__);
         return nil;
     };
     child.exitHandler = ^(MXElement * _Nonnull elm) {
+        XCTAssertEqualObjects(elm.elementName, @"child", @"Incorrect element name in %s", __PRETTY_FUNCTION__);
         exitCount++;
     };
     
@@ -246,7 +248,7 @@
     [parser parseDataChunk:self.testData];
     [parser dataFinished];
     
-    XCTAssertEqual(entryCount, 4, @"Incorrect element count in %s", __PRETTY_FUNCTION__);
+    XCTAssertEqual(entryCount, 5, @"Incorrect element count in %s", __PRETTY_FUNCTION__);
     XCTAssertEqual(entryCount, exitCount, @"Entry and exit counts must be equal. %s", __PRETTY_FUNCTION__);
    
 }
@@ -270,7 +272,7 @@
     [parser parseDataChunk:self.testData];
     [parser dataFinished];
     
-    XCTAssertEqual(entryCount, 5, @"Incorrect element count in %s", __PRETTY_FUNCTION__);
+    XCTAssertEqual(entryCount, 6, @"Incorrect element count in %s", __PRETTY_FUNCTION__);
     XCTAssertEqual(entryCount, exitCount, @"Entry and exit counts must be equal. %s", __PRETTY_FUNCTION__);
     
 }
