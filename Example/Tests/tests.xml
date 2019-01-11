@@ -17,5 +17,5 @@
         <data2>Here are some entities: &lt; &gt; &quot;</data2>
         <data3 Special="Entity inside attribute: &quot;&quot;" />
     </testSpecial>
-    <testError></testWhat>
+    <testError></testWhat></testError>
 </root>

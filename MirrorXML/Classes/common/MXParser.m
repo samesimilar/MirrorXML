@@ -29,6 +29,9 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 - (void)appendCharacters:(const char *)charactersFound
                   length:(NSInteger)length;
 
+- (instancetype) initWithContext:(nullable id) context;
+- (void) reset;
+
 @end
 
 @interface MXAttributeElement()

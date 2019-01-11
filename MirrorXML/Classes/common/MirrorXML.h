@@ -15,5 +15,7 @@
 #import <MirrorXML/MXPattern.h>
 #import <MirrorXML/MXMatch.h>
 #import <MirrorXML/MXElement.h>
+#import <MirrorXML/MXAttributeElement.h>
+#import <MirrorXML/MXTextElement.h>
 
 #endif /* MirrorXML_h */

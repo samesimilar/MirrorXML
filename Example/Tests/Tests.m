@@ -126,7 +126,7 @@
 
 
 - (void) testStructure1e {
-    // must call root exit callback
+    // must call the root exit callback
     __block int entryCount = 0;
     __block int exitCount = 0;
     
@@ -342,7 +342,7 @@
 }
 
 - (void) testNamespace1 {
-    // must match namespaced elements separately from ones with default namespace
+    // must match namespaced elements separately from ones with the default (empty) namespace
     __block int entryCount = 0;
     __block int exitCount = 0;
     __block int entryCountNS = 0;
@@ -389,7 +389,7 @@
 }
 
 - (void) testNamespaceAttribute {
-    // must match namespaced attributes separately from attributes with default namespace
+    // must match namespaced attributes separately from attributes with the default (empty) namespace
     __block int entryCount = 0;
     __block int exitCount = 0;
     __block int attributeHandler = 0;

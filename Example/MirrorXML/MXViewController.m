@@ -27,7 +27,6 @@
     [super viewDidAppear:animated];
     SwiftTest *test = [[SwiftTest alloc] init];
     self.textView.attributedText = [test attributedString];
-
 }
 - (void)didReceiveMemoryWarning
 {

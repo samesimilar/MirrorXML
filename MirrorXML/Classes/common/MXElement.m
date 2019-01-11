@@ -109,6 +109,9 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
 @property (nonatomic) NSMutableData * textData;
 @property (nonatomic) NSString * text;
 
+- (instancetype) initWithContext:(nullable id) context;
+- (void) reset;
+
 @end
 @implementation MXElement
 
