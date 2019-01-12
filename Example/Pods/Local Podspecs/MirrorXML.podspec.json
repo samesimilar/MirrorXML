@@ -21,14 +21,15 @@
   },
   "source_files": "MirrorXML/Classes/common/**/*",
   "ios": {
-    "source_files": "MirrorXML/Classes/MXHTML/**/*",
+    "source_files": "MirrorXML/Classes/MXHTML-iOS/**/*",
     "frameworks": "UIKit"
+  },
+  "osx": {
+    "source_files": "MirrorXML/Classes/MXHTML-macOS/**/*",
+    "frameworks": "Cocoa"
   },
   "libraries": "xml2",
   "xcconfig": {
     "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2"
-  },
-  "osx": {
-    "frameworks": "Foundation"
   }
 }

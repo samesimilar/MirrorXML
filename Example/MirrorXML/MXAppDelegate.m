@@ -40,6 +40,11 @@
 //    [parser parseDataChunk:data];
 //    [parser dataFinished];
     
+//    UIFont * body = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+//    UIFont * h1 = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle1];
+//    UIFont * h2 = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle2];
+//    UIFont * h3 = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
+//
     SwiftTest *test = [[SwiftTest alloc] init];
 //    [test readWiki];
     [test test];

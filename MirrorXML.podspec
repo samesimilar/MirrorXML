@@ -28,17 +28,18 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/samesimilar@gmail.com/MirrorXML.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.osx.deployment_target = '10.10'
+  s.osx.deployment_target = '10.11'
   s.ios.deployment_target = '9.0'
 
   s.source_files = 'MirrorXML/Classes/common/**/*'
-  s.ios.source_files = 'MirrorXML/Classes/MXHTML/**/*'
+  s.ios.source_files = 'MirrorXML/Classes/MXHTML-iOS/**/*'
+  s.osx.source_files = 'MirrorXML/Classes/MXHTML-macOS/**/*'
 
   s.library = "xml2"
   s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
 
   s.ios.framework = 'UIKit'
-  s.osx.framework = 'Foundation'
+  s.osx.framework = 'Cocoa'
 
   # s.resource_bundles = {
   #   'MirrorXML' => ['MirrorXML/Assets/*.png']
