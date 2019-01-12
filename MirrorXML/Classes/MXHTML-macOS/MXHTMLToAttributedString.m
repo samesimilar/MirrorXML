@@ -259,11 +259,11 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
 //            if (elm.userInfo) return @[];
 //            id liObject = [NSObject new];
 //            elm.userInfo = liObject;
-            
-            NSDictionary *oldDict = attrsDictionary;
-            attrsDictionary = [self.delegate attributesForOrderedListLevel:listLevel currentAttributes:oldDict];
-            
             listCount++;
+            NSDictionary *oldDict = attrsDictionary;
+            attrsDictionary = [self.delegate attributesForOrderedListLevel:listLevel itemIndex: listCount currentAttributes:oldDict];
+            
+            
             
             NSString * number = [self.delegate textForOrderedListItemIndex:listCount atListLevel:listLevel];
             NSString * mainText = [attrString string];

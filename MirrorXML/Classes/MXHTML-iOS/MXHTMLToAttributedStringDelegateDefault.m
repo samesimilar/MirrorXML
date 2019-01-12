@@ -104,24 +104,27 @@
     
     return newAttrs;
 }
-- (NSDictionary *) attributesForOrderedListLevel:(NSInteger) level currentAttributes:(NSDictionary *) currentAttrs
+- (NSDictionary *) attributesForOrderedListLevel:(NSInteger) level itemIndex:(NSInteger) index currentAttributes:(NSDictionary *) currentAttrs
 {
+    NSMutableDictionary * newAttrs = [currentAttrs mutableCopy];
     
-    return [self attributesForUnorderedListLevel:level currentAttributes:currentAttrs];
-    //    NSMutableDictionary * newAttrs = [currentAttrs mutableCopy];
-    //
-    //    UIFont  * font = newAttrs[NSFontAttributeName];
-    //    CGFloat fontSize = font.pointSize;
-    //
-    //    NSMutableParagraphStyle * ps = [currentAttrs[NSParagraphStyleAttributeName] mutableCopy];
-    //    ps.headIndent = fontSize * 3 * level;
-    //    ps.firstLineHeadIndent = fontSize * level;
-    //    NSTextTab * tab = [[NSTextTab alloc] initWithTextAlignment:NSTextAlignmentNatural
-    //                                                      location:fontSize * 3
-    //                                                       options:nil];
-    //    ps.tabStops = @[tab];
-    //    newAttrs[NSParagraphStyleAttributeName] = ps;
-    //    return newAttrs;
+    UIFont  * font = newAttrs[NSFontAttributeName];
+    
+    CGSize charSize = [@" " sizeWithAttributes:@{NSFontAttributeName: font}];
+    
+    
+    
+    
+    NSMutableParagraphStyle * ps = [currentAttrs[NSParagraphStyleAttributeName] mutableCopy];
+    ps.firstLineHeadIndent = ps.firstLineHeadIndent + charSize.width * self.listItemIndentCharacterCount;
+    ps.headIndent = ps.firstLineHeadIndent + [[self textForOrderedListItemIndex:index atListLevel:level] sizeWithAttributes:@{NSFontAttributeName: font}].width;
+    
+    
+    
+//    ps.defaultTabInterval = charSize.width * self.listItemIndentCharacterCount;
+    
+    newAttrs[NSParagraphStyleAttributeName] = ps;
+    return newAttrs;
     
 }
 
@@ -146,12 +149,12 @@
     
     
     NSMutableParagraphStyle * ps = [currentAttrs[NSParagraphStyleAttributeName] mutableCopy];
-    ps.firstLineHeadIndent = charSize.width * (level * self.listItemIndentCharacterCount);
-    ps.headIndent = charSize.width * ((level + 1) * self.listItemIndentCharacterCount);
+    ps.firstLineHeadIndent = ps.firstLineHeadIndent + charSize.width * self.listItemIndentCharacterCount;
+    ps.headIndent = ps.firstLineHeadIndent + [[self textForUnorderedListItemAtListLevel:level] sizeWithAttributes:@{NSFontAttributeName: font}].width;
     
     
     
-    ps.defaultTabInterval = charSize.width * self.listItemIndentCharacterCount;
+//    ps.defaultTabInterval = charSize.width * self.listItemIndentCharacterCount;
     
     newAttrs[NSParagraphStyleAttributeName] = ps;
     return newAttrs;
@@ -160,21 +163,10 @@
 - (NSDictionary *) attributesForUnorderedListRemainingParagraphsAtLevel:(NSInteger) level currentAttributes:(NSDictionary *) currentAttrs
 {
     NSMutableDictionary * newAttrs = [currentAttrs mutableCopy];
-    
-    UIFont  * font = newAttrs[NSFontAttributeName];
-    
-    CGSize charSize = [@" " sizeWithAttributes:@{NSFontAttributeName: font}];
-    
-    
-    
-    
+
     NSMutableParagraphStyle * ps = [currentAttrs[NSParagraphStyleAttributeName] mutableCopy];
     ps.firstLineHeadIndent = ps.headIndent;
-    
-    
-    
-    
-    ps.defaultTabInterval = charSize.width * self.listItemIndentCharacterCount;
+
     
     newAttrs[NSParagraphStyleAttributeName] = ps;
     return newAttrs;

@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSDictionary *) initialAttributes;
 - (NSDictionary *) attributesForTag:(NSString *) tag currentAttributes:(NSDictionary *) currentAttrs;
-- (NSDictionary *) attributesForOrderedListLevel:(NSInteger) level currentAttributes:(NSDictionary *) currentAttrs;
+- (NSDictionary *) attributesForOrderedListLevel:(NSInteger) level itemIndex:(NSInteger) index currentAttributes:(NSDictionary *) currentAttrs;
 - (NSString *) textForOrderedListItemIndex:(NSInteger) index atListLevel:(NSInteger) level;
 - (NSDictionary *) attributesForUnorderedListLevel:(NSInteger) level currentAttributes:(NSDictionary *) currentAttrs;
 - (NSString *) textForUnorderedListItemAtListLevel:(NSInteger) level;
