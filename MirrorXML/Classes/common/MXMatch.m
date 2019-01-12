@@ -17,6 +17,7 @@
 @interface MXElement()
 @property (nonatomic, assign) const xmlChar *xmlLocalname;
 @property (nonatomic, assign) const xmlChar *xmlNamespaceURI;
+@property (nonatomic, assign) BOOL stop;
 - (void) buildAttributesDictionary;
 @end
 

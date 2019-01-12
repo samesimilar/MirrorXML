@@ -92,9 +92,6 @@ static xmlSAXHandler simpleSAXHandlerStruct;
 - (void) raiseError:(NSError *) error
 {
     [self.handlerList errorRaised:error onElement:self.handlerList.elm];
-    if (self.handlerList.elm.stop) {
-        [self stopParsing];
-    }
 }
 
 - (void) stopParsing
@@ -130,11 +127,6 @@ static void startElementSAX (void *ctx,
 
 
     ctxSelf.handlerList = [ctxSelf.handlerList enterElement:elm];
-
-    if (elm.stop) {
-        [ctxSelf stopParsing];
-    }
-
 }
 
 static void	endElementSAX   (void *ctx,
@@ -150,9 +142,6 @@ static void	endElementSAX   (void *ctx,
     [ctxSelf.handlerList exitElement];
     ctxSelf.handlerList = ctxSelf.handlerList.parentList;
 
-    if (ctxSelf.handlerList.elm.stop) {
-        [ctxSelf stopParsing];
-    }
 }
 
 static void	charactersFoundSAX(void *ctx,
@@ -171,9 +160,7 @@ static void	charactersFoundSAX(void *ctx,
     [ctxSelf.handlerList exitElement:telm];
     ctxSelf.handlerList = ctxSelf.handlerList.parentList;
 
-    if (telm.stop) {
-        [ctxSelf stopParsing];
-    }
+
 }
 
 

@@ -25,6 +25,7 @@
 @property (nonatomic, assign) BOOL attributesExpired;
 @property (nonatomic, weak, nullable) id livingParserContext;
 @property (nonatomic, nullable) MXElement *parent;
+@property (nonatomic, assign) BOOL stop;
 
 - (void)appendCharacters:(const char *)charactersFound
                   length:(NSInteger)length;
@@ -208,6 +209,7 @@
                 attrElement.xmlAttrValueLength = elm.xmlAttributes[index + 4] - elm.xmlAttributes[index + 3];
 
                 MXMatchList* handlerList =  [childList enterElement:attrElement];
+                _attrElement.stop = NO;
                 [handlerList exitElement:attrElement];
             }
         }
@@ -243,7 +245,7 @@
 - (void) exitElement
 {
     
-//    _elm.stop = NO;
+    _elm.stop = NO;
 //    return [self exitElement:_elm];
     [self exitElement:_elm];
     

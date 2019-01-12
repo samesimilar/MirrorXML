@@ -95,6 +95,12 @@ static NSDictionary * dictionaryForHTMLAttributes(const xmlChar ** attributes)
 @property (nonatomic, assign) const xmlChar **xmlAttributes;
 @property (nonatomic, assign) const xmlChar **htmlAttributes;
 @property (nonatomic, assign) BOOL attributesExpired;
+/**
+ experimental:
+ if YES will not process handler blocks for this element further up the chain (but will still add it to the current path for all handlers for pattern matching purposes)
+  - allows you to override previous handlers
+*/
+@property (nonatomic, assign) BOOL stop;
 
 // used to mark instances of this class invalid once the context has been deallocated
 // since the above resources are owned by the libxml context

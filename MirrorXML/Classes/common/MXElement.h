@@ -108,12 +108,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) id userInfo;
 
 /**
-// if YES will not process handler blocks for this element further up the chain (but will still add it to the current path for all handlers for pattern matching purposes)
-// - allows you to override previous handlers
-*/
-@property (nonatomic, assign) BOOL stop;
-
-/**
  Case-insensitive attributes for this element.
  
  @warning Because of the way that libxml manages memory, this method should only be called inside the 'enterElement' block callback for the matched element. Incorrect access to this property may cause an assertion failure.
