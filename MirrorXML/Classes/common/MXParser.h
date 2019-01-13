@@ -11,6 +11,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ MXParser is the main interface for MirrorXML's xml parsing functionality . MXParser objects wrap libxml's pull-parser. MXParser objects take xml data and call the callbacks provided by MXMatch objects if matching paths are found.
+ 
+ You can call -parseDataChunk: multiple times to parse a large document incrementally.
+ 
+ Make sure to call -dataFinished when there is no more data to parse.
+ 
+ You can detect errors during parsing (as reported by libxml) by using the errorHandler callback on MXMatch.
+ 
+ @warning Only parse one document per MXParser object. Don't re-use instances of this class.
+*/
 @interface MXParser : NSObject
 /**
  Creates a new parser object that is ready to accept xml data.

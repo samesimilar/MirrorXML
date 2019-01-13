@@ -51,7 +51,7 @@
     [test plistParser];
     
     MXHTMLToAttributedString * htmlparser = [[MXHTMLToAttributedString alloc] init];
-    htmlparser.detectParsingErrors = NO;
+    htmlparser.saveParsingErrors = NO;
     return YES;
 }
 

@@ -61,7 +61,7 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
     if (self) {
         self.defaultDelegate = [[MXHTMLToAttributedStringDelegateDefault alloc] init];
         self.delegate = self.defaultDelegate;
-        self.detectParsingErrors = YES;
+        self.saveParsingErrors = YES;
         self.errors = nil;
     }
     return self;
@@ -407,7 +407,7 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
     
     NSArray * handlers = @[textHandler, script, br, p, tags1, tags2, ol, ul, a, img, pre];
 
-    if (self.detectParsingErrors) {
+    if (self.saveParsingErrors) {
         handlers = [handlers arrayByAddingObject:errorHandler];
     }
     
@@ -419,7 +419,7 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
 
     self.imageAttachments = imgSrc;
     
-    if (self.detectParsingErrors && errorMessages.count > 0) {
+    if (self.saveParsingErrors && errorMessages.count > 0) {
         self.errors = errorMessages;
     }
     

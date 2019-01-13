@@ -22,6 +22,13 @@ typedef NS_ENUM(NSInteger, MXElementNodeType) {
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ MXElement objects are used to encapsulate properties of the elements parsed by the libxml parser.
+ 
+ You do not create instances of this class. They are passed as parameters to MXMatch callbacks.
+ 
+ @warning In order to reduce processing, these objects are re-used internally, and most property values are not copied from memory controlled by libxml into NSString objects until they are accessed by you. Thus, the property values here are undefined outside of the context where you receive a particular instance of MXElement. So don't keep MXElement objects around - copy/retain the strings that you need.
+*/
 @interface MXElement : NSObject
 
 /**

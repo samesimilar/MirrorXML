@@ -18,32 +18,45 @@ typedef void            (^MXTextHandler)(MXElement *);
 typedef void            (^MXAttributeHandler)(MXAttributeElement *);
 typedef void            (^MXErrorHandler)(NSError *, MXElement *);
 
+/**
+ MXMatch objects are used to pair MXPattern objects (for matching paths found in the xml or html document being parsed) and several callbacks that allow you to process the data found in the document.
+*/
 @interface MXMatch : NSObject
 
 /**
  A block object that is called when the pattern is matched in the incoming xml document. This is called before any subsequent elements or child elements are matched.
  
- The block may return either 'nil' or an array of MXMatch objects that are used to match elements until the parser exits the current element.
+ The block takes a single MXElement * parameter and must return an array of MXMatch objects, or nil.
+ 
+ The block may return either 'nil' or an array of MXMatch objects that are used to match elements until the parser exits the current element. Note: The paths associated with these returned MXMatch objects are 'relative' to this level of the document.
 */
 @property (nonatomic, copy) MXStartElementHandler entryHandler;
 
 /**
  A block object that is called when the parser exits the currently matched element. This is called after all child elements and text of the current element are parsed.
+ 
+ The block takes a single MXElement * parameter.
 */
 @property (nonatomic, copy) MXEndElementHandler exitHandler;
 
 /**
  A block object that is called when the parser encounters a text node in the currently matched element. The complete text will also be passed in the element object that is passed to the exitHandler block.
+ 
+ The block takes a single MXElement * parameter.
 */
 @property (nonatomic, copy) MXTextHandler textHandler;
 
 /**
  A block object that is called when an attribute pattern is matched. Attributes are also included in the element object that is passed to the entryHandler block.
+ 
+ The block takes a single MXAttributeHandler * parameter.
 */
 @property (nonatomic, copy) MXAttributeHandler attributeHandler;
 
 /**
  A block that is called when libxml encounters an error during parsing. This block will only be called if an error is encountered inside an xml element (or child element) matched by this MXMatch object's pattern.
+ 
+ The block takes an NSError * parameter, and an MXElement * parameter (the element being parsed where the error occurred).
  
  To get a callback that will occur if an error is encountered anywhere in the document, create an MXMatch object with the pattern '//*', and assign a block object to this property.
  

@@ -30,7 +30,7 @@
     
     return self;
 }
-- (NSDictionary *) initialAttributes
+- (NSDictionary<NSAttributedStringKey, id> *) initialAttributes
 {
     UIFont *bodyfont = self.bodyFont;
     NSMutableParagraphStyle * ps = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
@@ -41,7 +41,7 @@
     return @{NSFontAttributeName: bodyfont, NSParagraphStyleAttributeName: ps};
 }
 
-- (NSDictionary *) attributesForTag:(NSString *) tag currentAttributes:(NSDictionary *) currentAttrs
+- (NSDictionary<NSAttributedStringKey, id> *) attributesForTag:(NSString *) tag currentAttributes:(NSDictionary<NSAttributedStringKey, id> *) currentAttrs
 {
     NSMutableDictionary * newAttrs = [currentAttrs mutableCopy];
     
@@ -104,7 +104,7 @@
     
     return newAttrs;
 }
-- (NSDictionary *) attributesForOrderedListLevel:(NSInteger) level itemIndex:(NSInteger) index currentAttributes:(NSDictionary *) currentAttrs
+- (NSDictionary<NSAttributedStringKey, id> *) attributesForOrderedListLevel:(NSInteger) level itemIndex:(NSInteger) index currentAttributes:(NSDictionary<NSAttributedStringKey, id> *) currentAttrs
 {
     NSMutableDictionary * newAttrs = [currentAttrs mutableCopy];
     
@@ -137,7 +137,7 @@
     return [NSString stringWithFormat:self.orderedListItemPrefixFormat, (long)index];
 }
 
-- (NSDictionary *) attributesForUnorderedListLevel:(NSInteger) level currentAttributes:(NSDictionary *) currentAttrs
+- (NSDictionary<NSAttributedStringKey, id> *) attributesForUnorderedListLevel:(NSInteger) level currentAttributes:(NSDictionary<NSAttributedStringKey, id> *) currentAttrs
 {
     NSMutableDictionary * newAttrs = [currentAttrs mutableCopy];
     
@@ -160,7 +160,7 @@
     return newAttrs;
 }
 
-- (NSDictionary *) attributesForUnorderedListRemainingParagraphsAtLevel:(NSInteger) level currentAttributes:(NSDictionary *) currentAttrs
+- (NSDictionary<NSAttributedStringKey, id> *) attributesForUnorderedListRemainingParagraphsAtLevel:(NSInteger) level currentAttributes:(NSDictionary<NSAttributedStringKey, id> *) currentAttrs
 {
     NSMutableDictionary * newAttrs = [currentAttrs mutableCopy];
 
@@ -176,7 +176,7 @@
 {
     return self.unorderedListItemPrefix;
 }
-- (NSDictionary *) attributesForAnchorElementWithHTMLAttributes:(NSDictionary *) htmlAttributes currentTextAttributes:(NSDictionary *) currentAttrs
+- (NSDictionary<NSAttributedStringKey, id> *) attributesForAnchorElementWithHTMLAttributes:(NSDictionary<NSString *, NSString *> *) htmlAttributes currentTextAttributes:(NSDictionary<NSAttributedStringKey, id> *) currentAttrs
 {
     NSMutableDictionary * newAttrs = [currentAttrs mutableCopy];
     

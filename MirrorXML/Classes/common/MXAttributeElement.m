@@ -8,6 +8,12 @@
 #import "MXAttributeElement.h"
 #import <libxml/tree.h>
 
+@interface MXElement ()
+
+- (void) reset;
+
+@end
+
 @interface MXAttributeElement()
 
 @property (nonatomic, assign) const xmlChar *xmlAttrName;
@@ -15,13 +21,25 @@
 @property (nonatomic, assign) NSUInteger xmlAttrValueLength;
 @property (nonatomic, assign) const xmlChar *xmlAttrNamespace;
 
-@property (nonatomic, nonnull) NSString *attrName;
+@property (nonatomic, nullable) NSString *attrName;
 @property (nonatomic, nullable) NSString *attrValue;
 @property (nonatomic, nullable) NSString *attrNamespace;
 
 @end
 
 @implementation MXAttributeElement
+
+- (void) reset {
+    [super reset];
+    
+    self.attrName = nil;
+    self.attrValue = nil;
+    self.attrNamespace = nil;
+    self.xmlAttrName = NULL;
+    self.xmlAttrValue = NULL;
+    self.xmlAttrValueLength = 0;
+    self.xmlAttrNamespace = NULL;
+}
 
 - (MXElementNodeType) nodeType
 {

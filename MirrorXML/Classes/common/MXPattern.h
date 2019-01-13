@@ -17,12 +17,19 @@ typedef enum : NSUInteger {
     MirrorXMLErrorPathIsNotStreamable
 } MirrorXMLError;
 
+/**
+ MXPattern objects represent an XPath-style pattern matching path that has been compiled into an object that can be used with MXMatch objects.
+ 
+ You can either create these objects directly and use them to initialize MXMatch objects, or you can use MXMatch's convenience constructors to have them implicitly created.
+ 
+ MXPattern objects are immutable and can be re-used between multiple MXMatch objects and parser contexts. This can save some processing if you have to match the same path over and over again (e.g. returning an MXMatch instance from an entryHandler block).
+*/
 @interface MXPattern : NSObject <NSCopying>
 
 /**
  Returns an initialized MXPattern object that can be used to match an XPath-style path.
  
- MXPattern objects are immutable and can be re-used between multiple MXMatch objects and parser contexts.
+ MXPattern objects are immutable and can be re-used between multiple MXMatch objects and parser contexts. This can save some processing if you have to match the same path over and over again (e.g. returning an MXMatch instance from an entryHandler block).
  
  Element/attribute names are case-sensitive for xml contexts. They are case-insensitive for html contexts.
  
@@ -53,14 +60,14 @@ The asterisk character is a wildcard, it matches any element. Use it in place of
 /**
  The prefix-to-namespace map used to create this object. Read only.
  
- @see initWithPath:namespaces:error
+ @see -initWithPath:namespaces:error
 */
 @property (nonatomic, readonly) NSDictionary<NSString *, NSString *> * namespaces;
 
 /**
  The path string used to create this object. Read only.
  
- @see initWithPath:namespaces:error
+ @see -initWithPath:namespaces:error
 */
 @property (nonatomic, readonly) NSString * path;
 
