@@ -1,6 +1,6 @@
 # MirrorXML
 
-MirrorXML is a wrapper for libxml2's SAX (pull) xml and html parsers. It's also a wrapper for libxml2's streamable XPath pattern matching functionality.
+MirrorXML is a wrapper for libxml2's SAX (push) xml and html parsers. It's also a wrapper for libxml2's streamable XPath pattern matching functionality.
 
 But those two things don't quite describe how these features work together in MirrorXML to make event-driven xml parsing easier. 
 
@@ -90,7 +90,7 @@ let xmlParser = MXParser(matches: [itemMatch])
 xmlParser.parseDataChunk(xmlData)
 xmlParser.dataFinished()
 ```
-The common way to write an event-driven xml parser (without using *MirrorXML*) would be to write a couple functions. One function would be called every time a new element begins, and one function would be called everytime the element ends. (This is how `NSXMLParser and NSXMLParserDelegate` work.)
+The common way to write an event-driven (push) xml parser (without using *MirrorXML*) would be to write a couple functions. One function would be called every time a new element begins, and one function would be called everytime the element ends. (This is how `NSXMLParser and NSXMLParserDelegate` work.)
 
 Since these functions are called for every element, at every level of the xml document structure, they won't naturally be aware of the context they are called in. Thus you have to keep track of lots of states, like `isInsideChannel` or `isInsideItem` or `currentRSSItem`. It can get messy since code that manages different types of data items is mixed together.
 

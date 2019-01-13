@@ -15,44 +15,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    
-//    MXMatch *ownerName = [[MXMatch alloc] initWithPath:@"/opml/head/ownerName"];
-//    ownerName.exitHandler = ^(MXElement * _Nonnull elm) {
-//        NSLog(@"%@", elm.text);
-//    };
-//
-//    MXMatch *body = [[MXMatch alloc] initWithPath:@"//body"];
-//    body.entryHandler = ^NSArray<MXMatch *> * _Nonnull(MXElement * _Nonnull elm) {
-//
-//        MXMatch * outline = [[MXMatch alloc] initWithPath:@"/outline"];
-//        outline.exitHandler = ^(MXElement * _Nonnull elm) {
-//            NSLog(@"%@", elm.attributes[@"description"]);
-//        };
-//
-//        return @[outline];
-//    };
-//
-//    MXParser *parser = [[MXParser alloc] initWithMatches:@[ownerName, body]];
-//
-//    NSData *data = [NSData dataWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"subscriptionList" withExtension:@"opml"]];
-//
-//    [parser parseDataChunk:data];
-//    [parser dataFinished];
-    
-//    UIFont * body = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-//    UIFont * h1 = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle1];
-//    UIFont * h2 = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle2];
-//    UIFont * h3 = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
-//
+
     SwiftTest *test = [[SwiftTest alloc] init];
-//    [test readWiki];
+
     [test test];
     [test plistParser];
-    
-    MXHTMLToAttributedString * htmlparser = [[MXHTMLToAttributedString alloc] init];
-    htmlparser.saveParsingErrors = NO;
-    
     
     return YES;
 }
