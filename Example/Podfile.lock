@@ -1,5 +1,5 @@
 PODS:
-  - MirrorXML (1.0.0)
+  - MirrorXML (4.0.0)
 
 DEPENDENCIES:
   - MirrorXML (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MirrorXML: 0511c3c522b7674d965e0c451c28a475e0b070ea
+  MirrorXML: f8ad69f0d40d445e569565c0c4d02eed840abf2d
 
 PODFILE CHECKSUM: 5b05690ca6f0c29891126cbee55e15f543b533bb
 

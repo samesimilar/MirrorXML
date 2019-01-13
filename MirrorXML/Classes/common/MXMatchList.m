@@ -68,12 +68,10 @@
 @end
 @interface MXMatch()
 
-//- (void) enterElement:(MXElement *) elm;
 - (void) enterElement:(MXElement *) elm handlers:(NSMutableArray *) handlers;
 - (void) exitElement:(MXElement *) elm;
 - (void) streamReset;
 - (void) errorRaised:(NSError *) error onElement:(MXElement *) elm;
-//@property (nonatomic, readonly) id returnedHandlers;
 
 @end
 
@@ -149,49 +147,11 @@
     return _child;
 }
 
-//- (void)setObject:(id)object forKeyedSubscript:(id < NSCopying >)aKey
-//{
-//    MXMatch * newHandler;
-//    
-//    if ([(id)aKey isKindOfClass:[MXPattern class]]) {
-//        newHandler = [MXMatch handlerWithPattern:[(MXPattern *) aKey copy] handlerBlocks:object];
-//    } else {
-//        newHandler = [MXMatch handlerWithPatternString:[(NSString *)aKey copy] namespaces:nil handlerBlocks:object];
-//    }
-//    
-//    self.handlers = _handlers ? [_handlers arrayByAddingObject:newHandler] : @[newHandler];
-//    
-//    
-//}
-//
-//- (id)objectForKeyedSubscript:(id)key
-//{
-//    NSString * str = [key isKindOfClass:[MXPattern class]] ? [(MXPattern *)key patternString] : key;
-//    
-//
-//    for (MXMatch * h in _handlers)
-//    {
-//        if ([h.pattern.patternString isEqualToString:str]) {
-//            return [h handlerBlockDict];
-//        }
-//        
-//    }
-//    return nil;
-//}
-
 
 - (void) enterElementWithElement:(MXElement *) elm childList:(MXMatchList *) cl
 {
     for (MXMatch * h in _handlers) {
         [h enterElement:elm handlers:cl.handlers];
-//        [h enterElement:elm];
-////        NSArray * newHandlers = h.returnedHandlers;
-//        if (newHandlers) {
-////            cl.handlers = [newHandlers arrayByAddingObjectsFromArray:cl.handlers];
-//            [cl.handlers addObjectsFromArray:newHandlers];
-//
-//        }
-
     }
     
     if (_parentList) {
@@ -252,7 +212,7 @@
 }
 - (void) exitElement:(MXElement *) elm
 {
-//    elm.stop = NO;
+
     for (MXMatch * h in _handlers) {
         [h exitElement:elm];
     }
@@ -261,17 +221,13 @@
         [_parentList exitElement:elm];
     }
     
-//    return _parentList;
+
 }
 
 - (void) exitElement
 {
-    
     _elm.stop = NO;
-//    return [self exitElement:_elm];
     [self exitElement:_elm];
-    
-    
 }
 
 

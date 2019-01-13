@@ -3,7 +3,7 @@ This application makes use of the following third party libraries:
 
 ## MirrorXML
 
-Copyright (c) 2018 samesimilar@gmail.com <mike.spears@utoronto.ca>
+Copyright (c) 2018 Michael Spears <help@samesimilar.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

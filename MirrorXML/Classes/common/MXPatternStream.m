@@ -49,14 +49,8 @@
 {
     self = [super init];
     if (self) {
-//        NSAssert(xmlPatternStreamable(pattern.patternPtr) == 1, @"xmlPattern must be streamable");
-        
         self.pattern = pattern;
-        
         self.streamPtr = xmlPatternGetStreamCtxt(pattern.patternPtr);
-        
-
-
     }
     return self;
 }
@@ -70,16 +64,11 @@
 
 - (MXPatternStreamMatch) streamPushString:(const xmlChar *) localName namespaceString:(const xmlChar *) namespace
 {
-//    const xmlChar * nameCh = name ? (xmlChar *)[name cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
-//    const xmlChar * namespaceCh = namespace ? (xmlChar *)[namespace cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
     return xmlStreamPush(self.streamPtr, localName, namespace);
-    
 }
 
 - (MXPatternStreamMatch) streamPushAttribute:(const xmlChar *) attrName namespaceString:(const xmlChar *) namespace
 {
-//    const xmlChar * nameCh = attrName ? (xmlChar *)[attrName cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
-//    const xmlChar * namespaceCh = namespace ? (xmlChar *)[namespace cStringUsingEncoding:NSUTF8StringEncoding] : NULL;
     return xmlStreamPushAttr(self.streamPtr, attrName, namespace);
 }
 

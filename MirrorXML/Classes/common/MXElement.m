@@ -48,13 +48,11 @@ static NSDictionary * namespacedDictionaryForAttributes(int nb_attributes, const
         if (attributes[index + 3] != 0)
         {
             
-            NSString * localName = [[NSString alloc] initWithUTF8String:(const char *)(attributes[index])];// lowercaseString];
+            NSString * localName = [[NSString alloc] initWithUTF8String:(const char *)(attributes[index])];
             
 //            NSString * prefix = attributes[index + 1] != NULL ? [[NSString alloc] initWithUTF8String:(const char *)(attributes[index + 1])] : @"-";
             
             NSString * URI = attributes[index + 2] != NULL ? [[NSString alloc] initWithUTF8String:(const char *)(attributes[index + 2])] : nil;
-            
-//            NSLog(@"ATTRIBUTE INFO: prefix[%@], URI[%@]", prefix, URI);
             
             NSUInteger valueLength = attributes[index + 4] - attributes[index + 3];
             

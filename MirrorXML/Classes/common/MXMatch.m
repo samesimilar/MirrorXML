@@ -57,7 +57,6 @@
 @interface MXMatch ()
 @property (nonatomic) MXPatternStream * matchStream;
 @property (nonatomic) NSMutableArray * activeStack;
-//@property (nonatomic) id returnedHandlers;
 @end
 
 @implementation MXMatch
@@ -122,8 +121,6 @@
         [_activeStack addObject:[NSNull null]];
         return;
     }
-//    id newHandlers = nil;
-//    _returnedHandlers = nil;
     int match;
     if (elm.nodeType == MXElementNodeTypeText) {
         // libxml pattern matching doesn't handle text nodes so we'll take care of it manually here.
@@ -191,21 +188,6 @@
     }
 
 }
-
-//// TODO: neeed to call these from MXHandlerList
-//- (void) foundCharacters:(NSString *) characters inElement:(MXElement *) elm {
-//    if (_textHandler && _activeStack.count > 0 && !((id)[_activeStack lastObject] == (id)[NSNull null]) ) {
-//        _textHandler(characters, elm);
-//    }
-//
-//}
-//
-//- (void) foundAttribute:(NSString *) attributeName inElement:(MXElement *) elm {
-//    if (_attributeHandler && _activeStack.count > 0 && !((id)[_activeStack lastObject] == (id)[NSNull null]) ) {
-//        _attributeHandler(attributeName, elm);
-//    }
-//}
-
 
 - (void) streamReset
 {

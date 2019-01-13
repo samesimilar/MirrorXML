@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/samesimilar/MirrorXML'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Mike Spears' => 'samesimilar@gmail.com' }
-  s.source           = { :git => 'https://github.com/samesimilar/MirrorXML', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/samesimilar/MirrorXML.git', :tag => s.version.to_s }
 
   s.osx.deployment_target = '10.11'
   s.ios.deployment_target = '9.0'
@@ -27,7 +27,9 @@ Pod::Spec.new do |s|
   s.osx.source_files = 'MirrorXML/Classes/MXHTML-macOS/**/*'
 
   s.library = "xml2"
-  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+  s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2",
+    "WARNING_CFLAGS" => "-Wno-comment"
+  }
 
   s.ios.framework = 'UIKit'
   s.osx.framework = 'Cocoa'

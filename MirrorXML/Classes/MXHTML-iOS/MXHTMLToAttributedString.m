@@ -29,9 +29,6 @@
  */
 
 #import "MXHTMLToAttributedString.h"
-//#import <AVFoundation/AVFoundation.h>
-
-//#import "MirrorXML.h"
 #import "MXMatch.h"
 #import "MXElement.h"
 #import "MXHTMLParser.h"
@@ -73,7 +70,7 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
     if (info.textAttributes) {
         [taStr addAttributes:info.textAttributes range:NSMakeRange(0, [taStr length])];
     }
-//    [string insertAttributedString:taStr atIndex:info.location];
+
     [string replaceCharactersInRange:info.location withAttributedString:taStr];
 
 }
@@ -154,15 +151,7 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
         if ([mainText hasSuffix:@"\n"] || [mainText hasSuffix:@" "] || [mainText hasSuffix:@"\t"]) {
             t = [t stringByReplacingOccurrencesOfString:@"^[ \t\n]+" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, t.length)];
         }
-//
-//        NSMutableCharacterSet * c;
-//        c = [NSMutableC haracterSet characterSetWithCharactersInString:@",.:;?!"];
-        
-//        if (mainText.length > 0 && ![mainText hasSuffix:@"\n"] && t.length > 0 && ([t rangeOfCharacterFromSet:c options:0 range:NSMakeRange(0, 1)].location == NSNotFound)) {
-//            t = [@" " stringByAppendingString:t];
-//        }
-        
-        
+
         NSAttributedString * str = [[NSAttributedString alloc] initWithString:t attributes:attrsDictionary];
         [attrString appendAttributedString:str];
     };
@@ -233,9 +222,7 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
         return @[m];
         
     };
-//    p.exitHandler = ^(MXElement *br) {
-//        [self addNewParagraphToString:attrString attributes:attrsDictionary];
-//    };
+
     
     MXMatch * tags1 = [[MXMatch alloc] initWithPath:@"//small|//strong|//b|//em|//i|//code" namespaces:nil error:nil];
     tags1.entryHandler = (id)^(MXElement *elm) {
@@ -278,10 +265,7 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
         
         MXMatch * li = [[MXMatch alloc] initWithPath:@"/li" namespaces:nil error:nil];
         li.entryHandler = (id) ^(MXElement *elm) {
-//            if (elm.userInfo) return @[];
-//            id liObject = [NSObject new];
-//            elm.userInfo = liObject;
-            
+
             listCount++;
             
             NSDictionary *oldDict = attrsDictionary;
@@ -330,13 +314,7 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
         MXMatch * li = [[MXMatch alloc] initWithPath:@"/li" namespaces:nil error:nil];
 
         li.entryHandler = (id) ^(MXElement *elm) {
-            
-//            if (elm.userInfo) return @[];
-//            id liObject = [NSObject new];
-//            elm.userInfo = liObject;
-            
-            
-            
+
             NSDictionary *oldDict = attrsDictionary;
             attrsDictionary = [self.delegate attributesForUnorderedListLevel:listLevel currentAttributes:oldDict];
             
@@ -435,8 +413,6 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
         handlers = [handlers arrayByAddingObject:errorHandler];
     }
     
-    
-//    html = [html stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     MXHTMLParser *parser = [[MXHTMLParser alloc] initWithMatches:handlers];
     [parser parseDataChunk:[html dataUsingEncoding:NSUTF8StringEncoding]];
     [parser dataFinished];
@@ -464,7 +440,6 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
     str = [str stringByReplacingOccurrencesOfString:@"\\t+" withString:@"\t"
                                             options:NSRegularExpressionSearch range:NSMakeRange(0, str.length)];
 
-//    str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     return str;
 
 }

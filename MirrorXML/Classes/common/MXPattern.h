@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSErrorDomain MirrorXMLErrorDomain;
 
 typedef enum : NSUInteger {
+    MirrorXMLLibXMLError,
     MirrorXMLErrorPathParseFailed,
     MirrorXMLErrorPathIsNotStreamable
 } MirrorXMLError;

@@ -88,8 +88,6 @@
         
     } else if ([tag isEqualToString:@"code"] || [tag isEqualToString:@"pre"]) {
         NSFont * oldFont = currentAttrs[NSFontAttributeName];
-//        UIFontDescriptor * descriptor = [oldFont fontDescriptor];
-//        UIFontDescriptor * newDescriptor = [descriptor fontDescriptorWithFamily:@"Courier"];
         NSMutableParagraphStyle * ps = [currentAttrs[NSParagraphStyleAttributeName] mutableCopy];
         // don't wrap lines for preformatted text
         ps.lineBreakMode = NSLineBreakByClipping;
@@ -98,9 +96,6 @@
         
         newAttrs[NSFontAttributeName] = [NSFont fontWithDescriptor:monospaceDescriptor size:oldFont.pointSize];
         newAttrs[NSParagraphStyleAttributeName] = ps;
-        //        newAttrs[NSBackgroundColorAttributeName] = [UIColor blackColor];
-        //        newAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
-        
     } else if ([tag isEqualToString:@"h1"]) {
         NSFont * oldFont = currentAttrs[NSFontAttributeName];
         NSFontDescriptor * descriptor = [oldFont fontDescriptor];
@@ -108,7 +103,6 @@
         NSFontDescriptor * headerDescriptor = [[headerFont fontDescriptor] fontDescriptorWithSymbolicTraits:descriptor.symbolicTraits];
         newAttrs[NSFontAttributeName] = [NSFont fontWithDescriptor:headerDescriptor size:headerFont.pointSize];
     } else if ([tag isEqualToString:@"h2"]) {
-//        newAttrs[NSFontAttributeName] = [NSFont preferredFontForTextStyle:NSFontTextStyleTitle2];
         NSFont * oldFont = currentAttrs[NSFontAttributeName];
         NSFontDescriptor * descriptor = [oldFont fontDescriptor];
         NSFont * headerFont = self.h2Font;
@@ -116,7 +110,6 @@
         newAttrs[NSFontAttributeName] = [NSFont fontWithDescriptor:headerDescriptor size:headerFont.pointSize];
 
     } else if ([tag isEqualToString:@"h3"] || [tag isEqualToString:@"h4"]) {
-//        newAttrs[NSFontAttributeName] = [NSFont preferredFontForTextStyle:NSFontTextStyleTitle3];
         NSFont * oldFont = currentAttrs[NSFontAttributeName];
         NSFontDescriptor * descriptor = [oldFont fontDescriptor];
         NSFont * headerFont = self.h3Font;
@@ -142,12 +135,6 @@
     NSMutableParagraphStyle * ps = [currentAttrs[NSParagraphStyleAttributeName] mutableCopy];
     ps.firstLineHeadIndent = ps.firstLineHeadIndent + charSize.width * self.listItemIndentCharacterCount;
     ps.headIndent = ps.firstLineHeadIndent + [[self textForOrderedListItemIndex:index atListLevel:level] sizeWithAttributes:@{NSFontAttributeName: font}].width;
-    
-    
-    
-//    ps.defaultTabInterval = charSize.width * 2;
-//    ps.tabStops = @[];
-    
     newAttrs[NSParagraphStyleAttributeName] = ps;
     return newAttrs;
     
@@ -169,18 +156,9 @@
     NSFont  * font = newAttrs[NSFontAttributeName];
     
     CGSize charSize = [@" " sizeWithAttributes:@{NSFontAttributeName: font}];
-    
-    
-    
-    
     NSMutableParagraphStyle * ps = [currentAttrs[NSParagraphStyleAttributeName] mutableCopy];
     ps.firstLineHeadIndent = ps.firstLineHeadIndent + charSize.width * self.listItemIndentCharacterCount;
     ps.headIndent = ps.firstLineHeadIndent + [[self textForUnorderedListItemAtListLevel:level] sizeWithAttributes:@{NSFontAttributeName: font}].width;
-    
-//    
-//    
-//    ps.defaultTabInterval = charSize.width * 2;
-//    ps.tabStops = @[];
     newAttrs[NSParagraphStyleAttributeName] = ps;
     return newAttrs;
 }

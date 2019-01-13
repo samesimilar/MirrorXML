@@ -30,11 +30,12 @@
 #import <libxml/tree.h>
 #import <libxml/parser.h>
 
-#import <MirrorXML/MXParser.h>
-#import <MirrorXML/MXMatchList.h>
-#import <MirrorXML/MXElement.h>
-#import <MirrorXML/MXAttributeElement.h>
-#import <MirrorXML/MXTextElement.h>
+#import "MXParser.h"
+#import "MXMatchList.h"
+#import "MXElement.h"
+#import "MXAttributeElement.h"
+#import "MXTextElement.h"
+#import "MXPattern.h"
 
 
 static xmlSAXHandler simpleSAXHandlerStruct;
@@ -201,7 +202,7 @@ static void errorEncounteredSAX(void *ctx,
     
     MXParser *ctxSelf = (__bridge MXParser *)ctx;
     NSString * str = fullMessage ? [NSString stringWithUTF8String:(const char *)fullMessage] : @"libxml2 error";
-    NSError * error = [NSError errorWithDomain:@"com.mirrorxml.libxml2" code:1 userInfo:@{NSLocalizedDescriptionKey:str}];
+    NSError * error = [NSError errorWithDomain:MirrorXMLErrorDomain code:MirrorXMLLibXMLError userInfo:@{NSLocalizedDescriptionKey:str}];
     
     [ctxSelf raiseError:error];
 

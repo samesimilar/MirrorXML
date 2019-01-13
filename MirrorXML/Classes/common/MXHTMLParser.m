@@ -36,6 +36,7 @@
 #import "MXElement.h"
 #import "MXAttributeElement.h"
 #import "MXTextElement.h"
+#import "MXPattern.h"
 
 static xmlSAXHandler simpleHTMLSAXHandlerStruct;
 
@@ -90,23 +91,16 @@ static xmlSAXHandler simpleHTMLSAXHandlerStruct;
     [self.handlerList removeChildren];
 }
 
-//- (void) addParser:(MXParser *) parser
-//{
-//    [(NSMutableArray *)self.myParsers addObject:parser];
-//}
 
 - (void) parseDataChunk:(NSData *) data
 {
-//    xmlParseChunk(self.context, (const char *)[data bytes], (int)[data length], 0);
     htmlParseChunk(self.context,  (const char *)[data bytes], (int)[data length], 0);
-
 }
 
 
 - (void) dataFinished
 {
-    htmlParseChunk(self.context,NULL, 0, 1);
-    
+    htmlParseChunk(self.context,NULL, 0, 1);    
 }
 
 - (void) raiseError:(NSError *) error
@@ -157,7 +151,7 @@ static void errorEncounteredSAX(void *ctx,
     
     MXHTMLParser *ctxSelf = (__bridge MXHTMLParser *)ctx;
     NSString * str = fullMessage ? [NSString stringWithUTF8String:(const char *)fullMessage] : @"";
-    NSError * error = [NSError errorWithDomain:@"com.mirrorxml.libxml2" code:1 userInfo:@{NSLocalizedDescriptionKey:str}];
+    NSError * error = [NSError errorWithDomain:MirrorXMLErrorDomain code:MirrorXMLLibXMLError userInfo:@{NSLocalizedDescriptionKey:str}];
     
     [ctxSelf raiseError:error];
 
@@ -181,9 +175,6 @@ const xmlChar **atts)
     elm.htmlAttributes = atts;
     
     ctxSelf.handlerList = [ctxSelf.handlerList enterElement:elm];
-    
-    
-    
 }
 void endElementSAX(void *ctx,
                            const xmlChar *name)

@@ -41,7 +41,6 @@
     if (self) {
         self.width = 0.0;
         self.height = 0.0;
-        
     }
     return self;
 }
