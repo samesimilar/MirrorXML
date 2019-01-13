@@ -52,6 +52,8 @@
     
     MXHTMLToAttributedString * htmlparser = [[MXHTMLToAttributedString alloc] init];
     htmlparser.saveParsingErrors = NO;
+    
+    
     return YES;
 }
 

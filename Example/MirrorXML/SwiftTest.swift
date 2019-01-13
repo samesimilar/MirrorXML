@@ -9,6 +9,10 @@
 import Foundation
 import MirrorXML
 
+class RSSItem {
+    var title: String!
+    var link: String!
+}
 public extension Date {
 //    https://github.com/justinmakaila/NSDate-ISO-8601
     public static func ISOStringFromDate(date: NSDate) -> String {
@@ -159,9 +163,39 @@ public class SwiftTest : NSObject {
         if let errors = parser.errors {
             print(errors)
         }
+        
+        let htmlData = Data()
+        
+        var links = [String]()
+        
+        let linkElement = try! MXMatch(path:"//a")
+        linkElement.entryHandler = {
+            if let url = $0.attributes["href"] {
+                links.append(url)
+            }
+            return nil
+        }
+        
+        let xmlParser = MXHTMLParser(matches: [linkElement])
+        xmlParser.parseDataChunk(htmlData)
+        xmlParser.dataFinished()
+        
+        let errorMatch = try! MXMatch(path:"//*")
+        errorMatch.errorHandler = { (error, elm) in
+            print("An error was encountered: \(error.localizedDescription), \(elm.elementName ?? "Unknown")")
+        }
+        
+        let xmlPxarser = MXParser(matches:[errorMatch])
+        
+        let nameSpacedMatch = try! MXMatch(path: "/rss/channel/item/georss:point", namespaces: ["georss":"http://www.georss.org/georss"])
+        
+        let htmlString = "<a>Click href=\"mailto:support@example.com\"here</a> to <b>contact support.</b>"
+        let string = MXHTMLToAttributedString().convertHTMLString(htmlString)
+        
         return result
        
     }
+    
     
     func dictHandler(onExit: @escaping ([String: Any]) -> Void) -> MXStartElementHandler {
         return { (elm) in

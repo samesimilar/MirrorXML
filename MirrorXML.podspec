@@ -1,32 +1,23 @@
-#
-# Be sure to run `pod lib lint MirrorXML.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html
-#
-
 Pod::Spec.new do |s|
   s.name             = 'MirrorXML'
-  s.version          = '1.0.0'
-  s.summary          = 'A short description of MirrorXML.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
-
+  s.version          = '4.0.0'
+  s.summary          = 'A block-based, event-driven, API for parsing xml (and basic html).'
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  MirrorXML is a wrapper for libxml2's SAX (pull) xml and html parsers. It's also a wrapper for libxml2's streamable XPath pattern matching functionality.
+  
+  But those two things don't quite describe how these features work together in MirrorXML to make event-driven xml parsing easier.
+  
+  Let's put it another way: MirrorXML is a block-based, event-driven, API for parsing xml (and basic html).
+  
+  MirrorXML doesn't attempt to magically turn XML into Swift model objects, rather, it puts you in control while helping you create more easily maintainable, explicit, and well-strucutred code.
+  
+  And it also comes with a neat little customizeable *html to NSAttributedString* API.
                        DESC
 
-  s.homepage         = 'https://github.com/samesimilar@gmail.com/MirrorXML'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.homepage         = 'https://github.com/samesimilar/MirrorXML'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'samesimilar@gmail.com' => 'mike.spears@utoronto.ca' }
-  s.source           = { :git => 'https://github.com/samesimilar@gmail.com/MirrorXML.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { 'Mike Spears' => 'samesimilar@gmail.com' }
+  s.source           = { :git => 'https://github.com/samesimilar/MirrorXML', :tag => s.version.to_s }
 
   s.osx.deployment_target = '10.11'
   s.ios.deployment_target = '9.0'
@@ -40,12 +31,4 @@ TODO: Add long description of the pod here.
 
   s.ios.framework = 'UIKit'
   s.osx.framework = 'Cocoa'
-
-  # s.resource_bundles = {
-  #   'MirrorXML' => ['MirrorXML/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
