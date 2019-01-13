@@ -35,76 +35,7 @@ public extension Date {
 }
 
 public class SwiftTest : NSObject {
-    @objc func readWiki() {
-        
-//        var docs = [(String, String)]()
-        var numDocs = 0
-        
-        let doc = try! MXMatch(path: "/feed/doc")
-        let titlePattern = try! MXPattern(path: "/title", namespaces: nil)
-        doc.entryHandler = { (elm) in
-//            var titleString = ""
-//            var abstractString = ""
-            let title = MXMatch(pattern: titlePattern)
-            title.exitHandler = { (elm) in
-
-            }
-//            let abstract = try! MXMatch(path: "/abstract")
-//            abstract.exitHandler = { (elm) in
-//                abstractString = elm.text ?? ""
-//            }
-//
-//            let done = MXMatch.onRootExit({ (elm) in
-////                docs.append((titleString, abstractString))
-//                numDocs += 1
-//            })
-//
-            return [title]
-//            return nil
-        }
-        doc.exitHandler = { (elm) in
-            numDocs += 1
-        }
-        let title = try! MXMatch(path: "/feed/doc/title")
-        title.exitHandler = { (elm) in
-//            print(elm.text ?? "no text")
-//            if (elm.text?.hasSuffix("t") == true) {
-//                elm.stop = true
-//            }
-        }
-        
-//
-        let parser = MXParser(matches: [doc, title])
-//        let parser = MXParser(matches: [])
-//        let fileHandle = try! FileHandle(forReadingFrom: Bundle.main.url(forResource: "enwiki-latest-abstract10", withExtension: "xml")!)
-//
-//
-//        while true {
-//            let shouldbreak =
-//            autoreleasepool { () -> Bool in
-//                let data = fileHandle.readData(ofLength: 1024)
-//                if (data.isEmpty) {
-//                    parser.dataFinished()
-//                    fileHandle.closeFile()
-//                    return true
-//                } else {
-//                    parser.parseDataChunk(data)
-//                    return false
-//                }
-//
-//            }
-//            if shouldbreak {
-//                break
-//            }
-//
-//        }
-        let data = try! Data(contentsOf: Bundle.main.url(forResource: "enwiki-latest-abstract10", withExtension: "xml")!)
-
-        parser.parseDataChunk(data)
-        parser.dataFinished()
-        print ("found \(numDocs) docs")
-        
-    }
+ 
     @objc func test() {
         
         let ownerName = try! MXMatch(path: "/opml/head/ns:ownerName", namespaces:["ns":"http://samesimilar.com/xml/test"])
