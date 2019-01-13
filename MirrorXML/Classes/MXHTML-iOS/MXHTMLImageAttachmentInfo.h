@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The display height of the image.
  
- If the <img> tag had a valid height= value, it will be stored here.
+ If the image tag had a valid height= value, it will be stored here.
  
  You can modify this property with your own value to determine the size of the image when it is displayed. For example, you might want to limit the image size based on the size of a text view. By default the image will be displayed at 100%.
  

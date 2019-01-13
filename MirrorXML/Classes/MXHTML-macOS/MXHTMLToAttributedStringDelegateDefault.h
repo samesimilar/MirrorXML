@@ -34,12 +34,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) 	CGFloat          normalParagraphSpacingBefore;
 
 /**
- The base font to use for <code> or preformatted (i.e. <pre>) text. Size will be based on context of usage (usually bodyFont point size). Default is Courier.
+ The base font to use for 'code' or preformatted (i.e. 'pre') text. Size will be based on context of usage (usually bodyFont point size). Default is Courier.
 */
 @property (nonatomic) 	NSFont *         monospaceFont;
 
 /**
- By default <pre>formatted text will be clipped and not word-wrapped (The default value of this property is NSLineBreakByClipping).
+ By default 'pre'-formatted text will be clipped and not word-wrapped (The default value of this property is NSLineBreakByClipping).
 */
 @property (nonatomic, assign)   NSLineBreakMode  preformattedTextLineBreakMode;
 

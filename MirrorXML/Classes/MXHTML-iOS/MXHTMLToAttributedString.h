@@ -127,9 +127,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  libxml's html parser is not strict, so any errors that are encountered are not necessarily fatal. After you convert a string you can check the 'errors' property for any errors that were reported during parsing.
  
- It doesn't necessarily require the input to be a full 'html' structured document with stuff like <head> and <body> - so you can parse a simple string with a few tags into an attributed string, e.g. "<a>Click href="mailto:support@example.com"here</a> to <b>contact support.</b>" (Note: if you want links to be active inside something like a UILabel, make sure to enable user interaction with the UILabel.)
+ It doesn't necessarily require the input to be a full 'html' structured document with stuff like 'head' and 'body' - so you can parse a simple string with a few tags into an attributed string, e.g. `<a>Click href="mailto:support@example.com"here</a> to <b>contact support.</b>` (Note: if you want links to be active inside something like a UILabel, make sure to enable user interaction with the UILabel.)
  
- If <img> tags are encountered: a placeholder is inserted, and you can insert the required image later using +insertImage:withInfo:toString.
+ If image tags are encountered: a placeholder is inserted, and you can insert the required image later using +insertImage:withInfo:toString.
  
  @warning This is all somewhat experimental, especially with respect to whitespace collapsing in html documents and paragraph spacing, so you may not necessarily get the results you expect. But it seems to be good for most basic cases.
  
@@ -144,7 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) id <MXHTMLToAttributedStringDelegate> delegate;
 
 /**
- Check this property just after conversion to get a list of <img> tags found in the html string. You can then load the images and insert them into the string using +insertImage:withInfo:toString.
+ Check this property just after conversion to get a list of image tags found in the html string. You can then load the images and insert them into the string using +insertImage:withInfo:toString.
  
  @see +insertImage:withInfo:toString
 */
@@ -171,9 +171,9 @@ NS_ASSUME_NONNULL_BEGIN
  
  libxml's html parser is not strict, so any errors that are encountered are not necessarily fatal. After you convert a string you can check the 'errors' property for any errors that were reported during parsing.
  
- It doesn't necessarily require the input to be a full 'html' structured document with stuff like <head> and <body> - so you can parse a simple string with a few tags into an attributed string, e.g. "<a>Click href="mailto:support@example.com"here</a> to <b>contact support.</b>" (Note: if you want links to be active inside something like a UILabel, make sure to enable user interaction with the UILabel.)
+ It doesn't necessarily require the input to be a full 'html' structured document with stuff like 'head' and 'body' - so you can parse a simple string with a few tags into an attributed string, e.g. `<a>Click href="mailto:support@example.com"here</a> to <b>contact support.</b>` (Note: if you want links to be active inside something like a UILabel, make sure to enable user interaction with the UILabel.)
  
- If <img> tags are encountered: a placeholder is inserted, and you can insert the required image later using +insertImage:withInfo:toString.
+ If image tags are encountered: a placeholder is inserted, and you can insert the required image later using +insertImage:withInfo:toString.
  
  @param html The complete html document (or complete snippet) to parse.
  @return An NSMutableAttributedString styled according to the html tags found in the input. Don't modify this string if you will be later inserting images with +insertImage:withInfo:toString.

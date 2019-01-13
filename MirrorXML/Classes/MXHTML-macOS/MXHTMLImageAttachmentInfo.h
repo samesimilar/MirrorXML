@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- MXHTMLImageAttachmentInfo encapsulate information about <img> tags found while converting html to an attributed string using MXHTMLToAttributedString.
+ MXHTMLImageAttachmentInfo encapsulate information about image tags found while converting html to an attributed string using MXHTMLToAttributedString.
  
  You retrieve instances of this class from MXHTMLToAttributedString's 'imageAttachments' property just after parsing an html string. You don't create instances of this class directly.
  
