@@ -16,11 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 
-    SwiftTest *test = [[SwiftTest alloc] init];
-
-    [test test];
-    [test plistParser];
-    
+    id parseResult = [[[ReadPLIST alloc] init] parse];
     return YES;
 }
 
