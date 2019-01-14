@@ -5,7 +5,28 @@
 //  Created by Mike Spears on 2019-01-14.
 //  Copyright © 2019 samesimilar@gmail.com. All rights reserved.
 //
-
+/*
+ Copyright (c) 2018 Michael Spears <help@samesimilar.com>
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+ 
+ */
 import Foundation
 import MirrorXML
 
@@ -20,10 +41,12 @@ class OPMLItem : NSObject{
     }
 
 }
-class RSSItem {
-    var title: String?
-    var link: String?
-}
+
+/**
+ Basic idea for parsing an xml (OPML) file. Note that it doesn't preserve nested structures (all Outline elements are flattened into a single list.
+ 
+ See ReadPLIST for an example of reading a document with arbitrary depth.
+*/
 class ReadOPML : NSObject {
     @objc func readOPML() -> [OPMLItem] {
         
@@ -51,38 +74,5 @@ class ReadOPML : NSObject {
         return items
  
     }
-    
-    func test() {
-        
-        var items = [RSSItem]()
-        let itemMatch = try! MXMatch(path: "/rss/channel/item")
-        
-        // Create a block that will be called at the beginning of every item element.
-        itemMatch.entryHandler = {(elm) in
-            //create a new instance of the RSSItem class
-            // but don't add it to the storage array until later
-            let thisRSSItem = RSSItem()
-            
-            let titleMatch = try! MXMatch(path: "/title")
-            titleMatch.exitHandler = { (elm) in
-                thisRSSItem.title = elm.text
-            }
-            let linkMatch = try! MXMatch(path: "/link")
-            titleMatch.exitHandler = { (elm) in
-                thisRSSItem.link = elm.text
-            }
-            
-            // Only add the item if it is valid.
-            // This block will run after titleMatch and linkMatch.
-            // Note that in this circumstance we have a reference to the 'thisRSSItem' object we are building.
-            let itemExit = MXMatch.onRootExit({ (elm) in
-                guard thisRSSItem.title != nil && thisRSSItem.link != nil else {
-                    return
-                }
-                items.append(thisRSSItem)
-            })
-            // Return the temporary MXMatch objects. They will only apply to the current 'item' element.
-            return [titleMatch, linkMatch, itemExit]
-        }
-    }
+
 }
