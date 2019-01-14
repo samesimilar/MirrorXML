@@ -149,6 +149,43 @@
     
 }
 
+- (void) testStructure1context1 {
+    // must preserve user info object
+    __block int entryCount = 0;
+    __block int exitCount = 0;
+    
+    MXMatch * child = [[MXMatch alloc] initWithPath:@"/root/testStructure/child" error:nil];
+    child.entryHandler = ^MXInnerMatches(MXElement * _Nonnull elm) {
+        entryCount++;
+        
+        elm.userInfo = @"User info.";
+        
+        MXMatch * innerChild =  [[MXMatch alloc] initWithPath:@"/child" error:nil];
+        innerChild.entryHandler = ^MXInnerMatches(MXElement * _Nonnull elm) {
+            XCTAssertEqualObjects(elm.parent.userInfo,  @"User info.");
+            return nil;
+        };
+        MXMatch * rootExit = [MXMatch onRootExit:^(MXElement * _Nonnull elm) {
+            XCTAssertEqualObjects(elm.userInfo,  @"User info.");
+        }];
+        return @[rootExit, innerChild];
+    };
+    
+    child.exitHandler = ^(MXElement * _Nonnull elm) {
+        XCTAssertEqualObjects(elm.userInfo,  @"User info.");
+        exitCount++;
+    };
+    
+    
+    MXParser * parser = [[MXParser alloc] initWithMatches:@[child]];
+    [parser parseDataChunk:self.testData];
+    [parser dataFinished];
+    
+    XCTAssertEqual(entryCount, 3, @"Incorrect element count in %s", __PRETTY_FUNCTION__);
+    XCTAssertEqual(entryCount, exitCount, @"Entry and exit counts must be equal. %s", __PRETTY_FUNCTION__);
+    
+}
+
 - (void) testStructure1Attribute {
     // must match only 'child' elements with a particular attribute name
     __block int entryCount = 0;

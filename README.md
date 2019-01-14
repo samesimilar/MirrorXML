@@ -96,6 +96,49 @@ Since these functions are called for every element, at every level of the xml do
 
 *MirrorXML* simplifies everything becuase your code structure mirrors the structure of the XML document, and your callbacks are only activated for elements that they are interested in. As you can see above, all the code you need to build one of these theoretical RSSItem objects is kept together exclusively in one place. And since we are using blocks, they implicitly keep references to their context, so we don't need some global variable like `currentRSSitem.`
 
+### Preserving State Between Entry and Exit Events
+
+You may wish to pass state between the entry and exit handlers for an element. There are two ways to do this.
+
+The first way is to use the `userInfo` property of the element. You can assign an arbitrary object to this property in the entry handler and it will be available in the element passed to the exit handler.
+
+The second way is to define a special exit block in the entry handler itself. This is a closure that implicitly saves the context of the entry handler.  You can create this special block object using `MXMatch.onRootExit(:)`. It will be called when the exit for the current tag is parsed.
+
+For example (building upon the previous example), let's say you decide that you only want to add your new temporary RSS item to the items array if it has a valid title and link. You can write the code as follows:
+
+```Swift
+let itemMatch = try! MXMatch(path: "/rss/channel/item")
+
+// Create a block that will be called at the beginning of every item element.
+itemMatch.entryHandler = {(elm) in
+    // create a new instance of the RSSItem class
+    // but don't add it to the storage array until later
+    let thisRSSItem = RSSItem()
+
+    let titleMatch = try! MXMatch(path: "/title")
+    titleMatch.exitHandler = { (elm) in
+        thisRSSItem.title = elm.text
+    }
+    let linkMatch = try! MXMatch(path: "/link")
+    titleMatch.exitHandler = { (elm) in
+        thisRSSItem.link = elm.text
+    }
+
+    // Only add the item if it is valid.
+    // This block will run after titleMatch and linkMatch.
+    // Note that in this circumstance we have a reference to the 'thisRSSItem' object we are building.
+    let itemExit = MXMatch.onRootExit({ (elm) in
+        guard thisRSSItem.title != nil && thisRSSItem.link != nil else {
+            return
+        }
+        items.append(thisRSSItem)
+    })
+    // Return the temporary MXMatch objects. They will only apply to the current 'item' element.
+    return [titleMatch, linkMatch, itemExit]
+}
+```
+
+
 ### XPath-style Patterns
 
 The previous two examples use simple paths to match elements at particular places in the xml document. There are a few more advanced tricks you can do: 

@@ -25,7 +25,7 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    SwiftTest *test = [[SwiftTest alloc] init];
+    ConvertHTML *test = [[ConvertHTML alloc] init];
     self.textView.attributedText = [test attributedString];
 }
 - (void)didReceiveMemoryWarning

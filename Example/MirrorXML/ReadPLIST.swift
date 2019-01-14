@@ -9,6 +9,27 @@
 import Foundation
 import MirrorXML
 
+public extension Date {
+    //    https://github.com/justinmakaila/NSDate-ISO-8601
+    public static func ISOStringFromDate(date: NSDate) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        
+        return dateFormatter.string(from: date as Date).appending("Z")
+    }
+    
+    public static func dateFromISOString(string: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        
+        return dateFormatter.date(from: string)
+    }
+}
+
 class ReadPLIST : NSObject {
     private func dictHandler(onExit: @escaping ([String: Any]) -> Void) -> MXStartElementHandler {
         return { (elm) in
