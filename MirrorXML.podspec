@@ -33,4 +33,5 @@ Pod::Spec.new do |s|
 
   s.ios.framework = 'UIKit'
   s.osx.framework = 'Cocoa'
+  
 end
