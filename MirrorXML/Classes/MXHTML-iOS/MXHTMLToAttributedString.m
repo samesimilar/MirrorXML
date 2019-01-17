@@ -393,7 +393,7 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
         }
         
         
-        NSAttributedString * placeholder = [[NSAttributedString alloc] initWithString:@"<img>" attributes:attrsDictionary];
+        NSAttributedString * placeholder = [NSAttributedString attributedStringWithAttachment:[[NSTextAttachment alloc] initWithData:nil ofType:nil]];
         
         info.location = NSMakeRange([attrString length], [placeholder length]);
         info.textAttributes = attrsDictionary;
@@ -421,6 +421,12 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
     
     if (self.saveParsingErrors && errorMessages.count > 0) {
         self.errors = errorMessages;
+    }
+    
+    // remove trailing 'new lines'
+    NSMutableString * finalStr = [attrString mutableString];
+    while ([finalStr hasSuffix:@"\n"]) {
+        [finalStr deleteCharactersInRange:NSMakeRange([finalStr length] - 1, 1)];
     }
     
     return attrString;

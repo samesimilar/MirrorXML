@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MirrorXML'
-  s.version          = '4.0.0'
+  s.version          = '4.0.1'
   s.summary          = 'A block-based, event-driven, API for parsing xml (and basic html).'
   s.description      = <<-DESC
   MirrorXML is a wrapper for libxml2's SAX (pull) xml and html parsers. It's also a wrapper for libxml2's streamable XPath pattern matching functionality.
