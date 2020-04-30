@@ -148,8 +148,8 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
         
         NSString * t = [self collapseString:elm.text];
         NSString * mainText = attrString.string;
-        if ([mainText hasSuffix:@"\n"] || [mainText hasSuffix:@" "] || [mainText hasSuffix:@"\t"]) {
-            t = [t stringByReplacingOccurrencesOfString:@"^[ \t\n]+" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, t.length)];
+        if ([mainText hasSuffix:@" "] || [mainText hasSuffix:@"\t"]) {
+            t = [t stringByReplacingOccurrencesOfString:@"^[ \t]+" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, t.length)];
         }
 
         NSAttributedString * str = [[NSAttributedString alloc] initWithString:t attributes:attrsDictionary];
@@ -262,7 +262,10 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
     ol.entryHandler = (id) ^(MXElement *elm) {
         __block int listCount = 0;
         listLevel++;
-        
+
+        NSAttributedString *spacer = [[NSAttributedString alloc] initWithString:@"\n\n" attributes: nil];
+        [attrString appendAttributedString:spacer];
+
         MXMatch * li = [[MXMatch alloc] initWithPath:@"/li" namespaces:nil error:nil];
         li.entryHandler = (id) ^(MXElement *elm) {
 
@@ -301,6 +304,9 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
     };
     
     ol.exitHandler = ^(MXElement *br) {
+        NSAttributedString *spacer = [[NSAttributedString alloc] initWithString:@"\n\n" attributes: nil];
+        [attrString appendAttributedString:spacer];
+
         if (listLevel > 0) listLevel--;
     };
     
@@ -311,6 +317,9 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
         
         listLevel++;
         
+        NSAttributedString *spacer = [[NSAttributedString alloc] initWithString:@"\n\n" attributes: nil];
+        [attrString appendAttributedString:spacer];
+
         MXMatch * li = [[MXMatch alloc] initWithPath:@"/li" namespaces:nil error:nil];
 
         li.entryHandler = (id) ^(MXElement *elm) {
@@ -344,6 +353,8 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
     };
     ul.exitHandler = ^(MXElement *elm) {
         if (listLevel > 0) listLevel--;
+        NSAttributedString *spacer = [[NSAttributedString alloc] initWithString:@"\n\n" attributes: nil];
+        [attrString appendAttributedString:spacer];
     };
     
     MXMatch * a = [[MXMatch alloc] initWithPath:@"//a" namespaces:nil error:nil];
