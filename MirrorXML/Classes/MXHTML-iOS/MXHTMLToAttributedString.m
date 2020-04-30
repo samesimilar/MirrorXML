@@ -148,8 +148,8 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
         
         NSString * t = [self collapseString:elm.text];
         NSString * mainText = attrString.string;
-        if ([mainText hasSuffix:@"\n"] || [mainText hasSuffix:@" "] || [mainText hasSuffix:@"\t"]) {
-            t = [t stringByReplacingOccurrencesOfString:@"^[ \t\n]+" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, t.length)];
+        if ([mainText hasSuffix:@" "] || [mainText hasSuffix:@"\t"]) {
+            t = [t stringByReplacingOccurrencesOfString:@"^[ \t]+" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, t.length)];
         }
 
         NSAttributedString * str = [[NSAttributedString alloc] initWithString:t attributes:attrsDictionary];
