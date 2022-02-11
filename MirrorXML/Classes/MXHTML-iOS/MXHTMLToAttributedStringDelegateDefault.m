@@ -76,7 +76,8 @@
         UIFontDescriptor * newDescriptor = [descriptor fontDescriptorWithSymbolicTraits:UIFontDescriptorTraitBold | descriptor.symbolicTraits];
         
         newAttrs[NSFontAttributeName] = [UIFont fontWithDescriptor:newDescriptor size:oldFont.pointSize];
-        
+    } else if ([tag isEqualToString:@"u"]) {
+        newAttrs[NSUnderlineStyleAttributeName] = @(NSUnderlineStyleSingle);
     } else if ([tag isEqualToString:@"em"] || [tag isEqualToString:@"i"]) {
         UIFont * oldFont = currentAttrs[NSFontAttributeName];
         UIFontDescriptor * descriptor = [oldFont fontDescriptor];

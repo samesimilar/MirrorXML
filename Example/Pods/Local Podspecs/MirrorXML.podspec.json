@@ -1,6 +1,6 @@
 {
   "name": "MirrorXML",
-  "version": "4.0.0",
+  "version": "4.0.2",
   "summary": "A block-based, event-driven, API for parsing xml (and basic html).",
   "description": "MirrorXML is a wrapper for libxml2's SAX (pull) xml and html parsers. It's also a wrapper for libxml2's streamable XPath pattern matching functionality.\n\nBut those two things don't quite describe how these features work together in MirrorXML to make event-driven xml parsing easier.\n\nLet's put it another way: MirrorXML is a block-based, event-driven, API for parsing xml (and basic html).\n\nMirrorXML doesn't attempt to magically turn XML into Swift model objects, rather, it puts you in control while helping you create more easily maintainable, explicit, and well-strucutred code.\n\nAnd it also comes with a neat little customizeable *html to NSAttributedString* API.",
   "homepage": "https://github.com/samesimilar/MirrorXML",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/samesimilar/MirrorXML.git",
-    "tag": "4.0.0"
+    "tag": "4.0.2"
   },
   "platforms": {
     "osx": "10.11",
