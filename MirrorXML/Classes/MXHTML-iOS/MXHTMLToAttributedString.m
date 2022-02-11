@@ -224,7 +224,7 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
     };
 
     
-    MXMatch * tags1 = [[MXMatch alloc] initWithPath:@"//small|//strong|//b|//em|//i|//code" namespaces:nil error:nil];
+    MXMatch * tags1 = [[MXMatch alloc] initWithPath:@"//small|//strong|//b|//em|//i|//code|//u" namespaces:nil error:nil];
     tags1.entryHandler = (id)^(MXElement *elm) {
         NSDictionary *oldDict = attrsDictionary;
         
