@@ -238,7 +238,7 @@ NSInteger const MXHTMLToAttirbutedStringParseError = 100;
         
     };
     
-    MXMatch * tags2 = [[MXMatch alloc] initWithPath:@"//h1|//h2|//h3" namespaces:nil error:nil];
+    MXMatch * tags2 = [[MXMatch alloc] initWithPath:@"//h1|//h2|//h3|//h4" namespaces:nil error:nil];
     tags2.entryHandler = (id)^(MXElement *elm) {
         
         [self addNewParagraphToString:attrString attributes:attrsDictionary];

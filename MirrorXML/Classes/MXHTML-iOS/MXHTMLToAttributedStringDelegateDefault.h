@@ -45,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic)  UIFont *         h1Font;
 @property (nonatomic)  UIFont *         h2Font;
 @property (nonatomic)  UIFont *         h3Font;
+@property (nonatomic)  UIFont *         h4Font;
 
 /**
  See NSParagraphStyle documentation for notes on paragraph spacing values. Default value for both here is 0.

@@ -41,6 +41,7 @@
         self.h1Font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle1];
         self.h2Font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle2];
         self.h3Font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
+        self.h4Font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
         self.normalParagraphSpacing = 0;
         self.normalParagraphSpacingBefore = 0;
         self.monospaceFont = [UIFont fontWithName:@"Courier" size:12];
@@ -109,13 +110,19 @@
         UIFontDescriptor * headerDescriptor = [[headerFont fontDescriptor] fontDescriptorWithSymbolicTraits:descriptor.symbolicTraits];
         newAttrs[NSFontAttributeName] = [UIFont fontWithDescriptor:headerDescriptor size:headerFont.pointSize];
 
-    } else if ([tag isEqualToString:@"h3"] || [tag isEqualToString:@"h4"]) {
+    } else if ([tag isEqualToString:@"h3"]) {
         UIFont * oldFont = currentAttrs[NSFontAttributeName];
         UIFontDescriptor * descriptor = [oldFont fontDescriptor];
         UIFont * headerFont = self.h3Font;
         UIFontDescriptor * headerDescriptor = [[headerFont fontDescriptor] fontDescriptorWithSymbolicTraits:descriptor.symbolicTraits];
         newAttrs[NSFontAttributeName] = [UIFont fontWithDescriptor:headerDescriptor size:headerFont.pointSize];
 
+    } else if ([tag isEqualToString:@"h4"]) {
+        UIFont * oldFont = currentAttrs[NSFontAttributeName];
+        UIFontDescriptor * descriptor = [oldFont fontDescriptor];
+        UIFont * headerFont = self.h4Font;
+        UIFontDescriptor * headerDescriptor = [[headerFont fontDescriptor] fontDescriptorWithSymbolicTraits:descriptor.symbolicTraits];
+        newAttrs[NSFontAttributeName] = [UIFont fontWithDescriptor:headerDescriptor size:headerFont.pointSize];
     }
     
     
